@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amanda Shum — Machine Learning Engineer</title>
+  <meta name="description" content="Portfolio and resume for Amanda Shum — Machine Learning Engineer specializing in AI, Reinforcement Learning, and Computer Vision.">
+  <style>
+    /* ==========================
+       Basic Theme and Layout
+       ========================== */
+    :root {
+      --bg: #0b1020;
+      --text: #E6ECF3;
+      --muted: #9bb2cc;
+      --card: #111A2E;
+      --brand: #0ea5e9;
+      --brand-accent: #22d3ee;
+    }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    /* ==========================
+       Header and Navigation
+       ========================== */
+    header {
+      background: rgba(11,16,32,0.85);
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 16px;
+    }
+    nav a:hover {
+      color: var(--brand);
+    }
+
+    /* ==========================
+       Section Formatting
+       ========================== */
+    section {
+      padding: 48px 24px;
+    }
+    h1, h2, h3 {
+      color: var(--brand-accent);
+    }
+    .card {
+      background: var(--card);
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    /* ==========================
+       Tags and Buttons
+       ========================== */
+    .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+    .tag {
+      background: rgba(14,165,233,0.15);
+      border: 1px solid rgba(14,165,233,0.3);
+      color: #b9e6ff;
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 13px;
+    }
+    .btn {
+      display: inline-block;
+      margin: 8px 0;
+      padding: 10px 16px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--brand), var(--brand-accent));
+      color: #03121a;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .btn:hover {
+      filter: brightness(1.1);
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- ==========================
+       Navigation Bar
+       ========================== -->
+  <header>
+    <div class="container">
+      <nav>
+        <strong>Amanda Shum</strong>
+        <div>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
+          <a href="#skills">Skills</a>
+          <a href="#resume">Resume</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ==========================
+       Hero Section
+       ========================== -->
+  <section class="container" id="about">
+    <h1>Machine Learning Engineer — Reinforcement Learning & Computer Vision</h1>
+    <p>I'm a Machine Learning Engineer with hands-on experience in <strong>Reinforcement Learning</strong>, <strong>Computer Vision</strong>, and <strong>workflow automation</strong>. I’ve developed CNN classifiers in TensorFlow and PyTorch, and led automation initiatives that improved property bookings by 25% and reduced workload by 75% across 10,000+ inquiries.</p>
+    <a href="#resume" class="btn">Download Resume</a>
+  </section>
+
+  <!-- ==========================
+       Education Section
+       ========================== -->
+  <section class="container" id="education">
+    <h2>Education</h2>
+    <div class="card">
+      <h3>Simon Fraser University</h3>
+      <p>Master of Professional Computer Science (Visual Computing)<br><em>Expected Graduation: June 2027</em></p>
+    </div>
+    <div class="card">
+      <h3>Queen’s University</h3>
+      <p>Bachelor of Computing (Honours), Artificial Intelligence Specialization<br><em>Graduation: June 2025</em></p>
+    </div>
+  </section>
+
+  <!-- ==========================
+       Work Experience Section
+       ========================== -->
+  <section class="container" id="experience">
+    <h2>Work Experience</h2>
+    <div class="card">
+      <h3>Vice President — Kingston Student Housing Co-operative</h3>
+      <p><em>2021 – 2025 | Kingston, ON</em></p>
+      <ul>
+        <li>Managed daily operations, HR, facilities, and member services across 21 residential properties.</li>
+        <li>Oversaw budgeting, policy, and planning initiatives for the Board of Directors.</li>
+        <li>Increased rental bookings by 25% through demographic analysis and marketing optimization.</li>
+        <li>Automated workflows using Google Apps Script, reducing workload by 75% across 10,000+ inquiries.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Teaching Assistant — Queen’s University</h3>
+      <p><em>Jan 2023 – Apr 2025 | Kingston, ON</em></p>
+      <ul>
+        <li>Supported courses: Database Systems, Computer Architecture, and Elements of Computer Science.</li>
+        <li>Guided students in SQL, database design, and Python programming.</li>
+        <li>Assisted in grading and tutoring while managing course materials.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>Information Technology Assistant — Queen’s University</h3>
+      <p><em>2024 | Kingston, ON</em></p>
+      <ul>
+        <li>Designed and implemented SharePoint and Microsoft Teams sites to optimize content workflows.</li>
+        <li>Assisted migration of legacy systems ensuring accessibility and compliance.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==========================
+       Projects Section
+       ========================== -->
+  <section class="container" id="projects">
+    <h2>Projects</h2>
+    <div class="card">
+      <h3>Gridworld Coverage (Jan – Apr 2025)</h3>
+      <p>Built and trained RL agent using Stable Baselines3 (DQN, A2C, PyTorch) in custom Gridworld; achieved 85% area coverage success through optimized reward and observation design.</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Stable Baselines3</span>
+        <span class="tag">Reinforcement Learning</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Fruit Ripeness Detection (Sept – Dec 2024)</h3>
+      <p>Developed a two-stage deep learning model in TensorFlow using CNNs to classify fruit type and predict ripeness, achieving 96% accuracy across multiple classes.</p>
+      <div class="tags">
+        <span class="tag">TensorFlow</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">CNN</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>The Treasure Hunter (Feb 2024)</h3>
+      <p>Designed a PDDL model to plan optimal treasure paths using logical constraints and domain definitions.</p>
+      <div class="tags">
+        <span class="tag">PDDL</span>
+        <span class="tag">Planning</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>The Pentagram (Jan – Apr 2023)</h3>
+      <p>Created a point-and-click Unity game with custom graphics and audio, focusing on player experience and UI/UX.</p>
+      <div class="tags">
+        <span class="tag">Unity</span>
+        <span class="tag">C#</span>
+        <span class="tag">Game Design</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================
+       Skills Section
+       ========================== -->
+  <section class="container" id="skills">
+    <h2>Skills</h2>
+    <div class="card">
+      <p><strong>Programming:</strong> Python, SQL</p>
+      <p><strong>Frameworks:</strong> TensorFlow, PyTorch, NumPy, Unity, Stable Baselines3</p>
+      <p><strong>Tools:</strong> Google Workspace, Google Apps Script, SharePoint, Microsoft Teams, Canva</p>
+      <p><strong>Core Competencies:</strong> Computer Vision, Image Processing, Machine Learning, Reinforcement Learning, Deep Learning, Autonomous Driving</p>
+    </div>
+  </section>
+
+  <!-- ==========================
+       Resume and Contact Section
+       ========================== -->
+  <section class="container" id="resume">
+    <h2>Resume</h2>
+    <div class="card">
+      <p>Click below to download or view my resume PDF.</p>
+      <a href="AmandaShum_Resume.pdf" class="btn" download>Download Resume (PDF)</a>
+      <a href="AmandaShum_Resume.pdf" class="btn" target="_blank">Open in Browser</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Amanda Shum • Machine Learning Engineer</p>
+  </footer>
+
+  <script>
+    // Auto-update year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
