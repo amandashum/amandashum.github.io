@@ -1,4 +1,4 @@
-# Amanda Shum — Personal Website
+# Amanda Shum — Personal Portfolio
 
 This repository contains the source files for my personal website, hosted on **GitHub Pages** at:  
 [https://amandashum.github.io](https://amandashum.github.io)
