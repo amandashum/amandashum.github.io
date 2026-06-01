@@ -3,1010 +3,1874 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Amanda Shum — Machine Learning Engineer</title>
-  <meta name="description" content="Portfolio and resume for Amanda Shum — Machine Learning Engineer specializing in AI, Reinforcement Learning, and Computer Vision.">
+  <title>Amanda Shum | Applied AI, Computer Vision, Automation</title>
+  <meta name="description" content="Amanda Shum's personal portfolio highlighting applied AI, computer vision, workflow automation, public-sector AI delivery, operations leadership, and technical teaching experience.">
   <style>
-    /* ==========================
-       Basic Theme and Layout
-       ========================== */
     :root {
-      --bg: #0b1020;
-      --text: #E6ECF3;
-      --muted: #9bb2cc;
-      --card: #111A2E;
-      --card-hover: #151f37;
-      --brand: #0ea5e9;
-      --brand-accent: #22d3ee;
-      --border-subtle: rgba(255,255,255,0.07);
-      --chip-bg: rgba(15,23,42,0.9);
-      --chip-border: rgba(148,163,184,0.6);
-      --chip-active-bg: rgba(14,165,233,0.15);
-      --chip-active-border: var(--brand);
+      color-scheme: dark;
+      --bg: #06211f;
+      --bg-2: #0b342f;
+      --ink: #fff7e8;
+      --text: #f4e4c9;
+      --muted: #d1bfa2;
+      --line: rgba(255, 247, 232, 0.16);
+      --panel: rgba(8, 45, 41, 0.84);
+      --panel-strong: rgba(10, 58, 52, 0.96);
+      --field: rgba(255, 247, 232, 0.08);
+      --teal: #0f766e;
+      --teal-bright: #35d0ba;
+      --cream: #fff7e8;
+      --orange: #f47c45;
+      --orange-soft: #ffb36b;
+      --mint: var(--teal-bright);
+      --mint-2: var(--teal);
+      --gold: var(--orange-soft);
+      --coral: var(--orange);
+      --focus: #ffb36b;
+      --shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+      --max: 1180px;
+      --font-body: "Segoe UI Variable Text", Aptos, "Segoe UI", ui-sans-serif, system-ui, sans-serif;
+      --font-display: Bahnschrift, "Aptos Display", "Segoe UI Variable Display", Aptos, ui-sans-serif, system-ui, sans-serif;
+      --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     * {
       box-sizing: border-box;
+    }
+
+    html {
       scroll-behavior: smooth;
     }
 
     body {
-      font-family: 'Inter', system-ui, sans-serif;
       margin: 0;
+      min-height: 100vh;
       color: var(--text);
-      background: radial-gradient(circle at top, #111827 0, #020617 40%, #020617 100%);
-      line-height: 1.6;
+      background:
+        radial-gradient(circle at var(--spot-x, 78%) var(--spot-y, 18%), rgba(53, 208, 186, 0.18), transparent 26rem),
+        radial-gradient(circle at 14% 18%, rgba(244, 124, 69, 0.18), transparent 24rem),
+        linear-gradient(140deg, #06211f 0%, #0c3a35 48%, #2b3a28 100%);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.62;
+      overflow-x: hidden;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 24px;
+    body.intro-active {
+      overflow: hidden;
     }
 
-    /* ==========================
-       Header and Navigation
-       ========================== */
-    header {
-      background: rgba(11,16,32,0.9);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      position: sticky;
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.026) 1px, transparent 1px);
+      background-size: 72px 72px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.68), transparent 78%);
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: auto -10vw -34vh -10vw;
+      z-index: -1;
+      height: 64vh;
+      pointer-events: none;
+      background:
+        radial-gradient(ellipse at 32% 30%, rgba(53, 208, 186, 0.18), transparent 28%),
+        linear-gradient(165deg, transparent 0 38%, rgba(15, 118, 110, 0.34) 38.2% 58%, transparent 58.3%),
+        linear-gradient(150deg, transparent 0 52%, rgba(244, 124, 69, 0.24) 52.2% 69%, transparent 69.2%),
+        linear-gradient(180deg, transparent 0 50%, rgba(3, 18, 17, 0.82) 50.2% 100%);
+      filter: blur(0.2px);
+    }
+
+    a {
+      color: inherit;
+    }
+
+    button,
+    input {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--focus);
+      outline-offset: 4px;
+    }
+
+    .shell {
+      min-height: 100vh;
+    }
+
+    .scroll-progress {
+      position: fixed;
       top: 0;
-      z-index: 10;
-      backdrop-filter: blur(10px);
+      left: 0;
+      z-index: 60;
+      width: 100%;
+      height: 3px;
+      transform: scaleX(0);
+      transform-origin: left;
+      background: var(--orange);
+      box-shadow: 0 0 18px rgba(244, 124, 69, 0.5);
+      transition: transform 90ms linear;
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+
+    .intro {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      cursor: pointer;
+      background:
+        radial-gradient(circle at 28% 22%, rgba(53, 208, 186, 0.22), transparent 24rem),
+        radial-gradient(circle at 70% 68%, rgba(244, 124, 69, 0.2), transparent 22rem),
+        #06211f;
+      transition: opacity 560ms ease, visibility 560ms ease;
     }
-    nav strong {
-      letter-spacing: 0.03em;
+
+    .intro.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
     }
-    nav a {
-      color: var(--text);
-      text-decoration: none;
-      margin-left: 16px;
-      font-size: 14px;
-      position: relative;
-    }
-    nav a::after {
+
+    .intro::before {
       content: "";
       position: absolute;
-      left: 0;
-      bottom: -4px;
-      width: 0;
-      height: 2px;
-      background: linear-gradient(90deg, var(--brand), var(--brand-accent));
-      transition: width 0.2s ease;
-    }
-    nav a:hover::after {
-      width: 100%;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 86px 86px;
+      mask-image: radial-gradient(circle at center, black, transparent 72%);
+      animation: intro-grid 2600ms var(--ease-out) both;
     }
 
-    /* ==========================
-       Section Formatting
-       ========================== */
-    section {
-      padding: 48px 24px;
-    }
-    h1, h2, h3 {
-      color: var(--brand-accent);
-      margin-top: 0;
-    }
-    h1 {
-      font-size: 28px;
-    }
-    h2 {
-      font-size: 22px;
-      margin-bottom: 16px;
-    }
-    .subtitle {
-      color: var(--muted);
-      margin-top: 4px;
-      font-size: 14px;
-    }
-    .muted {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .card {
-      background: var(--card);
+    .intro-card {
+      position: relative;
+      z-index: 1;
+      width: min(900px, calc(100% - 34px));
+      border: 1px solid rgba(255, 247, 232, 0.15);
       border-radius: 12px;
-      padding: 16px 20px;
-      margin-bottom: 16px;
-      border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 40px rgba(15,23,42,0.45);
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-    .card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 45px rgba(15,23,42,0.7);
-      background: var(--card-hover);
+      background: rgba(8, 45, 41, 0.86);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.4);
+      padding: clamp(24px, 5vw, 48px);
+      overflow: hidden;
+      animation: intro-card-in 900ms var(--ease-out) both;
     }
 
-    /* ==========================
-       Hero
-       ========================== */
-    .hero-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 2.2fr) minmax(0, 1.3fr);
-      gap: 24px;
-      align-items: center;
-    }
-    .hero-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: rgba(14,165,233,0.08);
-      border: 1px solid rgba(14,165,233,0.4);
-      font-size: 12px;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-    .hero-highlight {
-      font-weight: 600;
-      color: var(--brand-accent);
-    }
-    .hero-right {
-      border-left: 1px solid rgba(148,163,184,0.35);
-      padding-left: 16px;
-    }
-    .hero-right-row {
-      margin-bottom: 6px;
-      font-size: 14px;
-    }
-    .hero-right-row span {
-      display: inline-block;
-      width: 95px;
-      color: var(--muted);
-      font-size: 13px;
+    .intro-card::after {
+      content: "";
+      position: absolute;
+      inset: -80% -40%;
+      background: linear-gradient(105deg, transparent 42%, rgba(244, 124, 69, 0.22) 50%, transparent 58%);
+      transform: translateX(-48%);
+      animation: intro-scan 2400ms var(--ease-out) 420ms both;
     }
 
-    /* ==========================
-       Tags and Buttons
-       ========================== */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 8px;
-    }
-    .tag {
-      background: rgba(14,165,233,0.15);
-      border: 1px solid rgba(14,165,233,0.3);
-      color: #b9e6ff;
-      border-radius: 20px;
-      padding: 4px 10px;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-    .btn {
-      display: inline-block;
-      margin: 8px 8px 0 0;
-      padding: 10px 16px;
-      border-radius: 10px;
-      background: linear-gradient(135deg, var(--brand), var(--brand-accent));
-      color: #03121a;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-    }
-    .btn:hover {
-      filter: brightness(1.1);
-    }
-    .btn-ghost {
-      background: transparent;
-      color: var(--muted);
-      border: 1px solid rgba(148,163,184,0.5);
-      padding: 6px 10px;
-      font-size: 12px;
-      border-radius: 999px;
-      cursor: pointer;
-    }
-    .btn-ghost:hover {
-      border-color: var(--brand);
-      color: var(--brand-accent);
-    }
-
-    .project-header {
+    .intro-header {
+      position: relative;
+      z-index: 1;
       display: flex;
       justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-    }
-    .project-title-block {
-      flex: 1;
-    }
-
-    .project-meta {
-      font-size: 12px;
+      gap: 18px;
+      margin-bottom: clamp(28px, 5vw, 44px);
       color: var(--muted);
+      font-size: 13px;
+      font-weight: 820;
     }
 
-    .project-extra {
-      display: none;
-      margin-top: 8px;
-      font-size: 14px;
-    }
-    .project-extra.open {
-      display: block;
+    .intro-header span:last-child {
+      color: var(--orange-soft);
     }
 
-    /* ==========================
-       Project Filter Bar
-       ========================== */
-    .project-filter {
-      display: flex;
-      flex-direction: column;
+    .intro-title {
+      position: relative;
+      z-index: 1;
+      max-width: 760px;
+      margin: 0 0 clamp(28px, 5vw, 46px);
+      color: var(--ink);
+      font-family: var(--font-display);
+      font-size: clamp(38px, 7vw, 82px);
+      font-weight: 850;
+      line-height: 0.98;
+      letter-spacing: -0.015em;
+      text-wrap: balance;
+      animation: intro-title-in 900ms var(--ease-out) 250ms both;
+    }
+
+    .intro-flow {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 10px;
-      margin-bottom: 12px;
     }
-    .project-filter-row {
+
+    .intro-chip {
+      min-height: 116px;
+      border: 1px solid rgba(255, 247, 232, 0.15);
+      border-radius: 10px;
+      background: rgba(255, 247, 232, 0.06);
+      padding: 14px;
+      opacity: 0;
+      transform: translateY(18px);
+      animation: intro-chip-in 720ms var(--ease-out) both;
+    }
+
+    .intro-chip:nth-child(1) { animation-delay: 720ms; }
+    .intro-chip:nth-child(2) { animation-delay: 880ms; }
+    .intro-chip:nth-child(3) { animation-delay: 1040ms; }
+    .intro-chip:nth-child(4) { animation-delay: 1200ms; }
+
+    .intro-chip strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+      line-height: 1.15;
+    }
+
+    .intro-chip span {
+      display: block;
+      margin-top: 9px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .intro-skip {
+      position: fixed;
+      z-index: 81;
+      right: 18px;
+      bottom: 18px;
+      border: 1px solid rgba(255, 247, 232, 0.18);
+      border-radius: 8px;
+      background: rgba(255, 247, 232, 0.1);
+      color: var(--ink);
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 780;
+    }
+
+    .intro-hint {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 81;
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 760;
+      animation: hint-pulse 1600ms ease-in-out infinite;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      border-bottom: 1px solid rgba(255, 247, 232, 0.1);
+      background: rgba(7, 19, 19, 0.82);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 32px));
+      min-height: 62px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
       gap: 10px;
-      flex-wrap: wrap;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 850;
+      letter-spacing: -0.01em;
     }
-    .project-filter label {
-      font-size: 13px;
-      color: var(--muted);
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, var(--mint), var(--mint-2));
+      color: #06201d;
+      box-shadow: 0 10px 24px rgba(53, 208, 186, 0.18);
     }
-    .project-filter input {
-      flex: 1;
-      min-width: 220px;
-      padding: 8px 10px;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-links a {
+      position: relative;
       border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: rgba(15,23,42,0.8);
+      color: var(--muted);
+      padding: 8px 11px;
+      font-size: 14px;
+      font-weight: 760;
+      letter-spacing: -0.005em;
+      text-decoration: none;
+      transition: color 180ms ease, background 180ms ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 12px;
+      right: 12px;
+      bottom: 5px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--mint);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 220ms var(--ease-out);
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--ink);
+      background: rgba(255, 247, 232, 0.08);
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      transform: scaleX(1);
+    }
+
+    .resume-link {
+      border: 1px solid rgba(53, 208, 186, 0.32);
+      color: var(--ink) !important;
+      background: rgba(53, 208, 186, 0.1);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .section {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: clamp(64px, 9vw, 116px) 0;
+    }
+
+    .hero {
+      position: relative;
+      width: min(var(--max), calc(100% - 32px));
+      min-height: calc(100vh - 62px);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1.08fr) minmax(340px, 0.72fr);
+      align-items: center;
+      gap: clamp(34px, 6vw, 78px);
+      padding: clamp(42px, 8vw, 92px) 0;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      color: var(--mint);
+      font-size: 14px;
+      font-weight: 840;
+      letter-spacing: 0.01em;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 28px;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--mint);
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 820;
+      font-variation-settings: "opsz" 40;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 780px;
+      margin-bottom: 24px;
+      color: var(--ink);
+      font-size: clamp(50px, 7.8vw, 92px);
+      line-height: 0.95;
+      letter-spacing: -0.014em;
+      text-wrap: balance;
+    }
+
+    .text-accent {
+      color: var(--mint);
+    }
+
+    .hero-lede {
+      max-width: 680px;
+      margin-bottom: 32px;
       color: var(--text);
+      font-size: clamp(18px, 2vw, 22px);
+      line-height: 1.6;
+      text-wrap: pretty;
+    }
+
+    .hero-copy .kicker,
+    .hero-copy h1,
+    .hero-copy .hero-lede,
+    .hero-actions {
+      animation: hero-rise 760ms var(--ease-out) both;
+    }
+
+    .hero-copy h1 { animation-delay: 90ms; }
+    .hero-copy .hero-lede { animation-delay: 180ms; }
+    .hero-actions { animation-delay: 270ms; }
+
+    .hero-actions,
+    .contact-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 46px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      padding: 0 16px;
+      color: #061917;
+      background: var(--mint);
+      font-weight: 850;
+      text-decoration: none;
+      transition: transform 180ms var(--ease-out), box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .button::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(100deg, transparent 0 38%, rgba(255, 255, 255, 0.42) 48%, transparent 58% 100%);
+      transform: translateX(-120%);
+      transition: transform 520ms var(--ease-out);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 24px rgba(53, 208, 186, 0.2);
+    }
+
+    .button:hover::after {
+      transform: translateX(120%);
+    }
+
+    .button.secondary {
+      border-color: rgba(255, 247, 232, 0.18);
+      color: var(--ink);
+      background: rgba(255, 247, 232, 0.08);
+    }
+
+    .button.secondary:hover {
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.18);
+      background: rgba(255, 247, 232, 0.12);
+    }
+
+    .systems-panel {
+      position: relative;
+      min-height: 520px;
+      border: 1px solid rgba(255, 247, 232, 0.16);
+      border-radius: 10px;
+      background:
+        linear-gradient(180deg, rgba(255, 247, 232, 0.1), transparent 34%),
+        rgba(12, 34, 33, 0.78);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      animation: panel-float 8s ease-in-out infinite;
+    }
+
+    .systems-panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 28%, rgba(53, 208, 186, 0.28), transparent 22%),
+        radial-gradient(circle at 72% 64%, rgba(255, 179, 107, 0.16), transparent 22%),
+        linear-gradient(135deg, transparent 0 48%, rgba(53, 208, 186, 0.12) 48.2% 49%, transparent 49.2%);
+    }
+
+    .systems-panel::after {
+      content: "";
+      position: absolute;
+      inset: -40% -70%;
+      background: linear-gradient(100deg, transparent 38%, rgba(255, 247, 232, 0.12) 48%, transparent 58%);
+      transform: translateX(-30%);
+      animation: panel-sweep 8s ease-in-out infinite;
+    }
+
+    .systems-panel svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .signal-line {
+      fill: none;
+      stroke: rgba(53, 208, 186, 0.42);
+      stroke-width: 1.2;
+      stroke-dasharray: 6 10;
+      animation: dash-flow 9s linear infinite;
+    }
+
+    .signal-line.gold {
+      stroke: rgba(255, 179, 107, 0.52);
+      animation-duration: 12s;
+    }
+
+    .node {
+      position: absolute;
+      display: grid;
+      gap: 4px;
+      width: 142px;
+      border: 1px solid rgba(255, 247, 232, 0.16);
+      border-radius: 8px;
+      background: rgba(7, 19, 19, 0.72);
+      padding: 12px;
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+      animation: node-drift 7s ease-in-out infinite;
+    }
+
+    .node::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 18px rgba(53, 208, 186, 0.58);
+    }
+
+    .node strong {
+      color: var(--ink);
       font-size: 13px;
-      outline: none;
     }
-    .project-filter input::placeholder {
-      color: rgba(148,163,184,0.8);
+
+    .node span {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.3;
     }
-    .project-filter input:focus {
-      border-color: var(--brand);
-      box-shadow: 0 0 0 1px rgba(14,165,233,0.4);
+
+    .node.one {
+      top: 12%;
+      left: 10%;
     }
-    .project-filter-chips {
+
+    .node.two {
+      top: 34%;
+      right: 8%;
+      animation-delay: -2s;
+    }
+
+    .node.three {
+      bottom: 11%;
+      left: 18%;
+      animation-delay: -4s;
+    }
+
+    .node.four {
+      right: 15%;
+      bottom: 18%;
+      animation-delay: -1s;
+    }
+
+    .metrics-band {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--line);
+    }
+
+    .metric {
+      min-height: 150px;
+      background: rgba(12, 34, 33, 0.78);
+      padding: 22px;
+    }
+
+    .metric strong {
+      display: block;
+      color: var(--ink);
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1;
+      letter-spacing: -0.025em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .metric span {
+      display: block;
+      max-width: 210px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: minmax(0, 0.8fr) minmax(260px, 0.5fr);
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 34px;
+    }
+
+    .section-head h2 {
+      margin-bottom: 0;
+      color: var(--ink);
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1.03;
+      letter-spacing: -0.026em;
+      text-wrap: balance;
+    }
+
+    .section-head p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.7;
+      text-wrap: pretty;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .experience-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 220px minmax(0, 1fr);
+      gap: 28px;
+      border: 1px solid rgba(255, 247, 232, 0.14);
+      border-radius: 10px;
+      background: rgba(12, 34, 33, 0.74);
+      padding: 24px;
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+      transition: transform 260ms var(--ease-out), border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .experience-item::after {
+      content: attr(data-stamp);
+      position: absolute;
+      right: 18px;
+      top: 14px;
+      color: rgba(53, 208, 186, 0.08);
+      font-family: var(--font-display);
+      font-size: clamp(42px, 8vw, 88px);
+      font-weight: 900;
+      line-height: 0.85;
+      letter-spacing: -0.02em;
+      pointer-events: none;
+    }
+
+    .experience-item:hover {
+      transform: translateY(-4px);
+      border-color: rgba(53, 208, 186, 0.34);
+      background: rgba(16, 44, 42, 0.88);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+    }
+
+    .experience-meta {
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 760;
+    }
+
+    .experience-meta span {
+      display: block;
+      margin-top: 8px;
+      color: var(--mint);
+    }
+
+    .experience-body h3 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: clamp(22px, 3vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.01em;
+    }
+
+    .role {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 16px;
+      color: var(--gold);
+      font-weight: 780;
+      letter-spacing: -0.005em;
+    }
+
+    .experience-body ul {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 10px;
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+      line-height: 1.62;
+    }
+
+    .experience-body li::marker {
+      color: var(--mint);
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .evidence-card,
+    .skill-panel,
+    .contact-panel {
+      border: 1px solid rgba(255, 247, 232, 0.14);
+      border-radius: 10px;
+      background: rgba(12, 34, 33, 0.78);
+      padding: 22px;
+    }
+
+    .evidence-card {
+      position: relative;
+      min-height: 260px;
+      overflow: hidden;
+      transition: transform 260ms var(--ease-out), border-color 220ms ease, background 220ms ease, box-shadow 220ms ease;
+    }
+
+    .evidence-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 82% 12%, rgba(53, 208, 186, 0.16), transparent 26%),
+        linear-gradient(150deg, transparent 0 62%, rgba(255, 179, 107, 0.08) 62.2% 100%);
+      opacity: 0;
+      transition: opacity 220ms ease;
+    }
+
+    .evidence-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(53, 208, 186, 0.34);
+      background: rgba(16, 44, 42, 0.9);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.18);
+    }
+
+    .evidence-card:hover::before {
+      opacity: 1;
+    }
+
+    .evidence-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .evidence-card h3 {
+      color: var(--ink);
+      font-size: 24px;
+      line-height: 1.12;
+      letter-spacing: -0.008em;
+    }
+
+    .case-label {
+      display: inline-flex;
+      margin-bottom: 18px;
+      border: 1px solid rgba(255, 179, 107, 0.28);
+      border-radius: 999px;
+      background: rgba(255, 179, 107, 0.08);
+      color: var(--gold);
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 820;
+    }
+
+    .evidence-card p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .tag-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
-    }
-    .chip {
-      border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
-      color: var(--muted);
-      padding: 4px 10px;
-      font-size: 12px;
-      cursor: pointer;
-    }
-    .chip.active {
-      background: var(--chip-active-bg);
-      border-color: var(--chip-active-border);
-      color: var(--brand-accent);
-    }
-    .project-count {
-      font-size: 12px;
-      color: var(--muted);
+      margin-top: 18px;
     }
 
-    /* ==========================
-       KSHC Section
-       ========================== */
-    .kshc-intro {
-      margin-bottom: 16px;
+    .tag {
+      border: 1px solid rgba(53, 208, 186, 0.2);
+      border-radius: 999px;
+      background: rgba(53, 208, 186, 0.08);
+      color: var(--mint);
+      padding: 6px 10px;
+      font-size: 12px;
+      font-weight: 780;
     }
-    .kshc-layout {
+
+    .skills-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.8fr);
-      gap: 20px;
-      align-items: flex-start;
+      grid-template-columns: minmax(0, 0.9fr) minmax(320px, 0.55fr);
+      gap: 14px;
     }
-    .kshc-role-chips {
+
+    .skill-cloud {
       display: flex;
-      flex-direction: column;
-      gap: 6px;
-      margin-top: 8px;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
     }
-    .kshc-role-chip {
+
+    .skill-cloud span {
+      border: 1px solid rgba(255, 247, 232, 0.14);
       border-radius: 999px;
-      border: 1px solid var(--chip-border);
-      background: var(--chip-bg);
-      color: var(--muted);
-      padding: 6px 12px;
+      background: rgba(255, 247, 232, 0.06);
+      color: var(--text);
+      padding: 8px 12px;
       font-size: 13px;
-      text-align: left;
+      font-weight: 740;
+    }
+
+    .focus-stack {
+      display: grid;
+      gap: 12px;
+    }
+
+    .focus-item {
+      display: grid;
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+      align-items: start;
+      border: 1px solid rgba(255, 247, 232, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 247, 232, 0.05);
+      padding: 14px;
+    }
+
+    .focus-item span:first-child {
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 8px;
+      background: rgba(53, 208, 186, 0.12);
+      color: var(--mint);
+      font-weight: 900;
+    }
+
+    .focus-item strong {
+      display: block;
+      color: var(--ink);
+    }
+
+    .focus-item small {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .contact-panel {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 28px;
+      align-items: center;
+      background:
+        radial-gradient(circle at 10% 20%, rgba(53, 208, 186, 0.12), transparent 24rem),
+        rgba(12, 34, 33, 0.88);
+    }
+
+    .contact-panel h2 {
+      margin-bottom: 14px;
+      color: var(--ink);
+      font-size: clamp(32px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.026em;
+    }
+
+    .contact-panel p {
+      max-width: 680px;
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .footer {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .agent-launcher {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 40;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 52px;
+      border: 1px solid rgba(53, 208, 186, 0.34);
+      border-radius: 10px;
+      background: #081d1b;
+      color: var(--ink);
+      padding: 0 16px;
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.36);
+      cursor: pointer;
+      font-weight: 880;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .agent-launcher::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--mint);
+      box-shadow: 0 0 18px rgba(53, 208, 186, 0.72);
+    }
+
+    .agent-launcher:hover {
+      transform: translateY(-3px);
+      border-color: rgba(53, 208, 186, 0.58);
+      background: #0d2825;
+    }
+
+    .agent-panel {
+      position: fixed;
+      right: 22px;
+      bottom: 86px;
+      z-index: 39;
+      display: none;
+      width: min(430px, calc(100vw - 32px));
+      overflow: hidden;
+      border: 1px solid rgba(255, 247, 232, 0.16);
+      border-radius: 10px;
+      background:
+        radial-gradient(circle at 18% 0%, rgba(53, 208, 186, 0.12), transparent 15rem),
+        rgba(8, 29, 27, 0.97);
+      box-shadow: 0 28px 80px rgba(0, 0, 0, 0.42);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+    }
+
+    .agent-panel.open {
+      display: block;
+      animation: agent-open 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .agent-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-bottom: 1px solid var(--line);
+      padding: 16px;
+    }
+
+    .agent-head strong {
+      display: block;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .agent-head span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .agent-close {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(255, 247, 232, 0.12);
+      border-radius: 8px;
+      background: rgba(255, 247, 232, 0.06);
+      color: var(--ink);
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .agent-messages {
+      display: grid;
+      gap: 10px;
+      max-height: 330px;
+      overflow: auto;
+      padding: 14px;
+    }
+
+    .agent-message {
+      max-width: 92%;
+      border: 1px solid rgba(255, 247, 232, 0.1);
+      border-radius: 10px;
+      padding: 10px 12px;
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .agent-message.assistant {
+      justify-self: start;
+      background: rgba(53, 208, 186, 0.08);
+    }
+
+    .agent-message.user {
+      justify-self: end;
+      background: rgba(255, 179, 107, 0.11);
+    }
+
+    .agent-sources {
+      margin-top: 7px;
+      color: var(--mint);
+      font-size: 12px;
+      font-weight: 780;
+    }
+
+    .agent-prompts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 0 14px 12px;
+    }
+
+    .agent-prompts button {
+      border: 1px solid rgba(53, 208, 186, 0.2);
+      border-radius: 999px;
+      background: rgba(53, 208, 186, 0.08);
+      color: var(--mint);
+      padding: 7px 10px;
+      font-size: 12px;
+      font-weight: 780;
       cursor: pointer;
     }
-    .kshc-role-chip.active {
-      background: var(--chip-active-bg);
-      border-color: var(--chip-active-border);
-      color: var(--brand-accent);
-      font-weight: 600;
-    }
-    .kshc-role-details h3 {
-      margin-top: 0;
-      margin-bottom: 6px;
-    }
-    .kshc-role-details span.badge {
-      display: inline-block;
-      font-size: 11px;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(34,197,94,0.15);
-      border: 1px solid rgba(34,197,94,0.35);
-      color: #bbf7d0;
-      margin-bottom: 4px;
-    }
-    .kshc-role-details ul {
-      padding-left: 18px;
-      margin-top: 6px;
+
+    .agent-form {
+      display: flex;
+      gap: 8px;
+      border-top: 1px solid var(--line);
+      padding: 12px;
+      background: rgba(255, 247, 232, 0.04);
     }
 
-    /* ==========================
-       Skills Layout
-       ========================== */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-    .skills-column h4 {
-      margin: 0 0 6px 0;
-      font-size: 14px;
-      color: var(--brand-accent);
-    }
-    .skills-column p {
-      margin: 0;
-      font-size: 13px;
-      color: var(--text);
+    .agent-form input {
+      min-width: 0;
+      flex: 1;
+      height: 42px;
+      border: 1px solid rgba(255, 247, 232, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 247, 232, 0.07);
+      color: var(--ink);
+      padding: 0 12px;
+      outline: none;
     }
 
-    /* ==========================
-       Footer
-       ========================== */
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.05);
-      font-size: 13px;
+    .agent-form input::placeholder {
+      color: #a7bdb4;
     }
 
-    /* ==========================
-       Scroll Reveal
-       ========================== */
-    .reveal {
+    .agent-form button {
+      border: 0;
+      border-radius: 8px;
+      background: var(--mint);
+      color: #061917;
+      padding: 0 14px;
+      font-weight: 880;
+      cursor: pointer;
+    }
+
+    [data-reveal] {
       opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+      transform: translateY(22px);
+      transition:
+        opacity 620ms ease var(--reveal-delay, 0ms),
+        transform 620ms var(--ease-out) var(--reveal-delay, 0ms),
+        filter 620ms ease var(--reveal-delay, 0ms);
+      filter: blur(6px);
     }
-    .reveal.visible {
+
+    [data-reveal].visible {
       opacity: 1;
       transform: translateY(0);
+      filter: blur(0);
     }
 
-    /* ==========================
-       Small screens
-       ========================== */
-    @media (max-width: 768px) {
-      .hero-layout {
-        grid-template-columns: 1fr;
-      }
-      .hero-right {
-        border-left: none;
-        border-top: 1px solid rgba(148,163,184,0.35);
-        padding-left: 0;
-        padding-top: 12px;
-      }
-      nav {
-        flex-direction: column;
+    .experience-item.visible,
+    .evidence-card.visible,
+    .skill-panel.visible {
+      animation: surface-settle 520ms var(--ease-out) both;
+    }
+
+    .metric strong.counted {
+      animation: count-pop 420ms var(--ease-out) both;
+    }
+
+    .agent-message {
+      animation: message-in 220ms var(--ease-out) both;
+    }
+
+    @keyframes panel-float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes hero-rise {
+      from { opacity: 0; transform: translateY(18px); filter: blur(8px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @keyframes panel-sweep {
+      0%, 46% { transform: translateX(-34%); opacity: 0; }
+      56% { opacity: 1; }
+      74%, 100% { transform: translateX(34%); opacity: 0; }
+    }
+
+    @keyframes surface-settle {
+      from { box-shadow: 0 0 0 rgba(0, 0, 0, 0); }
+      to { box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset; }
+    }
+
+    @keyframes count-pop {
+      0% { transform: translateY(8px) scale(0.96); color: var(--muted); }
+      100% { transform: translateY(0) scale(1); color: var(--ink); }
+    }
+
+    @keyframes message-in {
+      from { opacity: 0; transform: translateY(6px) scale(0.99); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes node-drift {
+      0%, 100% { transform: translate3d(0, 0, 0); }
+      45% { transform: translate3d(4px, -8px, 0); }
+      72% { transform: translate3d(-3px, -4px, 0); }
+    }
+
+    @keyframes dash-flow {
+      from { stroke-dashoffset: 0; }
+      to { stroke-dashoffset: -160; }
+    }
+
+    @keyframes agent-open {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes intro-card-in {
+      from { opacity: 0; transform: translateY(28px) scale(0.98); filter: blur(12px); }
+      to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+    }
+
+    @keyframes intro-title-in {
+      from { opacity: 0; transform: translateY(18px); filter: blur(8px); }
+      to { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    @keyframes intro-chip-in {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes intro-scan {
+      0% { transform: translateX(-48%); opacity: 0; }
+      28% { opacity: 1; }
+      100% { transform: translateX(48%); opacity: 0; }
+    }
+
+    @keyframes intro-grid {
+      from { transform: scale(1.08); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes hint-pulse {
+      0%, 100% { opacity: 0.58; }
+      50% { opacity: 1; }
+    }
+
+    @media (max-width: 920px) {
+      .nav-inner {
         align-items: flex-start;
+        flex-direction: column;
+        padding: 14px 0;
       }
-      nav div {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
       }
-      nav a {
-        margin-left: 0;
-      }
-      section {
-        padding-inline: 16px;
-      }
-      .kshc-layout {
+
+      .hero,
+      .section-head,
+      .skills-layout,
+      .contact-panel {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        padding-top: 58px;
+      }
+
+      .systems-panel {
+        min-height: 430px;
+      }
+
+      .metrics-band {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .experience-item {
+        grid-template-columns: 1fr;
+        gap: 16px;
+      }
+
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-flow {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 560px) {
+      .nav-links a {
+        white-space: nowrap;
+      }
+
+      h1 {
+        font-size: clamp(42px, 16vw, 62px);
+      }
+
+      .section {
+        padding: 64px 0;
+      }
+
+      .systems-panel {
+        min-height: 360px;
+      }
+
+      .node {
+        width: 126px;
+        padding: 10px;
+      }
+
+      .node.two,
+      .node.four {
+        right: 4%;
+      }
+
+      .metrics-band {
+        grid-template-columns: 1fr;
+      }
+
+      .metric {
+        min-height: 124px;
+      }
+
+      .experience-item,
+      .evidence-card,
+      .skill-panel,
+      .contact-panel {
+        padding: 18px;
+      }
+
+      .agent-launcher {
+        right: 16px;
+        bottom: 16px;
+        min-height: 48px;
+      }
+
+      .agent-panel {
+        right: 16px;
+        bottom: 78px;
+      }
+
+      .intro-card {
+        padding: 22px;
+      }
+
+      .intro-header {
+        flex-direction: column;
+        margin-bottom: 24px;
+      }
+
+      .intro-flow {
+        grid-template-columns: 1fr;
+      }
+
+      .intro-chip {
+        min-height: 86px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 1ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 1ms !important;
+      }
+
+      [data-reveal] {
+        opacity: 1;
+        transform: none;
+        filter: none;
+      }
+
+      .intro {
+        display: none;
       }
     }
   </style>
 </head>
-<body>
-  <!-- ==========================
-       Navigation Bar
-       ========================== -->
-  <header>
-    <div class="container">
-      <nav>
-        <strong>Amanda Shum</strong>
-        <div>
-          <a href="#about">About</a>
-          <a href="#projects">Projects</a>
+<body class="intro-active">
+  <section class="intro" id="intro" aria-label="Portfolio opening transition">
+    <button class="intro-skip" type="button" id="intro-skip">Skip intro</button>
+    <div class="intro-hint" aria-hidden="true">Click anywhere to enter</div>
+    <div class="intro-card">
+      <div class="intro-header">
+        <span>Amanda Shum / Resume signal</span>
+        <span>AI systems people can trust</span>
+      </div>
+      <h2 class="intro-title">From 21 properties and 10K+ inquiries to public-sector AI workflows.</h2>
+      <div class="intro-flow" aria-label="Amanda's experience map">
+        <div class="intro-chip"><strong>CanAI Garage</strong><span>AI triage, governance, workflow specs, Responsible AI</span></div>
+        <div class="intro-chip"><strong>KSHC Operations</strong><span>75% admin workload reduction across real housing systems</span></div>
+        <div class="intro-chip"><strong>Visual Computing</strong><span>Detection, depth, classification, and applied ML pipelines</span></div>
+        <div class="intro-chip"><strong>Teaching</strong><span>SQL, Python, architecture, and translating hard concepts</span></div>
+      </div>
+    </div>
+  </section>
+  <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+  <div class="shell">
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="Amanda Shum home">
+          <span class="brand-mark">AS</span>
+          <span>Amanda Shum</span>
+        </a>
+        <nav class="nav-links" aria-label="Primary navigation">
           <a href="#experience">Experience</a>
-          <a href="#kshc">KSHC</a>
-          <a href="#education">Education</a>
+          <a href="#work">Work</a>
           <a href="#skills">Skills</a>
-          <a href="#resume">Resume</a>
-        </div>
-      </nav>
-    </div>
-  </header>
+          <a href="#contact">Contact</a>
+          <a class="resume-link" href="Amanda_Shum_Resume.pdf" target="_blank" rel="noopener">Resume PDF</a>
+        </nav>
+      </div>
+    </header>
 
-  <!-- ==========================
-       Hero / About Section
-       ========================== -->
-  <section class="container reveal" id="about">
-    <div class="hero-layout">
-      <div>
-        <div class="hero-pill">
-          <span>Machine Learning Engineer</span>
-          <span>•</span>
-          <span>Visual Computing @ SFU</span>
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy" data-reveal>
+          <p class="kicker">Public-sector AI + co-op operations + visual computing</p>
+          <h1 id="hero-title">Amanda Shum turns operational mess into <span class="text-accent">AI systems people can trust.</span></h1>
+          <p class="hero-lede">Machine learning engineer shaped by two worlds: building public-sector AI workflows at CanAI Garage and running 21 co-op housing properties where automation had to work for real people, policies, deadlines, and edge cases.</p>
+          <div class="hero-actions">
+            <a class="button" href="#experience">View experience</a>
+            <a class="button secondary" href="mailto:amanda.ws.shum@gmail.com">Contact Amanda</a>
+          </div>
         </div>
-        <h1>Reinforcement Learning, Computer Vision & Workflow Automation</h1>
-        <p>
-          I’m a Machine Learning Engineer with hands-on experience in
-          <strong>Reinforcement Learning</strong>, <strong>Computer Vision</strong>, and
-          <strong>workflow automation</strong>. I’ve developed CNN classifiers in
-          TensorFlow and PyTorch, and applied data-driven strategies that led to
-          <span class="hero-highlight">25% growth in property rental bookings</span> and
-          <span class="hero-highlight">75% workload reduction</span> across 10,000+ inquiries
-          using Google Apps Script and Google Workspace automation.
-        </p>
+
+        <div class="systems-panel" aria-label="Applied AI systems map" data-reveal>
+          <svg viewBox="0 0 520 520" aria-hidden="true">
+            <path class="signal-line" d="M86 138 C 170 70, 280 90, 390 190 S 384 390, 182 382"></path>
+            <path class="signal-line gold" d="M108 374 C 184 250, 270 294, 404 118"></path>
+            <path class="signal-line" d="M92 210 C 180 290, 280 212, 430 310"></path>
+          </svg>
+          <div class="node one"><strong>CanAI Garage</strong><span>AI triage, workflow specs, governance, and Responsible AI</span></div>
+          <div class="node two"><strong>Visual Computing</strong><span>Detection, classification, depth, and image processing</span></div>
+          <div class="node three"><strong>21 Properties</strong><span>Housing operations, member services, HR, facilities, and policy</span></div>
+          <div class="node four"><strong>10K+ Inquiries</strong><span>Automation built around real administrative volume</span></div>
+        </div>
+      </section>
+
+      <section class="section" aria-label="Impact metrics">
+        <div class="metrics-band" data-reveal>
+          <div class="metric">
+            <strong data-count="10000" data-suffix="+">0</strong>
+            <span>inquiries supported through automation</span>
+          </div>
+          <div class="metric">
+            <strong data-count="75" data-suffix="%">0</strong>
+            <span>administrative workload reduction at KSHC</span>
+          </div>
+          <div class="metric">
+            <strong data-count="25" data-suffix="%">0</strong>
+            <span>rental booking reservation growth</span>
+          </div>
+          <div class="metric">
+            <strong data-count="96" data-suffix="%">0</strong>
+            <span>fruit class identification accuracy</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-head" data-reveal>
+          <h2 id="experience-title">Built in places where systems have consequences.</h2>
+          <p>My work is shaped by public-sector accountability, housing operations, student support, and the practical details that decide whether automation is actually adopted.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-item" data-stamp="CANAI" data-reveal>
+            <div class="experience-meta">2026 to Present<span>Shared Services Canada</span></div>
+            <div class="experience-body">
+              <h3>CanAI Garage</h3>
+              <p class="role">Co-op Student Intern</p>
+              <ul>
+                <li>Design and implement AI-assisted workflow automation using Azure, Power Platform, and cloud AI services.</li>
+                <li>Research machine learning, NLP, and low-code approaches for intelligent email triage and process automation.</li>
+                <li>Write workflow specifications, user guides, and documentation for AI-enabled applications.</li>
+                <li>Support architecture discussions around scalability, governance, Responsible AI, and public-sector delivery.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item" data-stamp="KSHC" data-reveal>
+            <div class="experience-meta">2021 to 2025<span>Kingston, Ontario</span></div>
+            <div class="experience-body">
+              <h3>Kingston Student Housing Co-operative</h3>
+              <p class="role">Vice President and Managing Director</p>
+              <ul>
+                <li>Oversaw daily operations, HR, facilities, safety, member services, and budgeting for 21 residential properties.</li>
+                <li>Led revenue initiatives, policy implementation, organizational planning, and member experience improvements.</li>
+                <li>Built Google Workspace and Apps Script automation that reduced administrative workload by 75% across 10,000+ inquiries.</li>
+                <li>Improved rental booking reservations by 25% through clearer workflows, data visibility, and process design.</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="experience-item" data-stamp="TEACH" data-reveal>
+            <div class="experience-meta">2023 to 2025<span>Queen's University</span></div>
+            <div class="experience-body">
+              <h3>Teaching Assistant</h3>
+              <p class="role">DBMS, Computer Architecture, and Elements of Computer Science</p>
+              <ul>
+                <li>Supported students through SQL, relational design, Python fundamentals, systems concepts, and problem solving.</li>
+                <li>Translated technical material into practical guidance through labs, feedback, and office-hour support.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-head" data-reveal>
+          <h2 id="work-title">Case files from vision, reinforcement learning, and operations.</h2>
+          <p>Each project reflects a different part of the same practice: make the system observable, explainable, and useful outside the demo.</p>
+        </div>
+
+        <div class="evidence-grid">
+          <article class="evidence-card" data-reveal>
+            <span class="case-label">Computer vision field test</span>
+            <h3>Pothole Detection with Relative Depth Analysis</h3>
+            <p>YOLOv8 and MiDaS pipeline for pothole localization and relative depth scoring from video input.</p>
+            <div class="tag-row">
+              <span class="tag">YOLOv8</span>
+              <span class="tag">MiDaS</span>
+              <span class="tag">OpenCV</span>
+              <span class="tag">PyTorch</span>
+            </div>
+          </article>
+
+          <article class="evidence-card" data-reveal>
+            <span class="case-label">Operations system</span>
+            <h3>KSHC Mailer and Workflow Automation</h3>
+            <p>Google Apps Script, Sheets, and HTML/JavaScript system for communications, bookings, applications, letters, agreements, and dashboards.</p>
+            <div class="tag-row">
+              <span class="tag">Apps Script</span>
+              <span class="tag">Dashboards</span>
+              <span class="tag">Operations</span>
+            </div>
+          </article>
+
+          <article class="evidence-card" data-reveal>
+            <span class="case-label">Reinforcement learning lab</span>
+            <h3>Gridworld Coverage</h3>
+            <p>Stable Baselines3 DQN and A2C agents in a custom Gridworld environment, reaching 85% coverage success.</p>
+            <div class="tag-row">
+              <span class="tag">RL</span>
+              <span class="tag">DQN</span>
+              <span class="tag">A2C</span>
+            </div>
+          </article>
+
+          <article class="evidence-card" data-reveal>
+            <span class="case-label">Classification pipeline</span>
+            <h3>Fruit Ripeness Detection</h3>
+            <p>Two-stage TensorFlow CNN for fruit classification and ripeness prediction with 96% fruit class identification accuracy.</p>
+            <div class="tag-row">
+              <span class="tag">TensorFlow</span>
+              <span class="tag">CNN</span>
+              <span class="tag">Classification</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="skills" aria-labelledby="skills-title">
+        <div class="section-head" data-reveal>
+          <h2 id="skills-title">Tools for AI systems, automation, and leadership.</h2>
+          <p>Technical range matters most when it helps a team ship something understandable and maintainable.</p>
+        </div>
+
+        <div class="skills-layout">
+          <div class="skill-panel" data-reveal>
+            <h3>Technical toolkit</h3>
+            <div class="skill-cloud" aria-label="Technical skills">
+              <span>Python</span>
+              <span>JavaScript</span>
+              <span>C++</span>
+              <span>SQL</span>
+              <span>PyTorch</span>
+              <span>TensorFlow</span>
+              <span>OpenCV</span>
+              <span>NumPy</span>
+              <span>pandas</span>
+              <span>scikit-learn</span>
+              <span>Stable Baselines3</span>
+              <span>Azure DevOps</span>
+              <span>Power Platform</span>
+              <span>Power Automate</span>
+              <span>Power BI</span>
+              <span>Google Apps Script</span>
+            </div>
+          </div>
+
+          <div class="skill-panel" data-reveal>
+            <h3>Working strengths</h3>
+            <div class="focus-stack">
+              <div class="focus-item"><span>AI</span><div><strong>Applied machine learning</strong><small>Computer vision, NLP research, model pipelines, and practical AI design.</small></div></div>
+              <div class="focus-item"><span>Ops</span><div><strong>Workflow architecture</strong><small>Automation, documentation, governance, and process reliability.</small></div></div>
+              <div class="focus-item"><span>Lead</span><div><strong>Human-centered delivery</strong><small>Stakeholder communication, teaching, policy context, and accountable execution.</small></div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="contact-panel" data-reveal>
+          <div>
+            <h2 id="contact-title">Let’s talk about applied AI, automation, or visual computing.</h2>
+            <p>Based in Burnaby, BC. Currently pursuing a Master of Professional Computer Science in Visual Computing at Simon Fraser University, expected June 2027.</p>
+          </div>
+          <div class="contact-actions">
+            <a class="button" href="mailto:amanda.ws.shum@gmail.com">Email Amanda</a>
+            <a class="button secondary" href="https://www.linkedin.com/in/amandawshum" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <section class="agent-panel" id="agent-panel" aria-label="Resume Agent">
+      <div class="agent-head">
         <div>
-          <a href="#projects" class="btn">View Projects</a>
-          <a href="#resume" class="btn">Download Resume</a>
+          <strong>Amanda Resume Agent</strong>
+          <span>Answers from embedded resume facts, experience, projects, and skills.</span>
         </div>
+        <button class="agent-close" type="button" id="agent-close" aria-label="Close Resume Agent">X</button>
       </div>
-      <div class="hero-right">
-        <div class="hero-right-row">
-          <span>Location</span> Burnaby, BC
-        </div>
-        <div class="hero-right-row">
-          <span>Email</span> <a href="mailto:amanda.ws.shum@gmail.com" style="color:var(--brand-accent); text-decoration:none;">amanda.ws.shum@gmail.com</a>
-        </div>
-        <div class="hero-right-row">
-          <span>LinkedIn</span> <a href="https://www.linkedin.com/in/amandawshum" target="_blank" rel="noopener" style="color:var(--brand-accent); text-decoration:none;">/in/amandawshum</a>
-        </div>
-        <div class="hero-right-row">
-          <span>Focus</span> Applied AI • ML Engineering
-        </div>
+      <div class="agent-messages" id="agent-messages"></div>
+      <div class="agent-prompts">
+        <button type="button" data-question="What is Amanda's public-sector AI experience?">Public-sector AI</button>
+        <button type="button" data-question="Summarize Amanda's automation impact.">Automation impact</button>
+        <button type="button" data-question="Which projects best show her machine learning skills?">ML projects</button>
       </div>
-    </div>
-  </section>
+      <form class="agent-form" id="agent-form">
+        <input id="agent-input" type="text" placeholder="Ask about Amanda's resume">
+        <button type="submit">Ask</button>
+      </form>
+    </section>
 
-  <!-- ==========================
-       Education Section
-       ========================== -->
-  <section class="container reveal" id="education">
-    <h2>Education</h2>
-    <div class="card">
-      <h3>Simon Fraser University</h3>
-      <p>Master of Professional Computer Science (Visual Computing)<br><em>Expected Graduation: June 2027</em></p>
-    </div>
-    <div class="card">
-      <h3>Queen’s University</h3>
-      <p>Bachelor of Computing (Honours), Artificial Intelligence Specialization<br><em>Graduation: June 2025</em></p>
-    </div>
-  </section>
+    <button class="agent-launcher" type="button" id="agent-toggle" aria-expanded="false" aria-controls="agent-panel">Resume Agent</button>
 
-  <!-- ==========================
-       Work Experience Section
-       ========================== -->
-  <section class="container reveal" id="experience">
-    <h2>Work Experience</h2>
-
-    <div class="card">
-      <h3>Vice President — Kingston Student Housing Co-operative</h3>
-      <p><em>2021 – 2025 | Kingston, ON</em></p>
-      <ul>
-        <li>Served as Managing Director overseeing daily operations, HR, facilities, and member services for 21 residential properties, ensuring compliance with safety and regulatory standards.</li>
-        <li>Provided strategic leadership and stakeholder management to the Board of Directors, overseeing budgeting, policy implementation, organizational planning, and revenue-generating initiatives.</li>
-        <li>Led software transitions and process improvements to improve customer service quality and “co-op culture.”</li>
-        <li>Increased property rental booking reservations by 25% by analyzing customer demographics and optimizing seasonal marketing and room allocation strategies.</li>
-        <li>Led automated workflows with Google Workspace and Google Apps Script, reducing administrative workload by 75% and improving response times within 24 hours for 10,000+ inquiries.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Teaching Assistant — Queen’s University</h3>
-      <p><em>Jan 2023 – Apr 2025 | Kingston, ON</em></p>
-      <ul>
-        <li>Supported courses including Database Management Systems, Computer Architecture, and Elements of Computer Science.</li>
-        <li>Guided students in SQL queries, relational database design, Python programming fundamentals, and problem-solving techniques.</li>
-        <li>Provided academic support through office hours and forum discussions, clarifying course concepts for undergraduate students.</li>
-        <li>Assisted professors with grading, managing course materials, and delivering tutorials.</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>Information Technology Assistant — Queen’s University</h3>
-      <p><em>2024 | Kingston, ON</em></p>
-      <ul>
-        <li>Designed and implemented SharePoint and Microsoft Teams sites by auditing legacy content and aligning with organizational requirements.</li>
-        <li>Assisted with migration of content to new platforms, ensuring completeness, functionality, and user accessibility.</li>
-        <li>Collaborated with stakeholders to optimize navigation and improve knowledge-sharing workflows.</li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- ==========================
-       KSHC Section
-       ========================== -->
-  <section class="container reveal" id="kshc">
-    <h2>Kingston Student Housing Co-operative (KSHC)</h2>
-
-    <div class="card kshc-intro">
-      <p>
-        I’ve been deeply involved with Kingston Student Housing Co-operative, working across operations,
-        marketing, communications, and leadership. I helped oversee 21 residential properties, led
-        automation initiatives that streamlined operations, and supported the Board with strategic planning,
-        budgeting, and policy decisions.
-      </p>
-      <p class="muted">
-        Below is a focused view of my progression through KSHC roles — from Marketing Director to Consultant —
-        and the impact I had in each position.
-      </p>
-    </div>
-
-    <div class="card kshc-layout">
-      <div>
-        <h3>Roles & Progression</h3>
-        <p class="muted" style="font-size:13px;">
-          Click a role to see what I owned in that position:
-        </p>
-        <div class="kshc-role-chips">
-          <button class="kshc-role-chip active" data-role="marketing">Marketing Director</button>
-          <button class="kshc-role-chip" data-role="kitchen">Kitchen Director</button>
-          <button class="kshc-role-chip" data-role="communications">Communications Director</button>
-          <button class="kshc-role-chip" data-role="vp">Vice President / Managing Director</button>
-          <button class="kshc-role-chip" data-role="consultant">Consultant to the Board</button>
-        </div>
-      </div>
-      <div class="kshc-role-details" id="kshc-role-details">
-        <!-- Populated by JS -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================
-       Projects Section
-       ========================== -->
-  <section class="container reveal" id="projects">
-    <h2>Projects</h2>
-
-    <!-- Filter Bar -->
-    <div class="project-filter">
-      <div class="project-filter-row">
-        <label for="project-search">Filter by keyword:</label>
-        <input
-          type="text"
-          id="project-search"
-          placeholder="e.g. vision, RL, Apps Script, TensorFlow, Chrome extension..."
-        >
-      </div>
-      <div class="project-filter-chips">
-        <button class="chip active" data-filter="">All</button>
-        <button class="chip" data-filter="computer vision">Computer Vision</button>
-        <button class="chip" data-filter="reinforcement learning">Reinforcement Learning</button>
-        <button class="chip" data-filter="automation">Automation</button>
-        <button class="chip" data-filter="chrome extension">Accessibility</button>
-        <button class="chip" data-filter="tensorflow">TensorFlow</button>
-      </div>
-      <div class="project-count" id="project-count">Showing 7 projects</div>
-    </div>
-
-    <!-- Pothole Detection -->
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-title-block">
-          <h3>Pothole Detection with Relative Depth Estimation</h3>
-          <p class="project-meta">Sept – Dec 2025 • Computer Vision, Depth Estimation</p>
-        </div>
-        <button class="btn-ghost project-toggle" type="button">Show details</button>
-      </div>
-      <p>
-        Developed a computer-vision system that automatically detects potholes and estimates their depth using only a single RGB image by combining YOLOv8 with MiDaS monocular depth estimation.
-      </p>
-      <div class="project-extra">
-        <p>
-          Integrated YOLOv8 for pothole localization and MiDaS for dense depth maps, then implemented region extraction around bounding boxes to compare pothole depth against the surrounding road surface.
-          Built depth-normalization, noise-filtering, and relative-depth scoring modules to quantify pothole severity without requiring stereo cameras or LiDAR. Evaluated the pipeline on real road images and achieved stable depth differentiation across varying lighting, texture, and perspective.
-        </p>
-      </div>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">YOLOv8</span>
-        <span class="tag">MiDaS</span>
-        <span class="tag">OpenCV</span>
-        <span class="tag">Computer Vision</span>
-      </div>
-    </div>
-
-    <!-- KSHC Mailer -->
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-title-block">
-          <h3>KSHC Mailer & Workflow Automation System</h3>
-          <p class="project-meta">2024 – 2025 • Business Automation, Internal Tools</p>
-        </div>
-        <button class="btn-ghost project-toggle" type="button">Show details</button>
-      </div>
-      <p>
-        Designed and deployed a custom automation system for Kingston Student Housing Co-operative using Google Apps Script, Google Sheets, and HTML/JavaScript.
-      </p>
-      <div class="project-extra">
-        <p>
-          Automated core workflows including email communication, booking management, and member applications, with integrated generation of confirmation letters and rental agreements.
-          Built system architecture, admin dashboards, and role-based interfaces to improve data organization, approval processes, and operational efficiency across departments.
-        </p>
-      </div>
-      <div class="tags">
-        <span class="tag">Google Apps Script</span>
-        <span class="tag">JavaScript</span>
-        <span class="tag">HTML</span>
-        <span class="tag">Google Sheets</span>
-        <span class="tag">Automation</span>
-      </div>
-    </div>
-
-    <!-- Accessibility Chrome Extension -->
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-title-block">
-          <h3>Accessibility Chrome Extension</h3>
-          <p class="project-meta">Sept 2025 • Accessibility, Browser Extensions</p>
-        </div>
-        <button class="btn-ghost project-toggle" type="button">Show details</button>
-      </div>
-      <p>
-        Built a Chrome extension to enhance digital accessibility for users with reading difficulties using text-to-speech and synchronized highlighting.
-      </p>
-      <div class="project-extra">
-        <p>
-          Integrated ElevenLabs’ text-to-speech API to generate voice narration and implemented interactive UI elements for playback controls and multiple voice selection.
-          Tested and iterated using Chrome Developer Tools to ensure a smooth reading experience.
-        </p>
-      </div>
-      <div class="tags">
-        <span class="tag">JavaScript</span>
-        <span class="tag">HTML/CSS</span>
-        <span class="tag">Chrome Extension</span>
-        <span class="tag">Accessibility</span>
-      </div>
-    </div>
-
-    <!-- Gridworld Coverage -->
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-title-block">
-          <h3>Gridworld Coverage</h3>
-          <p class="project-meta">Jan – Apr 2025 • Reinforcement Learning</p>
-        </div>
-        <button class="btn-ghost project-toggle" type="button">Show details</button>
-      </div>
-      <p>
-        Built and trained RL agents using Stable Baselines3 (DQN, A2C) in a custom Gridworld environment to optimize area coverage.
-      </p>
-      <div class="project-extra">
-        <p>
-          Experimented with reward shaping and observation-space design to achieve 85% coverage success. Analyzed policy behavior and training stability to compare algorithm performance.
-        </p>
-      </div>
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Stable Baselines3</span>
-        <span class="tag">Reinforcement Learning</span>
-        <span class="tag">PyTorch</span>
-      </div>
-    </div>
-
-    <!-- Fruit Ripeness Detection -->
-    <div class="card project-card">
-      <div class="project-header">
-        <div class="project-title-block">
-          <h3>Fruit Ripeness Detection</h3>
-          <p class="project-meta">Sept – Dec 2024 • Deep Learning, Classification</p>
-        </div>
-        <button class="btn-ghost project-toggle" type="button">Show details</button>
-      </div>
-      <p>
-        Developed a two-stage CNN-based model in TensorFlow to classify fruit type and predict ripeness, achieving 96% accuracy across multiple fruit classes.
-      </p>
-      <div class="project-extra">
-        <p>
-          Trained a primary CNN to identify the fruit class followed by specialized sub-models for each fruit type to determine ripeness levels, improving robustness and class-specific performance.
-        </p>
-      </div>
-      <div class="tags">
-        <span class="tag">TensorFlow</span>
-        <span class="tag">CNN</span>
-        <span class="tag">PyTorch</span>
-        <span class="tag">NumPy</span>
-      </div>
-    </div>
-
-    <!-- The Treasure Hunter -->
-    <div class="card project-card">
-      <h3>The Treasure Hunter</h3>
-      <p class="project-meta">Feb 2024 • Planning & Reasoning</p>
-      <p>Designed a PDDL model to plan optimal treasure paths using logical constraints and domain definitions.</p>
-      <div class="tags">
-        <span class="tag">PDDL</span>
-        <span class="tag">Automated Planning</span>
-      </div>
-    </div>
-
-    <!-- The Pentagram -->
-    <div class="card project-card">
-      <h3>The Pentagram</h3>
-      <p class="project-meta">Jan – Apr 2023 • Game Development</p>
-      <p>Created a point-and-click Unity game with custom graphics and audio, focusing on player experience and UI/UX.</p>
-      <div class="tags">
-        <span class="tag">Unity</span>
-        <span class="tag">C#</span>
-        <span class="tag">Game Design</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================
-       Skills Section
-       ========================== -->
-  <section class="container reveal" id="skills">
-    <h2>Skills</h2>
-    <div class="card">
-      <div class="skills-grid">
-        <div class="skills-column">
-          <h4>Programming Languages</h4>
-          <p>Python, C, C++, JavaScript, HTML, CSS, PHP, SQL, R</p>
-        </div>
-        <div class="skills-column">
-          <h4>Frameworks & Libraries</h4>
-          <p>PyTorch, TensorFlow, OpenCV, NumPy, pandas, matplotlib, scikit-learn, Stable Baselines3, JSON, ultralytics</p>
-        </div>
-        <div class="skills-column">
-          <h4>Tools & Platforms</h4>
-          <p>Google Workspace, Google Apps Script, Unity, SharePoint, Microsoft Teams, Canva, OnShape, AnyDesk, VS Code, GitHub Desktop, WordPress, Microsoft Office</p>
-        </div>
-        <div class="skills-column">
-          <h4>Core Competencies</h4>
-          <p>Computer Vision, Image Processing, Machine Learning, Deep Learning (CNNs, Object Detection, Generative AI), Reinforcement Learning, Autonomous Driving, Stakeholder Management</p>
-        </div>
-        <div class="skills-column">
-          <h4>Operating Systems</h4>
-          <p>Microsoft Windows, Linux</p>
-        </div>
-        <div class="skills-column">
-          <h4>Outside of Tech</h4>
-          <p>Snowboarding, Basketball, Hockey, Computer Games</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================
-       Resume and Contact Section
-       ========================== -->
-  <section class="container reveal" id="resume">
-    <h2>Resume</h2>
-    <div class="card">
-      <p>Click below to download or view my resume PDF.</p>
-      <a href="Amanda_Shum_Resume.pdf" class="btn" download>Download Resume (PDF)</a>
-      <a href="Amanda_Shum_Resume.pdf" class="btn" target="_blank">Open in Browser</a>
-
-      <p class="muted" style="margin-top:16px;">If those buttons don’t load properly on GitHub Pages, use the RAW link version below:</p>
-      <p class="muted"><strong>Option B (direct RAW file link):</strong></p>
-      <p>
-        <a href="https://raw.githubusercontent.com/amandashum/amandashum.github.io/main/AmandaShum_Resume.pdf" class="btn" download>Download via RAW</a>
-        <a href="https://raw.githubusercontent.com/amandashum/amandashum.github.io/main/AmandaShum_Resume.pdf" class="btn" target="_blank" rel="noopener">Open via RAW</a>
-      </p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© <span id="year"></span> Amanda Shum • Machine Learning Engineer</p>
-  </footer>
+    <footer class="footer">
+      © 2026 Amanda Shum. Portfolio source for GitHub Pages.
+    </footer>
+  </div>
 
   <script>
-    // Auto-update year
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Scroll reveal
-    const revealEls = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const intro = document.getElementById("intro");
+    const introSkip = document.getElementById("intro-skip");
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const scrollProgress = document.getElementById("scroll-progress");
+    const navLinks = [...document.querySelectorAll(".nav-links a[href^='#']")];
+    const sections = navLinks
+      .map((link) => document.querySelector(link.getAttribute("href")))
+      .filter(Boolean);
+    const agentPanel = document.getElementById("agent-panel");
+    const agentToggle = document.getElementById("agent-toggle");
+    const agentClose = document.getElementById("agent-close");
+    const agentMessages = document.getElementById("agent-messages");
+    const agentForm = document.getElementById("agent-form");
+    const agentInput = document.getElementById("agent-input");
+    const resumeFacts = [
+      {
+        source: "Professional Summary",
+        keywords: ["summary", "ai", "machine", "learning", "computer", "vision", "automation", "ml", "engineer"],
+        text: "Amanda is a machine learning engineer with hands-on experience in computer vision, reinforcement learning, workflow automation, and human-centered AI systems."
       },
-      { threshold: 0.15 }
-    );
-    revealEls.forEach(el => observer.observe(el));
+      {
+        source: "CanAI Garage, Shared Services Canada",
+        keywords: ["canai", "shared", "services", "canada", "public", "sector", "azure", "power", "platform", "triage", "governance", "responsible", "documentation"],
+        text: "At CanAI Garage, Shared Services Canada, Amanda contributes to AI-assisted workflow automation using Azure, Power Platform, and cloud AI services. She researches ML, NLP, and low-code approaches for intelligent email triage, writes workflow documentation, and supports architecture discussions around scalability, governance, and Responsible AI."
+      },
+      {
+        source: "Kingston Student Housing Co-operative",
+        keywords: ["kshc", "housing", "cooperative", "operations", "leadership", "booking", "75", "25", "10000", "10k", "automation", "impact", "workload", "reservations", "apps", "script"],
+        text: "At Kingston Student Housing Co-operative, Amanda served as Vice President and Managing Director across 21 residential properties. She led operations, HR, facilities, budgeting, policy implementation, and member services. Her Google Workspace and Apps Script automation reduced administrative workload by 75% across 10,000+ inquiries, and she improved rental booking reservations by 25%."
+      },
+      {
+        source: "Teaching Assistant Experience",
+        keywords: ["teaching", "ta", "queen", "sql", "python", "dbms", "architecture", "students"],
+        text: "As a Teaching Assistant at Queen's University, Amanda supported DBMS, Computer Architecture, and Elements of Computer Science, helping students with SQL, relational design, Python fundamentals, systems concepts, and problem solving."
+      },
+      {
+        source: "Selected Projects",
+        keywords: ["project", "projects", "pothole", "fruit", "gridworld", "reinforcement", "learning", "tensorflow", "yolo", "midas", "opencv", "pytorch"],
+        text: "Amanda's selected projects include pothole detection with YOLOv8 and MiDaS, KSHC workflow automation, Gridworld Coverage with Stable Baselines3 DQN and A2C agents, and fruit ripeness detection with TensorFlow CNNs."
+      },
+      {
+        source: "Skills",
+        keywords: ["skills", "python", "pytorch", "tensorflow", "opencv", "sql", "javascript", "azure", "power", "automate", "bi", "apps", "script"],
+        text: "Amanda's technical skills include Python, JavaScript, C++, SQL, PyTorch, TensorFlow, OpenCV, NumPy, pandas, scikit-learn, Stable Baselines3, Azure DevOps, Power Platform, Power Automate, Power BI, and Google Apps Script."
+      },
+      {
+        source: "Education",
+        keywords: ["education", "sfu", "simon", "fraser", "queen", "university", "visual", "computing", "degree"],
+        text: "Amanda is pursuing a Master of Professional Computer Science in Visual Computing at Simon Fraser University, expected June 2027. She earned a Bachelor of Computing (Honours) with an Artificial Intelligence Specialization from Queen's University in June 2025."
+      }
+    ];
 
-    // Project "Show details" toggles
-    document.querySelectorAll('.project-card').forEach(card => {
-      const btn = card.querySelector('.project-toggle');
-      const extra = card.querySelector('.project-extra');
-      if (!btn || !extra) return;
+    function finishIntro() {
+      if (!intro || intro.classList.contains("hidden")) return;
+      intro.classList.add("hidden");
+      document.body.classList.remove("intro-active");
+    }
 
-      btn.addEventListener('click', () => {
-        const isOpen = extra.classList.toggle('open');
-        btn.textContent = isOpen ? 'Hide details' : 'Show details';
+    if (reducedMotion) {
+      finishIntro();
+    } else {
+      window.setTimeout(finishIntro, 3300);
+      intro?.addEventListener("click", finishIntro);
+      introSkip?.addEventListener("click", (event) => {
+        event.stopPropagation();
+        finishIntro();
       });
-    });
-
-    // Project keyword filter + chips + count
-    const searchInput = document.getElementById('project-search');
-    const chipEls = document.querySelectorAll('.chip');
-    const projectCards = Array.from(document.querySelectorAll('#projects .project-card'));
-    const projectCountEl = document.getElementById('project-count');
-
-    function updateProjectVisibility(query) {
-      const q = query.toLowerCase().trim();
-      let visibleCount = 0;
-
-      projectCards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        if (!q || text.includes(q)) {
-          card.style.display = '';
-          visibleCount++;
-        } else {
-          card.style.display = 'none';
+      window.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " " || event.key === "Escape") {
+          finishIntro();
         }
       });
+    }
 
-      if (projectCountEl) {
-        projectCountEl.textContent = `Showing ${visibleCount} project${visibleCount === 1 ? '' : 's'}`;
+    if (!reducedMotion) {
+      window.addEventListener("pointermove", (event) => {
+        document.body.style.setProperty("--spot-x", `${event.clientX}px`);
+        document.body.style.setProperty("--spot-y", `${event.clientY}px`);
+      }, { passive: true });
+    }
+
+    function updateScrollProgress() {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      scrollProgress.style.transform = `scaleX(${Math.min(Math.max(progress, 0), 1)})`;
+    }
+
+    updateScrollProgress();
+    window.addEventListener("scroll", updateScrollProgress, { passive: true });
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+
+    revealItems.forEach((item, index) => {
+      item.style.setProperty("--reveal-delay", `${Math.min((index % 4) * 70, 210)}ms`);
+      revealObserver.observe(item);
+    });
+
+    const navObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        navLinks.forEach((link) => {
+          link.classList.toggle("active", link.getAttribute("href") === `#${entry.target.id}`);
+        });
+      });
+    }, { threshold: 0.45 });
+
+    sections.forEach((section) => navObserver.observe(section));
+
+    function animateCount(element) {
+      const target = Number(element.dataset.count || 0);
+      const suffix = element.dataset.suffix || "";
+      const duration = reducedMotion ? 1 : 1100;
+      const start = performance.now();
+
+      function frame(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 4);
+        const value = Math.round(target * eased);
+        element.textContent = `${value.toLocaleString("en-CA")}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(frame);
+        } else {
+          element.classList.add("counted");
+        }
+      }
+
+      requestAnimationFrame(frame);
+    }
+
+    const countObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        animateCount(entry.target);
+        countObserver.unobserve(entry.target);
+      });
+    }, { threshold: 0.6 });
+
+    document.querySelectorAll("[data-count]").forEach((item) => countObserver.observe(item));
+
+    function addAgentMessage(role, html) {
+      const message = document.createElement("div");
+      message.className = `agent-message ${role}`;
+      message.innerHTML = html;
+      agentMessages.appendChild(message);
+      agentMessages.scrollTop = agentMessages.scrollHeight;
+    }
+
+    function retrieveResumeFacts(question) {
+      const terms = question.toLowerCase().split(/[^a-z0-9+]+/).filter(Boolean);
+      return resumeFacts
+        .map((fact) => {
+          const haystack = `${fact.source} ${fact.keywords.join(" ")} ${fact.text}`.toLowerCase();
+          const score = terms.reduce((total, term) => total + (haystack.includes(term) ? 1 : 0), 0);
+          return { ...fact, score };
+        })
+        .filter((fact) => fact.score > 0)
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 2);
+    }
+
+    function answerResumeQuestion(question) {
+      const facts = retrieveResumeFacts(question);
+      if (!facts.length) {
+        return {
+          text: "I can answer from Amanda's embedded resume facts. Try asking about CanAI, automation impact, KSHC leadership, projects, skills, or education.",
+          sources: "Resume knowledge base"
+        };
+      }
+
+      return {
+        text: facts.map((fact) => fact.text).join(" "),
+        sources: facts.map((fact) => fact.source).join(" + ")
+      };
+    }
+
+    function askResumeAgent(question) {
+      const cleanQuestion = question.trim();
+      if (!cleanQuestion) return;
+
+      addAgentMessage("user", cleanQuestion);
+      const response = answerResumeQuestion(cleanQuestion);
+      addAgentMessage("assistant", `${response.text} <div class="agent-sources">Sources: ${response.sources}</div>`);
+    }
+
+    function openAgent() {
+      agentPanel.classList.add("open");
+      agentToggle.setAttribute("aria-expanded", "true");
+      if (!agentMessages.children.length) {
+        addAgentMessage("assistant", "Hi. I am Amanda's Resume Agent. Ask me about her AI experience, operations leadership, automation impact, projects, skills, or education.");
       }
     }
 
-    if (searchInput) {
-      searchInput.addEventListener('input', () => {
-        const query = searchInput.value;
-        updateProjectVisibility(query);
+    agentToggle.addEventListener("click", () => {
+      if (agentPanel.classList.contains("open")) {
+        agentPanel.classList.remove("open");
+        agentToggle.setAttribute("aria-expanded", "false");
+      } else {
+        openAgent();
+      }
+    });
 
-        // Clear active chip if user types manually
-        if (query === '') {
-          chipEls.forEach(chip => {
-            if (chip.dataset.filter === '') {
-              chip.classList.add('active');
-            } else {
-              chip.classList.remove('active');
-            }
-          });
-        } else {
-          chipEls.forEach(chip => chip.classList.remove('active'));
-        }
-      });
-    }
+    agentClose.addEventListener("click", () => {
+      agentPanel.classList.remove("open");
+      agentToggle.setAttribute("aria-expanded", "false");
+    });
 
-    chipEls.forEach(chip => {
-      chip.addEventListener('click', () => {
-        chipEls.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-
-        const filter = chip.dataset.filter || '';
-        if (searchInput) {
-          searchInput.value = filter;
-        }
-        updateProjectVisibility(filter);
+    document.querySelectorAll("[data-question]").forEach((button) => {
+      button.addEventListener("click", () => {
+        openAgent();
+        askResumeAgent(button.dataset.question);
       });
     });
 
-    // Initialize count on first load
-    updateProjectVisibility('');
-
-    // KSHC role details content
-    const kshcDetailsEl = document.getElementById('kshc-role-details');
-    const kshcRoleChips = document.querySelectorAll('.kshc-role-chip');
-
-    const kshcRoleContent = {
-      marketing: `
-        <span class="badge">Early Leadership</span>
-        <h3>Marketing Director</h3>
-        <p>
-          Led early outreach and marketing efforts for KSHC, focusing on building brand awareness
-          and increasing interest in co-op housing among students.
-        </p>
-        <ul>
-          <li>Coordinated campaigns to highlight co-op values, affordability, and community culture.</li>
-          <li>Created promotional materials and messaging to improve visibility of vacant rooms and waitlists.</li>
-          <li>Collaborated with other directors to align marketing with operational capacity and member needs.</li>
-        </ul>
-      `,
-      kitchen: `
-        <span class="badge">Operations & Member Experience</span>
-        <h3>Kitchen Director</h3>
-        <p>
-          Oversaw kitchen and meal-program operations, helping ensure a consistent and positive
-          experience for meal-plan members.
-        </p>
-        <ul>
-          <li>Coordinated with kitchen staff and house managers to maintain quality standards and mealtime logistics.</li>
-          <li>Helped organize menu changes, food ordering, and inventory practices to reduce waste.</li>
-          <li>Supported feedback systems so members could voice dietary needs and concerns.</li>
-        </ul>
-      `,
-      communications: `
-        <span class="badge">Organization-Wide Communication</span>
-        <h3>Communications Director</h3>
-        <p>
-          Took ownership of member-facing communications and information flow across the co-op.
-        </p>
-        <ul>
-          <li>Drafted and distributed email updates, policy announcements, and community-building messages.</li>
-          <li>Standardized templates and tone for co-op communications across teams and channels.</li>
-          <li>Worked with directors and staff to ensure members received timely, clear information.</li>
-        </ul>
-      `,
-      vp: `
-        <span class="badge">Executive Leadership</span>
-        <h3>Vice President / Managing Director</h3>
-        <p>
-          Led strategy and day-to-day operations across 21 properties as both Vice President and Managing Director.
-        </p>
-        <ul>
-          <li>Oversaw HR, facilities, member services, and safety compliance across all houses.</li>
-          <li>Guided budgeting, policy implementation, and long-term organizational planning with the Board.</li>
-          <li>Drove software transitions and automation projects, including booking systems and internal tools.</li>
-          <li>Implemented Google Workspace and Apps Script automation that reduced administrative workload by 75% and supported over 10,000 inquiries.</li>
-        </ul>
-      `,
-      consultant: `
-        <span class="badge">Strategic Advisory</span>
-        <h3>Consultant to the Board of Directors</h3>
-        <p>
-          Currently support KSHC in a consulting capacity, focusing on continuity, systems knowledge,
-          and strategic advice for future growth.
-        </p>
-        <ul>
-          <li>Advise the Board on technology decisions, operational workflows, and data-driven improvements.</li>
-          <li>Help maintain institutional memory for complex internal systems built during my VP tenure.</li>
-          <li>Provide guidance on member experience, communications, and long-term co-op culture.</li>
-        </ul>
-      `
-    };
-
-    function setKshcRole(roleKey) {
-      if (!kshcDetailsEl || !kshcRoleContent[roleKey]) return;
-      kshcDetailsEl.innerHTML = kshcRoleContent[roleKey];
-    }
-
-    kshcRoleChips.forEach(chip => {
-      chip.addEventListener('click', () => {
-        kshcRoleChips.forEach(c => c.classList.remove('active'));
-        chip.classList.add('active');
-        const roleKey = chip.dataset.role;
-        setKshcRole(roleKey);
-      });
+    agentForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+      askResumeAgent(agentInput.value);
+      agentInput.value = "";
     });
-
-    // Initialize KSHC panel with first role
-    setKshcRole('marketing');
   </script>
 </body>
 </html>
