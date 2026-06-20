@@ -7,32 +7,32 @@ This repository contains the source files for Amanda Shum's personal website, ho
 
 This is a one-page personal portfolio for Amanda Shum's applied AI, computer vision, automation, visual computing, and technical leadership work.
 
-The current redesign uses a dark editorial case-study layout with a rotating hero headline, profile portrait, selected project archive, interactive computer vision demo, impact metrics, and an embedded Resume Agent.
+The current redesign uses a monochrome technical-specimen layout with generative ASCII artwork, a selected project archive, an interactive computer vision demo, impact evidence, and an embedded Resume Agent.
 
 ## Site Sections
 
-- Hero introduction with rotating focus areas:
-  - Applied AI Solutions
-  - Computer Vision
-  - Intelligent Automation
-  - Systems Design
-  - Visual Computing
-  - Responsible AI
-  - Digital Transformation
-  - Human-Centered Technology
+- Asymmetric portfolio introduction with responsive ASCII artwork
+- Technical capability index and integration ecosystem
 - Selected project case studies
 - Vision Lab interaction for detection, depth, segmentation, and human review
-- Impact metrics
+- Resume and working-principle highlights
 - Resume Agent for embedded resume Q&A
 - Resume PDF and contact links
 
 ## Assets
 
-The site currently uses:
+The repository includes:
 
-- `Edge19.jpg` for the hero profile portrait
-- `assets/palm-scene.jpg` for the editorial visual section
+- `Edge19.jpg` for the portfolio portrait
+- `assets/palm-scene.jpg` for the visual work section
 - `Amanda_Shum_Resume.pdf` for the resume download
+
+`Desktop.jpg` and `Navigation.png` are local visual references and are not required by the rendered page.
+
+## Design Documentation
+
+- `PRODUCT.md` records the audience, purpose, personality, and strategic principles.
+- `DESIGN.md` records the visual system, interaction rules, and accessibility requirements.
 
 ## Local Preview
 

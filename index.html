@@ -1223,6 +1223,39 @@
       }
     }
   </style>
+<style id="reference-redesign">
+:root{color-scheme:light;--bg:#fbfbfa;--bg-soft:#f3f3f1;--ink:#111110;--ink-strong:#050505;--muted:#686865;--quiet:#797975;--accent:#111110;--accent-deep:#050505;--accent-soft:#30302e;--panel:#fff;--panel-2:#f3f3f1;--line:#deded9;--line-strong:#aaa9a3;--shadow:rgba(17,17,16,.12);--font-display:Georgia,"Times New Roman",serif;--font-body:Geist,"Segoe UI Variable Text",Aptos,"Segoe UI",sans-serif;--font-mono:"Cascadia Mono",Consolas,monospace;--max:1440px}
+html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::before,body::after{display:none}.site{width:min(calc(100% - 16px),var(--max));margin:8px auto;border:1px solid var(--line);overflow:clip;background:var(--bg)}
+.topbar{position:relative;top:auto;border-bottom:1px solid var(--line);background:rgba(251,251,250,.94);backdrop-filter:blur(12px)}.topbar-inner{position:relative;width:100%;min-height:72px;padding:0 clamp(20px,3vw,48px);display:flex;justify-content:center}.brand{position:absolute;left:clamp(20px,3vw,48px);font-size:13px}.brand-mark{width:26px;height:26px;border:0;color:transparent;background:linear-gradient(var(--ink),var(--ink)) 0 0/10px 10px no-repeat,linear-gradient(var(--ink),var(--ink)) 100% 0/10px 10px no-repeat,linear-gradient(var(--ink),var(--ink)) 0 100%/10px 10px no-repeat,linear-gradient(var(--ink),var(--ink)) 100% 100%/10px 10px no-repeat}.nav{gap:clamp(20px,3vw,42px);color:var(--ink);font-size:12px}.nav a::before{content:"[";color:var(--quiet)}.nav a::after{content:"]";color:var(--quiet)}.nav .nav-action{color:var(--ink)}
+.hero{position:relative;min-height:min(860px,calc(100svh - 82px));width:100%;padding:clamp(62px,8vw,112px) clamp(20px,3vw,48px) 48px;display:grid;grid-template-columns:minmax(220px,.7fr) minmax(320px,1.2fr);grid-template-rows:auto 1fr;align-items:start;gap:18px clamp(28px,7vw,120px);border-bottom:1px solid var(--line);overflow:hidden;isolation:isolate}.hero-copy{display:contents}.kicker,.hero-statement,.hero-meta{display:none}.hero h1{grid-column:1;margin:0;max-width:none;color:var(--ink);font-size:clamp(2.55rem,5vw,5.1rem);font-weight:400;line-height:.98;letter-spacing:-.04em}.hero-title{display:block}.hero-lede{grid-column:2;max-width:52ch;margin:clamp(48px,8vw,96px) 0 18px;color:var(--muted);font-size:clamp(.96rem,1.15vw,1.12rem)}.hero .actions{grid-column:2;align-self:start;margin-top:clamp(164px,27vw,330px);z-index:3}.button{min-height:42px;padding:0 17px;border:1px solid var(--ink);border-radius:6px;background:var(--ink);color:#fff;font-size:13px;box-shadow:none}.button.secondary{background:var(--bg);color:var(--ink);border-color:var(--line-strong)}
+.ascii-stage{position:absolute;z-index:-1;left:50%;top:245px;width:min(72vw,900px);height:420px;transform:translateX(-50%);display:grid;place-items:center;overflow:hidden;pointer-events:none;mask-image:linear-gradient(to bottom,transparent,black 14%,black 76%,transparent)}.ascii-art{margin:0;color:#3c3c39;font:clamp(4px,.52vw,7px)/.9 var(--font-mono);letter-spacing:.03em;text-align:center;white-space:pre;transform:translate3d(0,var(--ascii-y,0),0) scale(var(--ascii-scale,1));filter:blur(var(--ascii-blur,0));opacity:.74;will-change:transform,filter}
+.skill-rail{padding:44px clamp(20px,3vw,48px) 48px;border-bottom:1px solid var(--line);text-align:center}.skill-rail>p{margin-bottom:28px;color:var(--muted);font-size:12px}.skill-track{display:flex;justify-content:center;flex-wrap:wrap;gap:16px clamp(24px,4vw,64px);color:var(--quiet);font-size:13px}.skill-track span{display:inline-flex;gap:8px;align-items:center}.skill-track span::before{content:"";width:8px;height:8px;border:1px solid currentColor;transform:rotate(45deg)}
+.section{width:100%;margin:0;padding:clamp(92px,12vw,180px) clamp(20px,3vw,48px);border-bottom:1px solid var(--line)}.section-ledger{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);gap:clamp(30px,8vw,140px);border-top:0;margin-bottom:clamp(52px,8vw,108px)}.section-ledger h2{max-width:18ch;color:var(--ink);font-family:var(--font-body);font-size:clamp(2.3rem,5vw,5rem);line-height:.98;letter-spacing:-.04em;font-weight:650}.section-ledger p{max-width:52ch;color:var(--muted)}.split-copy{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--line)}.copy-block{padding:clamp(28px,4vw,54px);border-top:0}.copy-block+.copy-block{border-left:1px solid var(--line)}.copy-block p{color:var(--muted)}.feature-image{height:clamp(300px,54vw,700px);margin-top:0;border:1px solid var(--line);border-top:0;overflow:hidden}.feature-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.2) brightness(1.28);opacity:.78;mix-blend-mode:multiply}
+.capabilities{padding:clamp(90px,11vw,160px) clamp(20px,8vw,170px);border-bottom:1px solid var(--line);text-align:center}.specimen-label{display:inline-flex;padding:5px 9px;margin-bottom:16px;background:var(--ink);color:#fff;font-size:11px}.capabilities h2,.ecosystem h2{margin-bottom:12px;color:var(--ink);font-size:clamp(2.25rem,4.5vw,4.25rem);line-height:1;letter-spacing:-.04em}.capabilities>p,.ecosystem>p{max-width:58ch;margin:0 auto 54px;color:var(--muted)}.capability-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line);text-align:left}.capability{min-height:300px;padding:clamp(26px,4vw,48px);border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;justify-content:flex-end}.capability-glyph{flex:1;display:grid;place-items:center;color:var(--glyph);font:800 clamp(5rem,13vw,10rem)/1 var(--font-mono);filter:blur(4px);opacity:.68;transition:transform 240ms var(--ease-out),filter 240ms var(--ease-out)}.capability p{color:var(--muted);font-size:14px}
+.ecosystem{position:relative;min-height:660px;padding:120px 20px;border-bottom:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;text-align:center;overflow:hidden}.constellation{position:absolute;inset:80px 8% auto;height:300px}.constellation::before{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:var(--line-strong);transform:rotate(-2deg)}.constellation-core{position:absolute;left:42%;top:45%;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff}.constellation-node{position:absolute;padding-left:20px;white-space:nowrap}.constellation-node::before{content:"";position:absolute;left:0;top:50%;width:8px;height:8px;border-radius:50%;background:var(--ink)}.node-a{left:52%;top:10%}.node-b{left:59%;top:36%}.node-c{left:57%;top:63%}.node-d{left:49%;top:84%}
+.casework{background:#fff}.archive-grid{grid-template-columns:minmax(220px,.65fr) minmax(0,1.35fr);gap:0;border:1px solid var(--line);background:var(--bg)}.panel-nav{border-right:1px solid var(--line);background:var(--bg)}.panel-button{min-height:96px;padding:20px;border-bottom:1px solid var(--line);background:transparent;color:var(--ink)}.panel-button.active{background:var(--ink);color:#fff}.panel-note{color:inherit;opacity:.62}.detail{min-height:580px;padding:clamp(28px,5vw,64px)}.detail-title{color:var(--ink);font-size:clamp(2rem,4vw,4rem)}.detail-meta,.detail-lede,.detail-list{color:var(--muted)}.detail-proof,.tag{border-color:var(--line);background:var(--panel-2);color:var(--ink)}.project-visual{background:var(--panel-2);border-color:var(--line)}
+.vision-lab{grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);border:1px solid var(--line);background:#fff}.vision-stage{min-height:560px;border:0;border-right:1px solid var(--line);background:#e9e9e5}.vision-feed{filter:grayscale(1);background:linear-gradient(145deg,transparent 35%,rgba(17,17,16,.13) 36%,transparent 38%),linear-gradient(30deg,#ededeb 0 46%,#d4d4cf 47% 54%,#f7f7f5 55%)}.vision-caption{background:rgba(251,251,250,.92);color:var(--ink)}.vision-controls{border:0;background:var(--bg)}.vision-button{border-bottom:1px solid var(--line);color:var(--ink)}.vision-button.active{background:var(--ink);color:#fff}
+.metrics{border-color:var(--line)}.stat{border-color:var(--line)}.stat strong{color:var(--ink)}.stat span{color:var(--muted)}.stack-link{border-color:var(--line);color:var(--ink)}.contact-bar{padding:clamp(34px,6vw,72px);border:1px solid var(--ink);background:var(--ink);color:#fff}.contact-bar h2{color:#fff}.contact-bar p{color:#c9c9c4}.contact-bar .button{background:#fff;color:var(--ink)}.contact-bar .button.secondary{background:transparent;color:#fff;border-color:#6d6d69}
+.agent-launcher{border-radius:6px;background:var(--ink);color:#fff}.agent-panel{border:1px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);box-shadow:0 8px 0 rgba(17,17,16,.08)}.agent-message{background:var(--panel-2);color:var(--ink)}.agent-message.user{background:var(--ink);color:#fff}.footer{width:100%;padding:48px clamp(20px,3vw,48px);color:var(--muted)}
+@media (hover:hover) and (pointer:fine){.capability:hover .capability-glyph{transform:scale(1.03);filter:blur(1.5px)}}
+@media (max-width:900px){.site{width:calc(100% - 8px);margin:4px}.hero{min-height:760px;grid-template-columns:1fr}.hero h1,.hero-lede,.hero .actions{grid-column:1}.hero-lede{margin:26px 0 0}.hero .actions{margin-top:420px}.ascii-stage{top:250px;width:1100px}.section-ledger{grid-template-columns:1fr}.archive-grid,.vision-lab{grid-template-columns:1fr}.panel-nav{border-right:0}.vision-stage{border-right:0;border-bottom:1px solid var(--line)}}
+@media (max-width:640px){.brand span:last-child,.nav a:nth-child(2),.nav a:nth-child(3){display:none}.hero{min-height:700px;padding-top:54px}.hero h1{font-size:clamp(2.6rem,15vw,4.2rem)}.hero .actions{margin-top:350px;flex-wrap:wrap}.ascii-stage{top:245px;width:900px;height:340px}.section{padding-block:86px}.split-copy,.capability-grid{grid-template-columns:1fr}.copy-block+.copy-block{border-left:0;border-top:1px solid var(--line)}.metrics{grid-template-columns:repeat(2,1fr)}}
+@media (prefers-reduced-motion:reduce){.ascii-art{transform:none!important;filter:none!important}.capability-glyph{transition:opacity 180ms ease}}
+</style>
+<style id="reference-redesign-fixes">
+.hero h1,.hero-lede{position:relative;z-index:2}
+.hero .actions{position:absolute;z-index:3;top:clamp(300px,25vw,370px);left:42%;margin:0}
+.ascii-stage{z-index:1}
+@media (max-width:900px){.hero .actions{top:245px;left:clamp(20px,3vw,48px);margin:0}.ascii-stage{top:330px}}
+@media (max-width:640px){.hero .actions{top:250px;left:20px;margin:0}.ascii-stage{top:340px}}
+</style>
+<style id="mobile-reference-fix">
+@media (max-width:640px){
+  .hero{min-height:780px}
+  .hero .actions{top:420px}
+  .ascii-stage{top:470px;height:280px}
+}
+</style>
 </head>
 <body>
   <div class="site">
@@ -1256,6 +1289,9 @@
             <button class="button secondary" type="button" data-open-agent>Ask Resume Agent</button>
           </div>
         </div>
+        <div class="ascii-stage" aria-hidden="true">
+          <pre class="ascii-art" id="ascii-art"></pre>
+        </div>
         <aside class="hero-meta reveal" aria-label="Portfolio metadata">
           <figure class="hero-photo">
             <img src="Edge19.jpg" alt="Amanda Shum portrait.">
@@ -1283,6 +1319,54 @@
         </aside>
       </section>
 
+      <section class="skill-rail" aria-label="Technical skills">
+        <p>Technical practice</p>
+        <div class="skill-track">
+          <span>Python</span><span>PyTorch</span><span>TensorFlow</span>
+          <span>OpenCV</span><span>Azure</span><span>Power Platform</span>
+          <span>Google Apps Script</span>
+        </div>
+      </section>
+
+      <section class="capabilities" aria-labelledby="capability-title">
+        <span class="specimen-label">Portfolio signals</span>
+        <h2 id="capability-title">Core capabilities.</h2>
+        <p>A compact view of the technical strengths and working patterns I bring to applied AI projects.</p>
+        <div class="capability-grid">
+          <article class="capability" style="--glyph:#4c8bf5">
+            <div class="capability-glyph" aria-hidden="true">01</div>
+            <h3>Computer Vision</h3>
+            <p>Build detection, depth, segmentation, and classification pipelines with reviewable outputs.</p>
+          </article>
+          <article class="capability" style="--glyph:#dd55dc">
+            <div class="capability-glyph" aria-hidden="true">02</div>
+            <h3>AI Workflow Design</h3>
+            <p>Shape practical automations without losing the human context behind the work.</p>
+          </article>
+          <article class="capability" style="--glyph:#60d7bd">
+            <div class="capability-glyph" aria-hidden="true">03</div>
+            <h3>Operations and Delivery</h3>
+            <p>Create clear rituals, documentation, and project structures that keep execution accountable.</p>
+          </article>
+          <article class="capability" style="--glyph:#efba45">
+            <div class="capability-glyph" aria-hidden="true">04</div>
+            <h3>Responsible AI</h3>
+            <p>Keep evidence, limitations, governance, and human review visible in technical decisions.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="ecosystem" aria-labelledby="ecosystem-title">
+        <div class="constellation" aria-hidden="true">
+          <span class="constellation-core">AS</span>
+          <span class="constellation-node node-a">Machine learning</span>
+          <span class="constellation-node node-b">Computer vision</span>
+          <span class="constellation-node node-c">Automation</span>
+          <span class="constellation-node node-d">Human review</span>
+        </div>
+        <h2 id="ecosystem-title">The integration ecosystem.</h2>
+        <p>Models become useful when they connect cleanly to evidence, workflows, people, and decisions.</p>
+      </section>
       <section class="section reveal" aria-labelledby="overview-title">
         <div class="section-ledger">
           <h2 id="overview-title">A portfolio built around evidence, not decoration.</h2>
@@ -1753,6 +1837,62 @@
     initReveals();
     initFlipWord();
     initVisionLab();
+    function buildAsciiArtwork() {
+      const target = document.getElementById("ascii-art");
+      if (!target) return;
+
+      const columns = window.innerWidth < 640 ? 88 : 124;
+      const rows = window.innerWidth < 640 ? 38 : 48;
+      const field = Array.from({ length: rows }, () => Array(columns).fill(" "));
+      const glyphs = [".", ":", "+", "*", "#", "@"];
+
+      for (let step = 0; step < 6200; step += 1) {
+        const t = (step / 6200) * Math.PI * 12;
+        const radius = Math.exp(Math.cos(t)) - 2 * Math.cos(4 * t) + Math.pow(Math.sin(t / 12), 5);
+        const x = Math.sin(t) * radius;
+        const y = Math.cos(t) * radius;
+        const column = Math.round(columns / 2 + x * columns * 0.085);
+        const row = Math.round(rows / 2 - y * rows * 0.095);
+
+        if (field[row]?.[column] !== undefined) {
+          const distance = Math.min(5, Math.floor(Math.abs(radius) * 1.2));
+          field[row][column] = glyphs[distance];
+        }
+      }
+
+      target.textContent = field.map((row) => row.join("")).join("\n");
+    }
+
+    let asciiFrame = 0;
+
+    function updateArtworkMotion() {
+      asciiFrame = 0;
+      const artwork = document.getElementById("ascii-art");
+      const network = document.querySelector(".constellation-core");
+      if (!artwork || reducedMotion) return;
+
+      const progress = Math.min(1, window.scrollY / Math.max(1, window.innerHeight));
+      artwork.style.setProperty("--ascii-y", `${progress * 54}px`);
+      artwork.style.setProperty("--ascii-scale", String(1 + progress * 0.09));
+      artwork.style.setProperty("--ascii-blur", `${progress * 1.4}px`);
+
+      if (network) {
+        const networkRect = network.closest(".ecosystem")?.getBoundingClientRect();
+        const offset = networkRect ? Math.max(-1, Math.min(1, networkRect.top / window.innerHeight)) : 0;
+        network.style.setProperty("--network-x", `${offset * 18}px`);
+        network.style.setProperty("--network-y", `${offset * -12}px`);
+      }
+    }
+
+    function requestArtworkMotion() {
+      if (!asciiFrame) asciiFrame = requestAnimationFrame(updateArtworkMotion);
+    }
+
+    buildAsciiArtwork();
+    window.addEventListener("resize", buildAsciiArtwork, { passive: true });
+    window.addEventListener("scroll", requestArtworkMotion, { passive: true });
+    updateArtworkMotion();
+
   </script>
 </body>
 </html>
