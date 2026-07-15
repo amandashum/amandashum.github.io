@@ -14,7 +14,7 @@ The current redesign uses a monochrome technical-specimen layout with generative
 - Asymmetric portfolio introduction with responsive ASCII artwork
 - Technical capability index and integration ecosystem
 - Selected project case studies
-- Vision Lab interaction for detection, depth, segmentation, and human review
+- Draggable Vision Lab stickers for detection, depth estimation, segmentation, and human review
 - Resume and working-principle highlights
 - Resume Agent for embedded resume Q&A
 - Resume PDF and contact links

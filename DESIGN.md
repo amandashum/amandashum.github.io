@@ -40,7 +40,7 @@ Color is restrained and functional. Blue appears only for keyboard focus and sel
 - Buttons: high-contrast rectangular controls with a subtle 6px radius and press feedback.
 - ASCII field: responsive generated text art, decorative and hidden from assistive technology.
 - Project archive: selectable index paired with an evidence-focused project detail.
-- Vision Lab: reviewable four-state computer-vision demonstration.
+- Vision Lab: draggable technique stickers arranged on a glossy tray, with pointer and keyboard controls.
 - Resume Agent: fixed dialog-style panel using the same monochrome system.
 
 ## Motion

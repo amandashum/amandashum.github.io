@@ -1237,10 +1237,10 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
 .vision-lab{grid-template-columns:minmax(0,1.5fr) minmax(220px,.5fr);border:1px solid var(--line);background:#fff}.vision-stage{min-height:560px;border:0;border-right:1px solid var(--line);background:#e9e9e5}.vision-feed{filter:grayscale(1);background:linear-gradient(145deg,transparent 35%,rgba(17,17,16,.13) 36%,transparent 38%),linear-gradient(30deg,#ededeb 0 46%,#d4d4cf 47% 54%,#f7f7f5 55%)}.vision-caption{background:rgba(251,251,250,.92);color:var(--ink)}.vision-controls{border:0;background:var(--bg)}.vision-button{border-bottom:1px solid var(--line);color:var(--ink)}.vision-button.active{background:var(--ink);color:#fff}
 .metrics{border-color:var(--line)}.stat{border-color:var(--line)}.stat strong{color:var(--ink)}.stat span{color:var(--muted)}.stack-link{border-color:var(--line);color:var(--ink)}.contact-bar{padding:clamp(34px,6vw,72px);border:1px solid var(--ink);background:var(--ink);color:#fff}.contact-bar h2{color:#fff}.contact-bar p{color:#c9c9c4}.contact-bar .button{background:#fff;color:var(--ink)}.contact-bar .button.secondary{background:transparent;color:#fff;border-color:#6d6d69}
 .agent-launcher{border-radius:6px;background:var(--ink);color:#fff}.agent-panel{border:1px solid var(--ink);border-radius:8px;background:#fff;color:var(--ink);box-shadow:0 8px 0 rgba(17,17,16,.08)}.agent-message{background:var(--panel-2);color:var(--ink)}.agent-message.user{background:var(--ink);color:#fff}.footer{width:100%;padding:48px clamp(20px,3vw,48px);color:var(--muted)}
-@media (hover:hover) and (pointer:fine){.capability:hover .capability-glyph{transform:scale(1.03);filter:blur(1.5px)}}
+.vision-tray{position:relative;min-height:clamp(430px,55vw,620px);overflow:hidden;isolation:isolate;border:1px solid var(--line-strong);background:#d8d8d2;touch-action:none;user-select:none}.vision-tray::before{content:"";position:absolute;inset:0;z-index:-2;background:radial-gradient(circle at 18% 15%,rgba(255,255,255,.82),transparent 24%),linear-gradient(145deg,#f4f4f0 0%,#c9c9c2 44%,#ecece8 100%)}.vision-tray-surface{position:absolute;inset:clamp(48px,8vw,92px) clamp(22px,7vw,82px) clamp(62px,9vw,104px);border-radius:16px;background:linear-gradient(140deg,rgba(255,255,255,.58),rgba(255,255,255,.08) 38%,rgba(17,17,16,.08)),rgba(251,251,250,.34);box-shadow:inset 0 1px 0 rgba(255,255,255,.9),inset 0 -6px 10px rgba(17,17,16,.12),0 8px 0 rgba(17,17,16,.16);backdrop-filter:blur(8px) saturate(.8);pointer-events:none}.vision-tray-surface::after{content:"";position:absolute;left:8%;top:10%;width:44%;height:18%;border-radius:999px;background:linear-gradient(90deg,rgba(255,255,255,.72),transparent);transform:rotate(-4deg)}.vision-stickers{position:absolute;inset:0}.vision-sticker{position:absolute;width:clamp(104px,15vw,148px);aspect-ratio:1;padding:19px;border:0;border-radius:50%;display:grid;place-content:center;gap:2px;color:#fff;background:radial-gradient(circle at 31% 22%,rgba(255,255,255,.58),transparent 23%),radial-gradient(circle at 50% 55%,#2f2f2c 0 56%,#111110 76%,#464640 100%);box-shadow:0 7px 8px rgba(17,17,16,.3),inset 0 1px 0 rgba(255,255,255,.72);cursor:grab;transform:translate3d(0,0,0) rotate(var(--rotation));transition:box-shadow 180ms var(--ease-out),transform 220ms var(--ease-out);will-change:left,top,transform}.vision-sticker:nth-child(2n){color:#111110;background:radial-gradient(circle at 31% 22%,rgba(255,255,255,.75),transparent 24%),radial-gradient(circle at 50% 55%,#f7f7f4 0 56%,#d7d7d1 76%,#fff 100%)}.vision-sticker[data-accent="true"]{color:#111110;background:radial-gradient(circle at 31% 22%,rgba(255,255,255,.65),transparent 24%),radial-gradient(circle at 50% 55%,#f07b45 0 56%,#e8642b 76%,#ff9b69 100%)}.vision-sticker:hover,.vision-sticker:focus-visible{box-shadow:0 10px 10px rgba(17,17,16,.34),inset 0 1px 0 rgba(255,255,255,.76)}.vision-sticker.is-dragging{z-index:8;cursor:grabbing;box-shadow:0 16px 12px rgba(17,17,16,.3),inset 0 1px 0 rgba(255,255,255,.8);transform:translate3d(0,-10px,0) rotate(var(--rotation)) scale(1.03);transition:box-shadow 100ms linear}.vision-sticker-symbol{font:500 clamp(2rem,4vw,3rem)/1 var(--font-display)}.vision-sticker-label{font-size:clamp(.64rem,1.2vw,.78rem);font-weight:850;letter-spacing:.08em}.vision-sticker-ring{position:absolute;inset:9px;border:1px solid currentColor;border-radius:50%;opacity:.42;pointer-events:none}.vision-reset{position:absolute;top:16px;right:16px;z-index:10;border:1px solid #111110;border-radius:6px;padding:9px 13px;color:#fff;background:#111110;cursor:pointer}.vision-instructions{position:absolute;left:clamp(22px,7vw,82px);right:clamp(22px,7vw,82px);bottom:16px;margin:0;color:#42423f;font-size:.82rem;text-align:center}@media (hover:hover) and (pointer:fine){.capability:hover .capability-glyph{transform:scale(1.03);filter:blur(1.5px)}}
 @media (max-width:900px){.site{width:calc(100% - 8px);margin:4px}.hero{min-height:760px;grid-template-columns:1fr}.hero h1,.hero-lede,.hero .actions{grid-column:1}.hero-lede{margin:26px 0 0}.hero .actions{margin-top:420px}.ascii-stage{top:250px;width:1100px}.section-ledger{grid-template-columns:1fr}.archive-grid,.vision-lab{grid-template-columns:1fr}.panel-nav{border-right:0}.vision-stage{border-right:0;border-bottom:1px solid var(--line)}}
 @media (max-width:640px){.brand span:last-child,.nav a:nth-child(2),.nav a:nth-child(3){display:none}.hero{min-height:700px;padding-top:54px}.hero h1{font-size:clamp(2.6rem,15vw,4.2rem)}.hero .actions{margin-top:350px;flex-wrap:wrap}.ascii-stage{top:245px;width:900px;height:340px}.section{padding-block:86px}.split-copy,.capability-grid{grid-template-columns:1fr}.copy-block+.copy-block{border-left:0;border-top:1px solid var(--line)}.metrics{grid-template-columns:repeat(2,1fr)}}
-@media (prefers-reduced-motion:reduce){.ascii-art{transform:none!important;filter:none!important}.capability-glyph{transition:opacity 180ms ease}}
+@media (prefers-reduced-motion:reduce){.ascii-art{transform:none!important;filter:none!important}.capability-glyph{transition:opacity 180ms ease}.vision-sticker{transition:none}}
 </style>
 <style id="reference-redesign-fixes">
 .hero h1,.hero-lede{position:relative;z-index:2}
@@ -1379,7 +1379,7 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
           </article>
           <article class="copy-block">
             <h3>Solution</h3>
-            <p>This page uses a case-study structure, a visual computing motif, a local resume knowledge base, and an interactive computer vision pipeline to make the work easier to scan, question, and remember.</p>
+            <p>This page uses a case-study structure, a visual computing motif, a local resume knowledge base, and an interactive computer vision technique tray to make the work easier to scan, question, and remember.</p>
           </article>
         </div>
         <div class="feature-image" aria-label="Palm and hillside portfolio visual">
@@ -1402,24 +1402,14 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
 
       <section class="section reveal" id="vision-lab" aria-labelledby="vision-title">
         <div class="section-ledger">
-          <h2 id="vision-title">Computer vision techniques, shown as a reviewable pipeline.</h2>
-          <p>Move through detection, depth, segmentation, and human review. Each state shows how model output becomes something a person can inspect.</p>
+          <h2 id="vision-title">Computer vision techniques, collected in one place.</h2>
+          <p>A hands-on collection of the methods I use to turn visual data into reviewable evidence.</p>
         </div>
-        <div class="vision-lab">
-          <div class="vision-stage" id="vision-stage" data-mode="detect" aria-live="polite">
-            <div class="vision-feed" aria-hidden="true">
-              <span class="vision-depth"></span>
-              <span class="vision-mask"></span>
-              <span class="vision-box primary" data-label="road defect / 0.94"></span>
-              <span class="vision-box secondary" data-label="road edge / 0.81"></span>
-              <span class="vision-scan"></span>
-            </div>
-            <div class="vision-caption">
-              <strong id="vision-title-active">Bounding boxes locate candidate objects.</strong>
-              <span id="vision-copy-active">Object detection turns raw frames into regions a reviewer can inspect.</span>
-            </div>
-          </div>
-          <div class="vision-controls" id="vision-controls" aria-label="Computer vision technique controls"></div>
+        <div class="vision-tray" id="vision-tray" aria-label="Interactive computer vision technique tray">
+          <div class="vision-tray-surface" aria-hidden="true"></div>
+          <button class="vision-reset" id="vision-reset" type="button">Reset stickers</button>
+          <div class="vision-stickers" id="vision-stickers"></div>
+          <p class="vision-instructions">Drag the stickers or use the arrow keys to explore the techniques I have learned.</p>
         </div>
       </section>
 
@@ -1493,10 +1483,9 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
     const agentMessages = document.getElementById("agent-messages");
     const agentForm = document.getElementById("agent-form");
     const agentInput = document.getElementById("agent-input");
-    const visionStage = document.getElementById("vision-stage");
-    const visionControls = document.getElementById("vision-controls");
-    const visionTitleActive = document.getElementById("vision-title-active");
-    const visionCopyActive = document.getElementById("vision-copy-active");
+    const visionTray = document.getElementById("vision-tray");
+    const visionStickers = document.getElementById("vision-stickers");
+    const visionReset = document.getElementById("vision-reset");
     const flipPhrase = document.getElementById("flip-phrase");
     const flipPhrases = [
       "Applied AI Solutions",
@@ -1508,31 +1497,11 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
       "Digital Transformation",
       "Human-Centered Technology"
     ];
-    const visionModes = [
-      {
-        id: "detect",
-        label: "Detection",
-        title: "Bounding boxes locate candidate objects.",
-        text: "Object detection turns raw frames into regions a reviewer can inspect."
-      },
-      {
-        id: "depth",
-        label: "Depth",
-        title: "Depth estimation adds severity context.",
-        text: "Depth maps help separate a flat mark from a defect that needs attention."
-      },
-      {
-        id: "segment",
-        label: "Segmentation",
-        title: "Segmentation isolates the measured area.",
-        text: "Masks make model output easier to compare, measure, and challenge."
-      },
-      {
-        id: "review",
-        label: "Human Review",
-        title: "Confidence stays visible for review.",
-        text: "The final state keeps model evidence, confidence, and human judgment together."
-      }
+    const visionTechniques = [
+      { id: "detection", label: "Detection", shortLabel: "DETECT", symbol: "&#9633;", description: "Locating and classifying objects with bounding boxes." },
+      { id: "depth", label: "Depth Estimation", shortLabel: "DEPTH", symbol: "&#9643;", description: "Estimating spatial distance and scene geometry." },
+      { id: "segmentation", label: "Segmentation", shortLabel: "MASK", symbol: "&#9682;", description: "Separating meaningful regions at the pixel level." },
+      { id: "review", label: "Human Review", shortLabel: "REVIEW", symbol: "&#9678;", description: "Keeping confidence, evidence, and human judgment together." }
     ];
 
     const panels = [
@@ -1796,41 +1765,102 @@ html,body{background:var(--bg);color:var(--ink)}body{line-height:1.5}body::befor
     }
 
     function initVisionLab() {
-      if (!visionStage || !visionControls || !visionTitleActive || !visionCopyActive) return;
-      let activeIndex = 0;
-      let autoTimer;
+      if (!visionTray || !visionStickers || !visionReset) return;
+      const rotations = [-7, 5, -3, 8];
+      let activeSticker = null;
+      let pointerOffset = { x: 0, y: 0 };
 
-      function setVisionMode(index, userInitiated = false) {
-        activeIndex = (index + visionModes.length) % visionModes.length;
-        const mode = visionModes[activeIndex];
-        visionStage.dataset.mode = mode.id;
-        visionTitleActive.textContent = mode.title;
-        visionCopyActive.textContent = mode.text;
-        visionControls.querySelectorAll("[data-vision-mode]").forEach((button, buttonIndex) => {
-          const isActive = buttonIndex === activeIndex;
-          button.classList.toggle("active", isActive);
-          button.setAttribute("aria-pressed", String(isActive));
-        });
-        if (userInitiated && autoTimer) {
-          window.clearInterval(autoTimer);
-        }
-      }
-
-      visionControls.innerHTML = visionModes.map((mode, index) => `
-        <button class="vision-control ${index === 0 ? "active" : ""}" type="button" data-vision-mode="${mode.id}" aria-pressed="${index === 0}">
-          <strong>${mode.label}</strong>
-          <span>${mode.text}</span>
+      visionStickers.innerHTML = visionTechniques.map((technique, index) => `
+        <button
+          class="vision-sticker"
+          type="button"
+          data-technique="${technique.id}"
+          data-accent="${technique.id === "segmentation"}"
+          aria-label="${technique.label}: ${technique.description} Drag this sticker or move it with the arrow keys."
+          style="--rotation:${rotations[index]}deg"
+        >
+          <span class="vision-sticker-ring" aria-hidden="true"></span>
+          <span class="vision-sticker-symbol" aria-hidden="true">${technique.symbol}</span>
+          <span class="vision-sticker-label">${technique.shortLabel}</span>
         </button>
       `).join("");
 
-      visionControls.querySelectorAll("[data-vision-mode]").forEach((button, index) => {
-        button.addEventListener("click", () => setVisionMode(index, true));
+      const stickers = [...visionStickers.querySelectorAll(".vision-sticker")];
+
+      function getBounds(sticker) {
+        const trayRect = visionTray.getBoundingClientRect();
+        const surfaceRect = visionTray.querySelector(".vision-tray-surface").getBoundingClientRect();
+        return {
+          minX: surfaceRect.left - trayRect.left + 8,
+          maxX: surfaceRect.right - trayRect.left - sticker.offsetWidth - 8,
+          minY: surfaceRect.top - trayRect.top + 8,
+          maxY: surfaceRect.bottom - trayRect.top - sticker.offsetHeight - 8
+        };
+      }
+
+      function placeSticker(sticker, x, y) {
+        const bounds = getBounds(sticker);
+        sticker.style.left = `${Math.max(bounds.minX, Math.min(bounds.maxX, x))}px`;
+        sticker.style.top = `${Math.max(bounds.minY, Math.min(bounds.maxY, y))}px`;
+      }
+
+      function resetStickers() {
+        const trayRect = visionTray.getBoundingClientRect();
+        const surfaceRect = visionTray.querySelector(".vision-tray-surface").getBoundingClientRect();
+        const width = surfaceRect.width;
+        const height = surfaceRect.height;
+        const positions = width < 520
+          ? [[0.08, 0.08], [0.54, 0.08], [0.08, 0.56], [0.54, 0.56]]
+          : [[0.07, 0.16], [0.31, 0.48], [0.55, 0.12], [0.74, 0.52]];
+        stickers.forEach((sticker, index) => {
+          const x = surfaceRect.left - trayRect.left + positions[index][0] * width;
+          const y = surfaceRect.top - trayRect.top + positions[index][1] * height;
+          placeSticker(sticker, x, y);
+        });
+      }
+
+      stickers.forEach((sticker) => {
+        sticker.addEventListener("pointerdown", (event) => {
+          if (event.pointerType === "mouse" && event.button !== 0) return;
+          const trayRect = visionTray.getBoundingClientRect();
+          const stickerRect = sticker.getBoundingClientRect();
+          activeSticker = sticker;
+          pointerOffset = { x: event.clientX - stickerRect.left, y: event.clientY - stickerRect.top };
+          sticker.classList.add("is-dragging");
+          sticker.setPointerCapture(event.pointerId);
+          placeSticker(sticker, event.clientX - trayRect.left - pointerOffset.x, event.clientY - trayRect.top - pointerOffset.y);
+        });
+
+        sticker.addEventListener("pointermove", (event) => {
+          if (activeSticker !== sticker || !sticker.hasPointerCapture(event.pointerId)) return;
+          const trayRect = visionTray.getBoundingClientRect();
+          placeSticker(sticker, event.clientX - trayRect.left - pointerOffset.x, event.clientY - trayRect.top - pointerOffset.y);
+        });
+
+        const releaseSticker = (event) => {
+          if (activeSticker !== sticker) return;
+          sticker.classList.remove("is-dragging");
+          if (sticker.hasPointerCapture(event.pointerId)) sticker.releasePointerCapture(event.pointerId);
+          activeSticker = null;
+        };
+        sticker.addEventListener("pointerup", releaseSticker);
+        sticker.addEventListener("pointercancel", releaseSticker);
+
+        sticker.addEventListener("keydown", (event) => {
+          const movement = event.shiftKey ? 24 : 10;
+          const keyMovement = {
+            ArrowLeft: [-movement, 0], ArrowRight: [movement, 0],
+            ArrowUp: [0, -movement], ArrowDown: [0, movement]
+          }[event.key];
+          if (!keyMovement) return;
+          event.preventDefault();
+          placeSticker(sticker, sticker.offsetLeft + keyMovement[0], sticker.offsetTop + keyMovement[1]);
+        });
       });
 
-      setVisionMode(0);
-      if (!reducedMotion) {
-        autoTimer = window.setInterval(() => setVisionMode(activeIndex + 1), 4200);
-      }
+      visionReset.addEventListener("click", resetStickers);
+      window.addEventListener("resize", resetStickers);
+      requestAnimationFrame(resetStickers);
     }
 
     selectPanel(panels[0].id);
