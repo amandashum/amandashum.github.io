@@ -2,21 +2,21 @@
 
 ## Direction
 
-A monochrome technical specimen: precise rules, large areas of true white, black controls, restrained typography, and generative ASCII imagery. The visual reference is `Desktop.jpg`, interpreted with Amanda's real portfolio content rather than copied placeholder material.
+A cobalt portfolio specimen inspired by `template.png`: a bright canvas, oversized serif nameplate, pill navigation, ruled section headers, technical case-study imagery, and a decisive blue contact surface. The reference is interpreted with Amanda's real portfolio content rather than copied placeholder material.
 
 ## Color
 
-- Canvas: `#fbfbfa`
-- Surface: `#f3f3f1`
-- Ink: `#111110`
+- Canvas: `#fbfbfb`
+- Surface: `#f0f0f0`
+- Ink: `#2433b2`
 - Muted ink: `#686865`
 - Structural line: `#deded9`
 - Strong line: `#aaa9a3`
 - Inverse surface: `#111110`
 - Inverse ink: `#ffffff`
-- Focus: `#315efb`
+- Focus: `#ff8a52`
 
-Color is restrained and functional. Blue appears only for keyboard focus and selected technical states.
+Color is committed and structural. Cobalt carries typography, rules, selected states, and the contact surface.
 
 ## Typography
 
@@ -40,7 +40,7 @@ Color is restrained and functional. Blue appears only for keyboard focus and sel
 - Buttons: high-contrast rectangular controls with a subtle 6px radius and press feedback.
 - ASCII field: responsive generated text art, decorative and hidden from assistive technology.
 - Project archive: selectable index paired with an evidence-focused project detail.
-- Vision Lab: draggable technique stickers arranged on a glossy tray, with pointer and keyboard controls.
+- CanAI case study: an asymmetric proof statement followed by a ruled narrative sequence and compact skill tags.
 - Resume Agent: fixed dialog-style panel using the same monochrome system.
 
 ## Motion
@@ -56,5 +56,5 @@ Color is restrained and functional. Blue appears only for keyboard focus and sel
 - WCAG 2.2 AA contrast target.
 - Visible `:focus-visible` outlines.
 - Semantic headings and landmarks.
-- Keyboard-operable project tabs, Vision Lab, FAQ, and Resume Agent.
+- Keyboard-operable project tabs, FAQ, and Resume Agent.
 - Motion alternatives and touch-safe hover rules.

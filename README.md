@@ -7,14 +7,14 @@ This repository contains the source files for Amanda Shum's personal website, ho
 
 This is a one-page personal portfolio for Amanda Shum's applied AI, computer vision, automation, visual computing, and technical leadership work.
 
-The current redesign uses a monochrome technical-specimen layout with generative ASCII artwork, a selected project archive, an interactive computer vision demo, impact evidence, and an embedded Resume Agent.
+The current redesign uses a cobalt portfolio layout based on `template.png`, with an oversized serif nameplate, selected project archive, an evidence-focused CanAI Garage case study, impact evidence, and an embedded Resume Agent.
 
 ## Site Sections
 
 - Asymmetric portfolio introduction with responsive ASCII artwork
 - Technical capability index and integration ecosystem
 - Selected project case studies
-- Draggable Vision Lab stickers for detection, depth estimation, segmentation, and human review
+- CanAI Garage case study covering the problem, users, alternatives, insight, solution, and demonstrated skills
 - Resume and working-principle highlights
 - Resume Agent for embedded resume Q&A
 - Resume PDF and contact links
@@ -27,7 +27,7 @@ The repository includes:
 - `assets/palm-scene.jpg` for the visual work section
 - `Amanda_Shum_Resume.pdf` for the resume download
 
-`Desktop.jpg` and `Navigation.png` are local visual references and are not required by the rendered page.
+`template.png` is the active visual reference and is not required by the rendered page.
 
 ## Design Documentation
 
