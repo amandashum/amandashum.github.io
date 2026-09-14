@@ -1,60 +1,40 @@
-# Design System
+# Scene-understanding design
 
-## Direction
+## Visual direction
 
-A cobalt portfolio specimen inspired by `template.png`: a bright canvas, oversized serif nameplate, pill navigation, ruled section headers, technical case-study imagery, and a decisive blue contact surface. The reference is interpreted with Amanda's real portfolio content rather than copied placeholder material.
+A visitor examines an illuminated photographic scene against a dark studio background. The scene has the visual presence of a Blender render, with genuine depth-derived geometry that responds to input. The photograph carries the colour; the surrounding page uses graphite `#101416`, cool white `#f3f6f7`, and cyan `#64d9ec`.
 
-## Color
+Existing local Bahnschrift and Segoe UI fallbacks avoid external font requests. Consolas is restricted to short coordinates, model details, and scene controls. Large headlines, open spacing, thin rules, and restrained borders keep the site sleek.
 
-- Canvas: `#fbfbfb`
-- Surface: `#f0f0f0`
-- Ink: `#2433b2`
-- Muted ink: `#686865`
-- Structural line: `#deded9`
-- Strong line: `#aaa9a3`
-- Inverse surface: `#111110`
-- Inverse ink: `#ffffff`
-- Focus: `#ff8a52`
+## Representations
 
-Color is committed and structural. Cobalt carries typography, rules, selected states, and the contact surface.
+1. **Image:** original RGB photograph on a WebGL plane.
+2. **Objects:** RT-DETR bounding boxes and actual model scores; no lifted rectangular crops.
+3. **Semantics:** model-predicted ADE20K class map. Roads, vehicles, and trees/plants can be highlighted independently.
+4. **Depth:** normalized relative inverse depth, displayed from far/dark to near/bright.
+5. **3D scene:** a Blender mesh with shape keys that interpolate between an image plane and a depth-derived surface. All semantic groups share the same depth field.
+6. **Pixels:** RGB sample lattice retaining original image coordinates.
 
-## Typography
+The 3D scene also offers a point-cloud representation. Semantic filters dim unrelated regions rather than assigning classes arbitrary stacked depths. Clicking a surface reports its predicted class and original-image coordinate.
 
-- Display: Georgia, Times New Roman, serif
-- Interface and body: Geist, Segoe UI Variable, system sans-serif
-- Technical output: Cascadia Mono, SFMono-Regular, Consolas, monospace
-- Display headings use balanced wrapping and never exceed three lines.
-- Body copy is limited to 70 characters per line.
+## Geometry and interaction
 
-## Layout
+The source has top-left image coordinates. Blender uses X right, Z up, and -Y toward the viewer; glTF exports to X right, Y up, and +Z toward the viewer. The inference depth grid is 180 × 249. The assumed viewing distance is eight display units; depth is mapped to a 3.6-unit display range. These are visualization assumptions, not calibration.
 
-- Maximum content width: 1440px
-- Outer gutter: `clamp(20px, 3vw, 48px)`
-- Sections use thin borders and generous vertical rhythm.
-- Asymmetry is used for narrative emphasis; repeated equal cards are avoided outside the capability matrix.
-- Mobile layouts collapse to one column without horizontal overflow.
+Drag and arrow keys orbit through limited angles. Home, Escape, or Reset restores the default view. The depth-strength range morphs actual vertices from 2D into 3D. Initial scrolling modestly increases reconstruction strength until the user explicitly controls a representation or slider.
 
-## Components
+Frames run only while geometry is settling or input changes. Offscreen/hidden scenes pause. Device pixel ratio is capped at 1.75. The surface export uses smooth vertex normals and omits morph-normal payloads to keep the transfer below 3 MB.
 
-- Navigation: compact centered links with a geometric four-square mark.
-- Buttons: high-contrast rectangular controls with a subtle 6px radius and press feedback.
-- ASCII field: responsive generated text art, decorative and hidden from assistive technology.
-- Project archive: selectable index paired with an evidence-focused project detail.
-- CanAI case study: an asymmetric proof statement followed by a ruled narrative sequence and compact skill tags.
-- Resume Agent: fixed dialog-style panel using the same monochrome system.
+## Accessibility and failure states
 
-## Motion
+Native buttons expose pressed state. The range has an accessible label. Filters have visible text, not colour-only labels. Semantic class descriptions are available through buttons as well as pointer picking. Essential project content is semantic HTML, with a skip link and direct navigation.
 
-- Motion explains hierarchy, state, or spatial continuity.
-- Interactive transitions remain below 300ms.
-- Scroll-driven ASCII transformations use `requestAnimationFrame` and transform/filter properties.
-- Section reveals enhance visible content and never gate access.
-- `prefers-reduced-motion` removes positional movement while retaining short opacity feedback.
+Reduced-motion preference disables scroll-driven movement and interpolation. Manual camera commands still work discretely. Vertical touch scrolling remains available.
 
-## Accessibility
+A rendered Blender poster remains available before initialization and on asset/WebGL failure. All project content is readable without JavaScript. Dynamic import failure also updates the fallback status.
 
-- WCAG 2.2 AA contrast target.
-- Visible `:focus-visible` outlines.
-- Semantic headings and landmarks.
-- Keyboard-operable project tabs, FAQ, and Resume Agent.
-- Motion alternatives and touch-safe hover rules.
+## Evidence and limitations
+
+The scene contains genuine pretrained-model outputs. Detection and segmentation are separate tasks and may disagree. Tiny vehicles are a particular weakness of the semantic baseline. Depth discontinuities may stretch the surface; sky is an estimated background, not finite measured geometry. The point cloud exposes these limitations rather than filling unseen surfaces.
+
+Project visuals are clearly identified as illustrative scene studies or this portfolio's own geometry, not outputs of Amanda's separate academic projects.

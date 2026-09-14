@@ -1,0 +1,5 @@
+# Reproducible local inference caches and browser verification artifacts.
+output/
+.playwright-cli/
+__pycache__/
+*.blend1
