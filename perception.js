@@ -227,6 +227,9 @@ function setFilter(filter){
 
 /** Restore the default depth reconstruction and camera orientation. */
 function reset(){
+  camera.zoom = 1;
+  camera.updateProjectionMatrix();
+  document.querySelector('#zoom-value').value = '100%';
   state.strength=.85;state.points=false;slider.value='85';
   document.querySelector('#separation-value').value='85%';
   document.querySelector('#point-toggle').setAttribute('aria-pressed','false');
@@ -239,13 +242,12 @@ function changeDepth(){
   document.querySelector('#separation-value').value=`${slider.value}%`;invalidate();
 }
 
-/** Gently unfold the initial representation while preserving ordinary page scroll. */
-function scroll(){
-  if(!state.ready||state.manual||reduced.matches||state.mode!=='spatial')return;
-  const top=document.querySelector('#home').getBoundingClientRect().top;
-  state.strength=clamp(.85+Math.max(0,-top)/1400,.85,1);
-  slider.value=String(Math.round(state.strength*100));
-  document.querySelector('#separation-value').value=`${slider.value}%`;invalidate();
+function changeZoom(amount) {
+  camera.zoom = clamp(camera.zoom + amount, .75, 2);
+  camera.updateProjectionMatrix();
+  document.querySelector('#zoom-value').value =
+    `${Math.round(camera.zoom * 100)}%`;
+  invalidate();
 }
 
 /** Begin a potential orbit gesture without preventing normal vertical scrolling. */
@@ -366,12 +368,16 @@ async function initialize(){
     });
     slider.addEventListener('input',changeDepth);
     document.querySelector('#reset-view').addEventListener('click',reset);
+    document.querySelector('#zoom-out')
+      .addEventListener('click', () => changeZoom(-.25));
+    document.querySelector('#zoom-in')
+      .addEventListener('click', () => changeZoom(.25));
     canvas.addEventListener('pointerdown',down);canvas.addEventListener('pointermove',move);
     canvas.addEventListener('pointerup',up);canvas.addEventListener('pointercancel',cancelDrag);
     canvas.addEventListener('lostpointercapture',cancelDrag);canvas.addEventListener('keydown',key);
     canvas.addEventListener('webglcontextlost',event=>{event.preventDefault();fallback(new Error('WebGL context lost; reload to retry.'));});
     document.addEventListener('visibilitychange',visibility);window.addEventListener('blur',cancelDrag);
-    window.addEventListener('scroll',scroll,{passive:true});reduced.addEventListener('change',motionChange);
+    reduced.addEventListener('change', motionChange);
     new ResizeObserver(resize).observe(viewport);new IntersectionObserver(intersection,{rootMargin:'40px'}).observe(viewport);
     state.ready=true;canvas.hidden=false;controls.hidden=false;poster.classList.add('is-loaded');
     document.querySelector('#reset-view').hidden=false;status.textContent='2D → 3D / interactive';

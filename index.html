@@ -53,12 +53,25 @@ import('./perception.js?v=perception-1').catch(() => {
 <button type="button" data-view="pixels" aria-pressed="false"><span>06</span> Pixels</button>
 </div>
 <div class="separation-control"><label for="separation">2D → 3D</label><input id="separation" type="range" min="0" max="100" value="85" aria-label="Depth reconstruction strength"><output id="separation-value" for="separation" aria-live="off">85%</output></div>
-<div class="view-description" role="status" aria-live="polite"><strong id="view-title">From image space to 3D.</strong><p id="view-description">A Blender-built surface uses estimated depth to position image samples in space.</p></div>
+<div class="demo-camera-controls" role="group" aria-label="Camera zoom">
+  <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
+  <output id="zoom-value" aria-live="polite">100%</output>
+  <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
+</div>
+<details class="demo-explanation">
+  <summary>How it works</summary>
+  <div class="view-description" role="status" aria-live="polite">
+    <strong id="view-title">Image → 3D</strong>
+    <p id="view-description">Estimated image depth becomes an interactive 3D surface.</p>
+  </div>
+  <p>Locally precomputed model output. Relative depth; unseen surfaces are not reconstructed.</p>
+  <a href="assets/perception/analysis.json">View model data</a>
+</details>
 <div class="semantic-controls" id="semantic-controls" role="group" aria-label="Highlight a semantic category"><button data-filter="all" type="button" aria-pressed="true">All</button><button data-filter="road" type="button" aria-pressed="false">Road</button><button data-filter="vehicles" type="button" aria-pressed="false">Vehicles</button><button data-filter="trees" type="button" aria-pressed="false">Trees</button></div>
 <div class="geometry-controls" id="geometry-controls"><button id="point-toggle" type="button" aria-pressed="false">Point cloud</button><span>Single-view geometry · relative scale</span></div>
 <div class="depth-legend" id="depth-legend" hidden><span>Far</span><i aria-hidden="true"></i><span>Near</span><span>Relative inverse depth</span></div>
 </div>
-<p class="scene-disclosure" id="scene-disclosure">Real model outputs, precomputed locally. Estimated geometry, not a measured reconstruction. <a href="assets/perception/analysis.json" target="_blank" rel="noopener">Inspect the data ↗</a></p>
+<p class="scene-disclosure" id="scene-disclosure">Real model output · Precomputed</p>
 <noscript><p class="fallback-note">This is the Blender-rendered preview. Enable JavaScript for the interactive scene; all project content is available below.</p></noscript>
 </div>
 </section>
