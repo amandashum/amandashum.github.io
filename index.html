@@ -3,117 +3,99 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101416">
-<meta name="description" content="Amanda Shum, Computer Vision Engineer. Building transparent, accessible AI through computer vision, product thinking, and leadership.">
+<meta name="theme-color" content="#ffffff">
+<meta name="description" content="Amanda Shum is a computer vision engineer and applied AI professional based in Burnaby, British Columbia. Explore her projects and experience.">
 <title>Amanda Shum — Computer Vision Engineer</title>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%23101416'/%3E%3Cpath d='M20 16H12V48H20M44 16H52V48H44M24 40L32 23L40 40M27 34H37' fill='none' stroke='%2364d9ec' stroke-width='3'/%3E%3C/svg%3E">
-<link rel="stylesheet" href="styles.css?v=perception-1">
-<script type="importmap">{"imports":{"three":"./assets/vendor/three/three.module.min.js"}}</script>
-<script type="module">
-// Preserve the Blender poster even if the renderer module itself cannot load.
-import('./perception.js?v=perception-1').catch(() => {
-  document.querySelector('#render-status').textContent = 'Blender-rendered preview';
-  document.querySelector('#scene-help').textContent = 'Interactive 3D unavailable. Showing the Blender render.';
-});
-</script>
+<link rel="stylesheet" href="styles.css?v=pipeline-1">
+<script src="pothole-demo.js?v=3" defer></script>
+<script src="skills-pipeline.js?v=2" defer></script>
 </head>
 
 <body>
 <a class="skip-link" href="#work">Skip to projects</a>
 <header class="topbar">
 <a class="wordmark" href="#home" aria-label="Amanda Shum home"><span class="monogram" aria-hidden="true">a<span>→</span>s</span><span>Amanda Shum</span></a>
-<nav aria-label="Main navigation"><a href="#work">Work</a><a href="#about">About</a><a href="#contact">Let’s connect <span aria-hidden="true">↗</span></a></nav>
+<nav aria-label="Main navigation"><a href="#about">About</a><a href="#experience">Experience</a><a href="#work">Projects</a><a href="#contact">Let’s connect <span aria-hidden="true">↗</span></a></nav>
 </header>
 <main>
+<div class="skills-pipeline" aria-hidden="true">
+<div class="pipeline-tube"></div>
+<div class="pipeline-floor"></div>
+<img src="assets/skills/python.svg" alt="" width="40" height="40">
+<img src="assets/skills/azure.svg" alt="" width="40" height="40">
+<img src="assets/skills/pytorch.svg" alt="" width="40" height="40">
+<img src="assets/skills/tensorflow.svg" alt="" width="40" height="40">
+<img src="assets/skills/numpy.svg" alt="" width="40" height="40">
+<img src="assets/skills/javascript.svg" alt="" width="40" height="40">
+<img src="assets/skills/github.svg" alt="" width="40" height="40">
+</div>
 <section class="hero" id="home" aria-labelledby="hero-title">
 <div class="hero-copy">
-<p class="profession"><span class="status-dot" aria-hidden="true"></span> Computer Vision Engineer · Applied AI · Technical Leadership</p>
-<h1 id="hero-title"><span class="hero-name">Amanda Shum.</span><br><span class="hero-thesis">Building responsible AI—and stronger teams.</span></h1>
-<p class="hero-description">I bring together AI engineering, product delivery, and people-focused leadership to turn complex challenges into practical solutions.</p>
-<a class="primary-link" href="#work">Explore my work <span aria-hidden="true">↘</span></a>
-<div class="hero-footnote"><span class="coordinate-mark" aria-hidden="true">+</span><p>A different perspective.<br><span>British Columbia, Canada</span></p></div>
+<p class="profession">Computer Vision Engineer</p>
+<h1 id="hero-title"><span class="hero-name">Hi, I’m Amanda.</span><br><span class="hero-thesis">I build computer vision and applied AI systems.</span></h1>
+<p class="hero-description">I develop models, automate workflows, and help teams plan and deliver AI projects.</p>
+<a class="primary-link" href="#work">View projects <span aria-hidden="true">↘</span></a>
+<div class="hero-footnote"><span class="coordinate-mark" aria-hidden="true">+</span><p>Burnaby, British Columbia</p></div>
 </div>
-<div class="scene-column">
-<div class="scene-meta"><span>Las Vegas / Scene understanding</span><span class="live-status" id="render-status">Loading representations</span></div>
-<div class="scene-viewport" id="scene-viewport" aria-label="Interactive computer vision representations of Las Vegas">
-<img id="scene-poster" class="scene-poster" src="assets/perception/scene-poster.webp" width="1200" height="1200" alt="A Blender-rendered surface of Las Vegas derived from estimated depth, showing the spatial relationship between buildings, road, water, and foreground trees." fetchpriority="high">
-<canvas id="vision-canvas" hidden tabindex="0" aria-label="Explore the scene with the representation buttons below. In 3D view, drag or use arrow keys to orbit. Click the surface to inspect a semantic label." aria-describedby="scene-help"></canvas>
-<div id="scene-labels" class="scene-labels" aria-hidden="true"></div>
-<span class="viewport-corner corner-tl" aria-hidden="true"></span><span class="viewport-corner corner-br" aria-hidden="true"></span>
-<div class="scene-hint" id="scene-help">Drag to orbit · Explore the representations below</div>
-<button class="reset-view" id="reset-view" type="button" aria-label="Reset scene and camera" hidden>↺ <span>Reset view</span></button>
-</div>
-<div class="scene-ui" id="scene-ui" hidden>
-<div class="view-controls" role="group" aria-label="Image representation">
-<button type="button" data-view="original" aria-pressed="false"><span>01</span> Image</button>
-<button type="button" data-view="objects" aria-pressed="false"><span>02</span> Objects</button>
-<button type="button" data-view="semantics" aria-pressed="false"><span>03</span> Semantics</button>
-<button type="button" data-view="depth" aria-pressed="false"><span>04</span> Depth</button>
-<button type="button" data-view="spatial" aria-pressed="true"><span>05</span> 3D scene</button>
-<button type="button" data-view="pixels" aria-pressed="false"><span>06</span> Pixels</button>
-</div>
-<div class="separation-control"><label for="separation">2D → 3D</label><input id="separation" type="range" min="0" max="100" value="85" aria-label="Depth reconstruction strength"><output id="separation-value" for="separation" aria-live="off">85%</output></div>
-<div class="demo-camera-controls" role="group" aria-label="Camera zoom">
-  <button id="zoom-out" type="button" aria-label="Zoom out">−</button>
-  <output id="zoom-value" aria-live="polite">100%</output>
-  <button id="zoom-in" type="button" aria-label="Zoom in">+</button>
-</div>
-<details class="demo-explanation">
-  <summary>How it works</summary>
-  <div class="view-description" role="status" aria-live="polite">
-    <strong id="view-title">Image → 3D</strong>
-    <p id="view-description">Estimated image depth becomes an interactive 3D surface.</p>
-  </div>
-  <p>Locally precomputed model output. Relative depth; unseen surfaces are not reconstructed.</p>
-  <a href="assets/perception/analysis.json">View model data</a>
-</details>
-<div class="semantic-controls" id="semantic-controls" role="group" aria-label="Highlight a semantic category"><button data-filter="all" type="button" aria-pressed="true">All</button><button data-filter="road" type="button" aria-pressed="false">Road</button><button data-filter="vehicles" type="button" aria-pressed="false">Vehicles</button><button data-filter="trees" type="button" aria-pressed="false">Trees</button></div>
-<div class="geometry-controls" id="geometry-controls"><button id="point-toggle" type="button" aria-pressed="false">Point cloud</button><span>Single-view geometry · relative scale</span></div>
-<div class="depth-legend" id="depth-legend" hidden><span>Far</span><i aria-hidden="true"></i><span>Near</span><span>Relative inverse depth</span></div>
-</div>
-<p class="scene-disclosure" id="scene-disclosure">Real model output · Precomputed</p>
-<noscript><p class="fallback-note">This is the Blender-rendered preview. Enable JavaScript for the interactive scene; all project content is available below.</p></noscript>
-</div>
+
 </section>
-<div class="expertise-strip" aria-label="Areas of practice"><span>Computer vision</span><span>Deep learning</span><span>Visual computing</span><span>Applied AI</span><span>Product thinking</span></div>
-<section class="work section-wrap" id="work" aria-labelledby="work-title">
-<header class="section-heading"><div><p class="section-label">Selected work</p><h2 id="work-title">Seeing the problem.<br>Building the system.</h2></div><p>From visual understanding to everyday operations. Technical work with a practical purpose.</p></header>
-<article class="featured-project" id="potholes">
-<div class="project-image road-study">
-<img src="las-vegas.jpeg" width="1085" height="1500" loading="lazy" alt="Las Vegas street and vehicles used as an illustrative region-of-interest study.">
-<div class="study-top"><span>Region of interest</span><span>Image-space analysis</span></div>
-<div class="roi-box" aria-hidden="true"><span>Selected region</span><i></i></div>
-<div class="study-bottom"><span>Locate → isolate → compare</span><span>Illustrative study</span></div>
+<section class="about section-wrap" id="about" aria-labelledby="about-title">
+<div class="about-heading"><h2 id="about-title">About</h2></div>
+<div class="about-copy">
+<p class="about-lead">I’m a computer vision engineer and applied AI professional based in Burnaby, British Columbia.</p>
+<p>I build computer vision systems and workflow automations, and contribute to public-sector AI projects. I also help teams define requirements, plan delivery, and document decisions.</p>
+<p>As a teaching assistant, I helped students understand databases, computer architecture, and introductory computer science. My work in housing-cooperative operations involved members, staff, and the Board across 21 residential properties.</p>
+<p>These experiences shape how I work: listen to the people involved, test assumptions, and follow through on the details.</p>
 </div>
-<div class="project-copy"><p class="project-meta">Computer vision / SFU / 2025</p><h3>Reading the road<br>beneath the surface.</h3><p class="project-subtitle">Pothole detection &amp; relative depth estimation</p><p>I combined YOLOv8 detection with MiDaS monocular depth estimation to distinguish potholes from the surrounding road.</p><p>The pipeline brings together bounding-box region analysis, depth normalization, and noise filtering across varied lighting, textures, and camera perspectives.</p><ul class="tags" aria-label="Tools"><li>YOLOv8</li><li>MiDaS</li><li>Region analysis</li></ul><p class="evidence-note">Relative depth compares the scene; it is not a measurement in centimetres. Visual is a scene study, not project output.</p></div>
+<div class="background-details"><div><h3>Education &amp; teaching</h3><dl><div><dt>Expected June 2027</dt><dd>Master of Professional Computer Science<span>Visual Computing · Simon Fraser University</span></dd></div><div><dt>2025</dt><dd>Bachelor of Computing, Honours<span>AI specialization · Queen’s University</span></dd></div><div><dt>2023–2025</dt><dd>Teaching Assistant<span>Databases, computer architecture, and introductory computer science · Queen’s</span></dd></div></dl></div><div><h3>Certifications</h3><dl><div><dt>September 2026</dt><dd>Microsoft Certified: Azure AI Apps and Agents Developer Associate<span>AI-103</span></dd></div></dl></div></div>
+</section>
+<section class="applied section-wrap" id="experience" aria-labelledby="applied-title">
+<header class="section-heading"><div><h2 id="applied-title">Experience</h2></div><p>My contributions to AI development, team delivery, and workflow automation.</p></header>
+<article class="applied-project" id="canai"><div class="applied-index" aria-hidden="true">↗</div><div><p class="project-meta">CanAI Garage / Shared Services Canada / 2026–present</p><h3>Azure AI and team delivery</h3><p>As an AI engineer and delivery contributor at CanAI Garage, I contribute to Azure chatbot development, GitHub Copilot frameworks, and technical planning. I help define requirements, scope work, and coordinate delivery.</p><p>As the product and project delivery lead for the Copilot customization framework, I coordinated two to four rotating team members to deliver more than 20 governed prompts, instructions, skills, and engineering standards.</p><ul class="tags"><li>Azure</li><li>GitHub Copilot</li><li>Technical planning</li></ul></div><aside class="project-aside"><h4>Azure AI</h4><p>As an AI engineering contributor, I work on public-sector applications using Azure OpenAI, Azure AI Search, Azure Functions, and Azure Blob Storage. My contributions include website ingestion, metadata management, content refresh, technical documentation, and governance.</p></aside></article>
+<article class="applied-project" id="kshc"><div class="applied-index" aria-hidden="true">↗</div><div><p class="project-meta">Science ’44 Co-op / Kingston Student Housing Co-operative / 2021–2025</p><h3>Housing workflow automation</h3><p>As the engineer of the housing workflow automation system, I built Google Apps Script tools for email, bookings, applications, document generation, approval workflows, and role-based dashboards.</p><p>I worked with members, staff, and the Board across 21 residential properties.</p><ul class="tags"><li>Google Apps Script</li><li>Workflow automation</li><li>Leadership</li></ul></div><dl class="impact-list"><div><dt>75%</dt><dd>reduction in administrative workload</dd></div><div><dt>10,000+</dt><dd>inquiries supported with responses within 24 hours</dd></div><div><dt>25%</dt><dd>booking increase through customer analysis, seasonal marketing, and room allocation</dd></div></dl></article>
+</section>
+<section class="work section-wrap" id="work" aria-labelledby="work-title">
+<header class="section-heading"><div><h2 id="work-title">Projects</h2></div><p>My work in computer vision, deep learning, and reinforcement learning.</p></header>
+<article class="featured-project" id="potholes">
+<div class="pothole-demo" aria-label="Interactive pothole detection">
+  <div class="pothole-frame">
+    <img id="pothole-image" src="assets/pothole/pothole_1.jpeg" width="1500" height="1004" alt="A large water-filled pothole on a cracked road." loading="lazy">
+    <svg id="pothole-boxes" aria-hidden="true" preserveAspectRatio="none" hidden></svg>
+  </div>
+  <div class="pothole-controls" id="pothole-controls" hidden>
+    <div class="pothole-samples" role="group" aria-label="Choose a road image">
+      <button type="button" data-sample="0" aria-pressed="true" aria-label="Road image 1"><img src="assets/pothole/pothole_1.jpeg" alt="" width="72" height="48"></button>
+      <button type="button" data-sample="1" aria-pressed="false" aria-label="Road image 2"><img src="assets/pothole/pothole_2.jpeg" alt="" width="72" height="48"></button>
+      <button type="button" data-sample="2" aria-pressed="false" aria-label="Road image 3"><img src="assets/pothole/pothole_3.jpg" alt="" width="72" height="48"></button>
+      <button type="button" data-sample="3" aria-pressed="false" aria-label="Road image 4"><img src="assets/pothole/pothole_4.jpeg" alt="" width="72" height="48"></button>
+    </div>
+    <button type="button" id="pothole-toggle" aria-pressed="false">Show detections</button>
+    <button type="button" id="pothole-reset">Reset</button>
+    <div class="pothole-threshold"><label for="pothole-confidence">Confidence</label><input id="pothole-confidence" type="range" min="10" max="95" step="5" value="40"><output id="pothole-confidence-value" for="pothole-confidence">40%</output></div>
+  </div>
+  <p id="pothole-status" class="pothole-status" role="status"></p>
+  <details class="pothole-results" id="pothole-results" hidden><summary>View detections</summary><ol id="pothole-result-list"></ol></details>
+</div>
+<div class="project-copy"><p class="project-meta">Computer vision / SFU / 2025</p><h3>Pothole detection</h3><p>As a computer vision engineer on this project, I combined YOLOv8 detection with MiDaS depth estimation to analyse potholes and the surrounding road.</p><p>I used bounding-box regions, depth normalization, and noise filtering across varied lighting, road textures, and camera angles.</p><ul class="tags" aria-label="Tools"><li>YOLOv8</li><li>MiDaS</li><li>Region analysis</li></ul><p class="evidence-note">This demo shows saved predictions from my trained YOLOv8 model. The confidence control filters model scores; it does not measure accuracy. MiDaS estimates relative depth, not pothole depth in centimetres.</p></div>
 </article>
 <div class="research-pair">
 <article class="research-project" id="fruit">
 <div class="method-visual classification-visual" role="img" aria-label="Two-stage architecture: a primary CNN classifies the fruit, then a fruit-specific CNN predicts ripeness.">
 <div class="tensor" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
 <div class="model-flow"><span>Input image</span><i aria-hidden="true">↓</i><strong>Fruit classifier</strong><i aria-hidden="true">↓</i><strong class="flow-specialist">Ripeness specialist</strong></div>
-<span class="visual-caption">Two stages. One focused prediction.</span>
+<span class="visual-caption">Fruit classification followed by ripeness prediction.</span>
 </div>
-<p class="project-meta">Deep learning / Queen’s / 2024</p><h3>First, which fruit?<br>Then, how ripe?</h3><p>A primary CNN identifies the fruit, then a fruit-specific CNN predicts its ripeness. Separating these tasks lets each specialist focus on the characteristics of its fruit class.</p><p class="inline-result"><strong>96%</strong><span>fruit-classification accuracy<br><small>Ripeness accuracy is not reported.</small></span></p><ul class="tags"><li>TensorFlow</li><li>NumPy</li><li>CNNs</li></ul>
+<p class="project-meta">Deep learning / Queen’s / 2024</p><h3>Fruit classification and ripeness</h3><p>As a deep learning engineer on this project, I built a two-stage system: one CNN identifies the fruit, then a fruit-specific CNN predicts ripeness.</p><p class="inline-result"><strong>96%</strong><span>fruit-classification accuracy<br><small>Ripeness accuracy is not reported.</small></span></p><ul class="tags"><li>TensorFlow</li><li>NumPy</li><li>CNNs</li></ul>
 </article>
-<article class="research-project" id="mesh">
-<div class="method-visual reconstruction-visual"><img src="assets/perception/scene-poster.webp" width="1400" height="1400" loading="lazy" alt="Blender surface derived from estimated image depth, illustrating the move from two-dimensional pixels into three-dimensional geometry."><span class="visual-caption">Image → segmentation → geometry</span></div>
-<p class="project-meta">Visual computing / SFU / 2026</p><h3>Another dimension<br>of understanding.</h3><p>I explored single-image 3D reconstruction using SAM for foreground segmentation, TRELLIS / TripoSR for mesh generation, and Gaussian splatting for refinement.</p><p class="evidence-note">Completed April 2026. My exact implementation contribution is still being confirmed. Visual shows this portfolio’s Blender scene, not reconstruction project output.</p><ul class="tags"><li>SAM</li><li>3D reconstruction</li><li>Gaussian splatting</li></ul>
+<article class="research-project" id="gridworld">
+<div class="method-visual gridworld-visual" role="img" aria-label="Gridworld coverage: an agent observes its position, selects a move, and receives a reward for coverage."><div>Observe</div><span aria-hidden="true">→</span><div>Choose a move</div><span aria-hidden="true">→</span><div>Update coverage</div></div>
+<p class="project-meta">Reinforcement learning / January–April 2025</p><h3>Gridworld coverage</h3><p>As a reinforcement learning engineer on this project, I built a custom Gridworld environment and trained agents to cover its area. I refined reward functions and observation-space configurations, achieving an 85% area-coverage success rate.</p><p class="inline-result"><strong>85%</strong><span>area-coverage success rate</span></p><ul class="tags"><li>Stable Baselines3</li><li>DQN</li><li>A2C</li><li>PyTorch</li></ul>
 </article>
 </div>
 </section>
-<section class="applied section-wrap" aria-labelledby="applied-title">
-<header class="section-heading"><div><p class="section-label">Beyond the model</p><h2 id="applied-title">Intelligence, applied.</h2></div><p>The system around a model matters: the workflow, the people, and the decisions it supports.</p></header>
-<article class="applied-project" id="canai"><div class="applied-index" aria-hidden="true">↗</div><div><p class="project-meta">CanAI Garage / Shared Services Canada / 2026–present</p><h3>Helping teams<br>build with AI.</h3><p>I contribute to public-sector AI initiatives through Azure-based chatbot development, reusable GitHub Copilot frameworks, and technical planning. I help turn stakeholder needs into requirements, decide what belongs in scope, and coordinate delivery.</p><p>I led product and project delivery of a Copilot customization framework with 20+ governed prompts, instructions, skills, and engineering standards, coordinating two to four rotating team members.</p><ul class="tags"><li>Azure</li><li>GitHub Copilot</li><li>Technical planning</li></ul></div><aside class="project-aside"><p class="aside-label">In progress</p><h4>Chatbot Factory</h4><p>A reusable framework for RAG chatbot prototypes, bringing together guidance, starter code, evidence templates, and validation gates.</p><h4>Manitoba Families</h4><p>Requirements, architecture planning, governance, and documentation for its pilot chatbot MVP. Azure OpenAI, AI Search, and Functions are under consideration.</p><p class="evidence-note">Public overview. Efficiency improvements are intended, not measured.</p></aside></article>
-<article class="applied-project" id="kshc"><div class="applied-index" aria-hidden="true">↗</div><div><p class="project-meta">Science ’44 Co-op / Kingston Student Housing Co-operative / 2021–2025</p><h3>Less administration.<br>More room for people.</h3><p>I built a Google Apps Script system for email, bookings, applications, document generation, approval workflows, and role-based dashboards.</p><p>Working with members, staff, and the Board across 21 residential properties taught me to listen before proposing a solution and follow through on the details.</p><ul class="tags"><li>Google Apps Script</li><li>Workflow automation</li><li>Leadership</li></ul></div><dl class="impact-list"><div><dt>75%</dt><dd>reduction in administrative workload</dd></div><div><dt>10,000+</dt><dd>inquiries supported</dd></div><div><dt>25%</dt><dd>booking increase through customer analysis, seasonal marketing, and room allocation</dd></div></dl></article>
-</section>
-<section class="about section-wrap" id="about" aria-labelledby="about-title">
-<div class="about-heading"><p class="section-label">The person behind the work</p><h2 id="about-title">Engineering<br>with perspective.</h2><p class="about-pullquote">Understand people.<br>Build alignment.<br>Own the outcome.</p></div>
-<div class="about-copy"><p class="about-lead">Building transparent, accessible, and impactful AI takes more than a strong model.</p><p>As a Computer Vision Engineer, I combine technical development, product thinking, and leadership to turn complex challenges into practical, responsible AI solutions.</p><p>My technical background includes computer vision, deep learning, reinforcement learning, workflow automation, and Azure AI. I have developed CNN classifiers using TensorFlow and PyTorch, built automation systems, and helped move AI initiatives from early ideas toward practical implementation.</p><p>At CanAI Garage within Shared Services Canada, I contribute to public-sector AI through Azure-based chatbot development, reusable GitHub Copilot frameworks, and the Chatbot Factory. I translate stakeholder needs into requirements, clarify scope, structure delivery, and connect technical decisions with accessibility, governance, and responsible AI. Receiving the Leadership in Action Award was a meaningful recognition of these contributions.</p><p>My leadership experience at Science ’44 Co-op taught me that effective leadership begins with understanding people, building alignment, and taking ownership through delivery. Supporting a diverse community across 21 properties strengthened my ability to navigate competing needs, bring structure to complex challenges, and turn feedback into practical improvements. My work contributed to a 25% increase in bookings, while an automation system I built with Google Apps Script reduced administrative workload by 75% across more than 10,000 inquiries.</p><p>Across engineering and organizational leadership roles, I connect technical decisions to user needs and business priorities. I bring structure to complex problems, align cross-functional teams, and move projects from early ideas toward implementation, with reliability, transparency, and accessibility guiding the work.</p><p class="about-closing">I bring together AI engineering, product delivery, and people-focused leadership to build responsible solutions and make the teams around me stronger.</p></div>
-<div class="background-details"><div><h3>Learning &amp; teaching</h3><dl><div><dt>Expected June 2027</dt><dd>Master of Professional Computer Science<span>Visual Computing · Simon Fraser University</span></dd></div><div><dt>2025</dt><dd>Bachelor of Computing, Honours<span>AI specialization · Queen’s University</span></dd></div><div><dt>2023–2025</dt><dd>Teaching Assistant<span>Databases, computer architecture, and introductory computer science · Queen’s</span></dd></div></dl></div><div><h3>Recognition</h3><dl><div><dt>Summer 2026</dt><dd>Leadership in Action<span>CanAI Garage</span></dd></div><div><dt>2026</dt><dd>Teaching Assistant Award · Runner Up<span>Queen’s School of Computing · <a href="https://www.cs.queensu.ca/news/2026/06/24/celebrating-the-queens-computing-class-of-2026/" target="_blank" rel="noopener noreferrer">Announcement ↗</a></span></dd></div><div><dt>Announced March 2025</dt><dd>Ken Rush Scholarship<span>Kingston Student Housing Co-operative</span></dd></div></dl></div></div>
-</section>
-<section class="contact section-wrap" id="contact" aria-labelledby="contact-title"><div><p class="section-label">Let’s connect</p><h2 id="contact-title">A new problem.<br>A fresh perspective.</h2><p>I’m interested in applied AI, computer vision, and emerging technical leadership opportunities.<br>Have a project or a role in mind? I’d love to hear about it.</p><a class="email-link" href="mailto:amanda.ws.shum@gmail.com">amanda.ws.shum@gmail.com <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="https://www.linkedin.com/in/amandawshum/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="Amanda_Shum_Resume.pdf" target="_blank" rel="noopener">Read my résumé <span aria-hidden="true">↗</span></a><a href="#home">Back to the image <span aria-hidden="true">↑</span></a></div></section>
-<footer class="footer section-wrap"><span>© 2026 Amanda Shum</span><span>Built with perspective.</span><a href="assets/perception/scene.blend" download>Explore the Blender source ↗</a></footer>
+<section class="contact section-wrap" id="contact" aria-labelledby="contact-title"><div><h2 id="contact-title">Contact</h2><p>I’m interested in computer vision, applied AI, and technical leadership opportunities. Email me to discuss a role or project.</p><a class="email-link" href="mailto:amanda.ws.shum@gmail.com">amanda.ws.shum@gmail.com <span aria-hidden="true">↗</span></a></div><div class="contact-links"><a href="https://www.linkedin.com/in/amandawshum/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a><a href="Amanda_Shum_Resume.pdf" download>Download resume <span aria-hidden="true">↗</span></a><a href="#home">Back to top <span aria-hidden="true">↑</span></a></div></section>
+<footer class="footer section-wrap"><span>© 2026 Amanda Shum</span><a href="assets/perception/scene.blend" download>Explore the Blender source ↗</a></footer>
 </main>
 
 </body>

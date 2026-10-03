@@ -38,3 +38,20 @@ A rendered Blender poster remains available before initialization and on asset/W
 The scene contains genuine pretrained-model outputs. Detection and segmentation are separate tasks and may disagree. Tiny vehicles are a particular weakness of the semantic baseline. Depth discontinuities may stretch the surface; sky is an estimated background, not finite measured geometry. The point cloud exposes these limitations rather than filling unseen surfaces.
 
 Project visuals are clearly identified as illustrative scene studies or this portfolio's own geometry, not outputs of Amanda's separate academic projects.
+
+## Current portfolio direction
+
+The active page uses white, charcoal, and teal with existing system fonts.
+A translucent tube occupies a reserved right-side margin from the hero
+to Contact. Seven locally stored skill logos automatically descend in
+staggered 24-second loops, fading at the outlet before restarting at the top.
+Animation pauses while the tab is hidden.
+
+The decoration ignores pointer input and is hidden from assistive
+technology. Mobile uses a narrower tube and smaller logos. Reduced-motion
+and JavaScript-disabled visitors see a stationary pile. Existing scene
+documentation above describes the archived WebGL presentation.
+
+The layout follows Swiss-inspired minimalism: a white background,
+charcoal text, restrained teal, one system sans-serif family, consistent
+alignment, generous spacing, and concrete first-person copy.

@@ -36,3 +36,18 @@ Keep 96% specific to fruit classification. Preserve 75% administrative workload 
 No telemetry, image upload, hosted inference API, production deployment, commit, or pull request is part of this change. The models run locally to generate the assets; their weights are excluded from version control. No pipeline output is hand-corrected to look more accurate.
 
 Estimated depth has relative scale and assumed camera geometry. A single image does not establish metric dimensions, occluded surfaces, or a complete reconstruction.
+
+## Portfolio flow
+
+The page introduces Amanda, followed by About, Experience, Projects,
+and Contact. Azure certification appears within About. The interactive
+pothole detection demo belongs within the pothole project.
+
+A decorative translucent tube connects the page sections. Skill logos
+automatically flow downward in staggered loops without requiring scrolling.
+They fade at the outlet and restart at the top; reduced-motion visitors
+see a stationary pile.
+
+The layout follows Swiss-inspired minimalism: a white background,
+charcoal text, restrained teal, one system sans-serif family, consistent
+alignment, generous spacing, and concrete first-person copy.
