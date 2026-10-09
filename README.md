@@ -99,4 +99,4 @@ The unused perception scene, Three.js vendor files, pothole demo, skill icons, a
 
 The builder generates the square striped-AS browser favicon from `assets/as-monogram.svg`, keeping the tab icon and navigation initials consistent.
 
-The pre-redesign versions of changed existing files were saved locally in ignored `output/dos-backup/`, including the existing uncommitted edits. These backups are local handover aids, not published website assets.
+The pre-redesign backups, earlier screenshots, and temporary CLI logs have also been moved to the local cleanup archive. They remain recoverable outside the working site. Current verification results belong in ignored `output/playwright/`.

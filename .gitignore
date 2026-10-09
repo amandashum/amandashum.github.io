@@ -1,4 +1,4 @@
-# Reproducible local inference caches and browser verification artifacts.
+# Local browser verification artifacts.
 output/
 .playwright-cli/
 __pycache__/
