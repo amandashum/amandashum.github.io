@@ -65,7 +65,7 @@ For a cross-origin endpoint, configure CORS for the deployed portfolio origin, `
 `node tools/build-portfolio.mjs` is the build command. Commit the generated `index.html` together with its source changes when approved. A static host such as GitHub Pages can serve the repository root without a Node runtime or new deployment workflow. The active runtime files are:
 
 - `index.html`, `styles.css`, `portfolio.js`, `terminal-animation.js`, `impact-animation.js`, `portfolio-content.mjs`
-- `assets/favicon.svg`, and the configured public resume
+- `assets/as-monogram.svg`, generated `assets/favicon.svg`, and `Amanda_Shum_Resume.pdf`
 
 GitHub Pages cannot run a contact server, so retain the email fallback or configure a separately hosted endpoint. Publishing, Git commits, and service provisioning are separate steps. No changes have been committed or published automatically.
 
@@ -93,8 +93,10 @@ Browser tooling is optional and is not a site dependency. The acceptance script 
 
 Also review desktop/mobile screenshots and use a screen reader when preparing a release. Automated interaction checks are not a full assistive-technology audit. A real configured contact service needs its own integration test before claiming live delivery.
 
-## Retained assets and rollback
+## Cleanup and rollback
 
-The earlier pothole demo, skill icons, and perception scene are retained but are not loaded by the active page. Their older browser tests target the previous scene rather than this design. Preserve `assets/perception/EVIDENCE.md` when reusing those assets. Review sample-image publication provenance before bringing that demo back into the public UI.
+The unused perception scene, Three.js vendor files, pothole demo, skill icons, and their old tooling have been removed from the working site. They are recoverable from Git history and a local cleanup archive outside this repository. Obsolete local inference caches were moved to that archive as well. The active builder and DOS acceptance script remain in `tools/`.
+
+The builder generates the square striped-AS browser favicon from `assets/as-monogram.svg`, keeping the tab icon and navigation initials consistent.
 
 The pre-redesign versions of changed existing files were saved locally in ignored `output/dos-backup/`, including the existing uncommitted edits. These backups are local handover aids, not published website assets.

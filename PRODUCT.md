@@ -26,4 +26,4 @@ All primary content and navigation are static HTML. The hero follows Amanda’s 
 
 The hero highlights rotate between the existing applied-work set and fruit classification, pothole detection, and Gridworld coverage. Academic highlights use 96% fruit-classification accuracy, the YOLOv8/MiDaS method, and 85% area-coverage success. The reduced-motion preference provides a static fallback retaining all six highlights.
 
-There is no telemetry, visitor storage, live AI inference, image upload, automatic external message, or new dependency. Commit, publication, and a new external contact service remain separate actions. Legacy computer-vision demo and scene assets remain in the repository but are not loaded by this page.
+There is no telemetry, visitor storage, live AI inference, image upload, automatic external message, or new dependency. Commit, publication, and a new external contact service remain separate actions. Unused legacy computer-vision demo and scene files have been removed from the working site and preserved in a local cleanup archive.

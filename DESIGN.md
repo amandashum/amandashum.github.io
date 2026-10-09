@@ -36,4 +36,4 @@ Contact fields appear only when JavaScript initializes. Without JavaScript, a di
 
 `portfolio-content.mjs` holds editable content and configuration. `tools/build-portfolio.mjs` renders reusable static sections into `index.html`. `portfolio.js` contains navigation, commands, and contact behavior. `terminal-animation.js` owns boot sequencing and visibility controls. `impact-animation.js` owns highlight rotation and visibility controls. `styles.css` owns presentation; `assets/favicon.svg` supplies the tab icon.
 
-Previous perception and pothole-demo assets are retained but not referenced by the active page. Their earlier documentation and source remain in Git history and relevant asset evidence files.
+Unused perception and pothole-demo assets, their vendor files, and their tooling have been removed from the working site. Earlier versions remain recoverable in Git history and the local cleanup archive. The square browser favicon is generated from the same striped AS monogram as the navigation mark.

@@ -1,4 +1,4 @@
-import { writeFileSync, existsSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { portfolio as p } from '../portfolio-content.mjs';
 
@@ -74,8 +74,8 @@ const html = `<!doctype html>
   <meta name="twitter:card" content="summary"><meta name="twitter:title" content="${escape(p.name)} — ${escape(p.role)}">
   <meta name="twitter:description" content="${escape(p.description)}">
   ${p.links.site ? `<link rel="canonical" href="${escape(p.links.site)}"><meta property="og:url" content="${escape(p.links.site)}">` : ''}
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=flip-sequence"><script type="module" src="portfolio.js?v=minute-hold-flip-sequence"></script>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=as-monogram">
+  <link rel="stylesheet" href="styles.css?v=cleanup"><script type="module" src="portfolio.js?v=minute-hold-flip-sequence"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -142,4 +142,6 @@ const html = `<!doctype html>
 </body></html>`;
 
 writeFileSync(`${root}/index.html`, html.replace(/[ \t]+$/gm, ''));
+const monogram = readFileSync(`${root}/assets/as-monogram.svg`, 'utf8').replace(/<svg\b[^>]*>/, '').replace(/<\/svg>\s*$/, '');
+writeFileSync(`${root}/assets/favicon.svg`, `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect x="1" y="1" width="62" height="62" fill="#0c0e12" stroke="#7198ff"/><g transform="translate(8 15) scale(.57)">${monogram}</g></svg>\n`);
 console.log(`Built index.html from portfolio-content.mjs. Resume ${resumeExists ? 'available' : 'hidden (file missing)'}.`);
