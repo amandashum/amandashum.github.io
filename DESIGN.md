@@ -22,7 +22,7 @@ All six project cards preserve their content and terminal-window format. Each us
 
 The 96% figure applies only to fruit classification; MiDaS depth is relative rather than metric. The 85% Gridworld figure is area-coverage success. Section headings use plain names: Projects, About, Experience, Skills, and Contact.
 
-A thin blue path below the hero and branches above project windows connect the overview to project evidence. IntersectionObserver illuminates branch borders and headings. Project content is never hidden by viewport animation; details are available through native disclosures, including without JavaScript. Scroll remains native.
+A 38px cobalt extension below the highlights gives the hero more breathing room. During normal scrolling, the blue connector draws downward and the Projects heading settles upward by at most 14px with a small opacity change. The reveal follows scroll position in either direction and completes as the section reaches the upper half of the viewport. Keyboard navigation and reduced motion use the static presentation. IntersectionObserver illuminates branch borders and headings. Project content is never hidden by viewport animation; details are available through native disclosures, including without JavaScript. Scroll remains native.
 
 ## Responsive and accessible behavior
 
@@ -34,6 +34,6 @@ Contact fields appear only when JavaScript initializes. Without JavaScript, a di
 
 ## Source organization
 
-`portfolio-content.mjs` holds editable content and configuration. `tools/build-portfolio.mjs` renders reusable static sections into `index.html`. `portfolio.js` contains navigation, commands, and contact behavior. `terminal-animation.js` owns boot sequencing and visibility controls. `impact-animation.js` owns highlight rotation and visibility controls. `styles.css` owns presentation; `assets/favicon.svg` supplies the tab icon.
+`portfolio-content.mjs` holds editable content and configuration. `tools/build-portfolio.mjs` renders reusable static sections into `index.html`. `portfolio.js` contains navigation, commands, and contact behavior. `terminal-animation.js` owns boot sequencing and visibility controls. `impact-animation.js` owns highlight rotation and visibility controls. `project-transition.js` owns the native-scroll Projects reveal. `styles.css` owns presentation; `assets/favicon.svg` supplies the tab icon.
 
 Unused perception and pothole-demo assets, their vendor files, and their tooling have been removed from the working site. Earlier versions remain recoverable in Git history and the local cleanup archive. The square browser favicon is generated from the same striped AS monogram as the navigation mark.

@@ -75,7 +75,7 @@ const html = `<!doctype html>
   <meta name="twitter:description" content="${escape(p.description)}">
   ${p.links.site ? `<link rel="canonical" href="${escape(p.links.site)}"><meta property="og:url" content="${escape(p.links.site)}">` : ''}
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=as-monogram">
-  <link rel="stylesheet" href="styles.css?v=sharp-divider"><script type="module" src="portfolio.js?v=minute-hold-flip-sequence"></script>
+  <link rel="stylesheet" href="styles.css?v=project-reveal"><script type="module" src="portfolio.js?v=project-reveal"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>

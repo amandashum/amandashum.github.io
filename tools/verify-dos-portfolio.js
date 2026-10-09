@@ -27,7 +27,7 @@ async (page) => {
   const brokenAnchors = await page.evaluate(() => Array.from(document.querySelectorAll('a[href^="#"]')).filter(link => !document.querySelector(link.getAttribute('href'))).map(link => link.getAttribute('href')));
   assert(!brokenAnchors.length, `Broken local anchors: ${brokenAnchors}`);
   const missingAssets = await page.evaluate(async () => {
-    const files = ['styles.css', 'portfolio.js', 'terminal-animation.js', 'impact-animation.js', 'portfolio-content.mjs', 'assets/favicon.svg', 'assets/as-monogram.svg', 'Amanda_Shum_Resume.pdf'];
+    const files = ['styles.css', 'portfolio.js', 'terminal-animation.js', 'impact-animation.js', 'project-transition.js', 'portfolio-content.mjs', 'assets/favicon.svg', 'assets/as-monogram.svg', 'Amanda_Shum_Resume.pdf'];
     const responses = await Promise.all(files.map(async file => ({ file, status: (await fetch(file, { method: 'HEAD' })).status })));
     return responses.filter(response => response.status !== 200);
   });

@@ -1,6 +1,7 @@
 import { portfolio } from './portfolio-content.mjs';
 import { initHeroAnimation } from './terminal-animation.js?v=minute-hold';
 import { initImpactRotation } from './impact-animation.js?v=flip-sequence';
+import { initProjectTransition } from './project-transition.js?v=project-reveal';
 
 document.documentElement.classList.add('js');
 const menu = document.querySelector('.menu-toggle');
@@ -185,3 +186,4 @@ initCommands();
 initContact();
 initHeroAnimation();
 initImpactRotation();
+initProjectTransition();

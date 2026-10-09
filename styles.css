@@ -417,6 +417,21 @@ h2 {
   background: var(--blue)
 }
 
+.projects[data-scroll-reveal]::before {
+  transform-origin: top;
+  transform: scaleY(var(--projects-reveal, 1));
+}
+
+.projects[data-scroll-reveal] > .section-heading {
+  opacity: var(--projects-opacity, 1);
+  transform: translateY(var(--projects-offset, 0px));
+}
+
+.projects:focus-within > .section-heading {
+  opacity: 1;
+  transform: none;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: repeat(3,minmax(0,1fr));
@@ -1345,6 +1360,11 @@ input: :placeholder,textarea::placeholder {
   *,*::before,*::after {
     transition: none!important
   }
+  .projects[data-scroll-reveal]::before,
+  .projects[data-scroll-reveal] > .section-heading {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 /* Reading and touch-target refinements shared across all widths. */
@@ -1435,7 +1455,7 @@ input: :placeholder,textarea::placeholder {
 }
 .hero .hero-inner {
   padding-top: 30px;
-  padding-bottom: 0;
+  padding-bottom: 38px;
 }
 .hero .hero-topline {
   font-size: 12px;
