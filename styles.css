@@ -109,15 +109,6 @@ svg {
   color: var(--blue)
 }
 
-.status-dot {
-  display: inline-block;
-  width: 6px;
-  height: 6px;
-  background: var(--green);
-  margin-right: 9px;
-  vertical-align: middle
-}
-
 .skip-link {
   position: fixed;
   top: -100px;
@@ -220,8 +211,7 @@ nav a[aria-current] {
   padding: 8px 14px
 }
 
-/* Hero content appears immediately;
-only decorative packets animate. */
+/* Hero content is available immediately. */
 .hero {
   padding-top: 32px;
   position: relative
@@ -255,10 +245,6 @@ h1 {
   font-size: clamp(42px,4.7vw,68px);
   line-height: 1.09;
   letter-spacing: -.065em
-}
-
-.headline-accent {
-  color: var(--blue)
 }
 
 .cursor {
@@ -317,22 +303,6 @@ h1 {
   background: var(--surface)
 }
 
-.hero-resume {
-  margin-top: 10px
-}
-
-.hero-resume .resume-link {
-  color: var(--muted);
-  gap: 10px
-}
-
-.hero-terminal {
-  border: 1px solid #414b62;
-  background: var(--surface);
-  min-width: 0;
-  box-shadow: 8px 8px 0 var(--bg),9px 9px 0 #273047
-}
-
 .window-bar {
   height: 37px;
   display: flex;
@@ -361,196 +331,6 @@ h1 {
   white-space: nowrap;
   color: var(--faint);
   letter-spacing: .1em
-}
-
-.terminal-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  font-size: 9px;
-  padding: 19px 20px 0;
-  letter-spacing: .03em
-}
-
-.terminal-status .status-dot {
-  width: 4px;
-  height: 4px
-}
-
-.system-visual {
-  position: relative;
-  margin: 16px 14px 0;
-  overflow: hidden
-}
-
-.system-svg {
-  width: 100%;
-  aspect-ratio: 520/360
-}
-
-.wireframe {
-  fill: none;
-  stroke: #526381;
-  stroke-width: 1;
-  transform-origin: 260px 195px
-}
-
-.wire-secondary {
-  stroke: #2f3e5d
-}
-
-.signal-paths {
-  fill: none;
-  stroke: var(--blue);
-  stroke-width: 1.25
-}
-
-.signal-packets {
-  fill: #d9e4ff
-}
-
-.packet-one {
-  offset-path: path('M260 195 129 119 52 119 52 65')
-}
-
-.packet-two {
-  offset-path: path('M260 195 391 119 468 119 468 65')
-}
-
-.packet-three {
-  offset-path: path('M260 195V304H390V333')
-}
-
-.packet {
-  animation: signal 5s linear infinite;
-  offset-distance: 0%;
-  opacity: 0
-}
-
-.packet-two {
-  animation-delay: -1.7s
-}
-
-.packet-three {
-  animation-delay: -3.4s
-}
-
-@keyframes signal {
-  0% {
-    offset-distance: 0%;
-    opacity: 0
-  }
-  8%,85% {
-    opacity: 1
-  }
-  100% {
-    offset-distance: 100%;
-    opacity: 0
-  }
-}
-
-.visual-nodes {
-  fill: var(--surface);
-  stroke: var(--blue);
-  stroke-width: 2
-}
-
-.core {
-  fill: #1d3057;
-  stroke: #91aeff;
-  stroke-width: 1.2
-}
-
-.core-label {
-  fill: #8e9eb8;
-  font: 8px var(--mono);
-  letter-spacing: 1px
-}
-
-.node-label {
-  position: absolute;
-  background: var(--surface);
-  font-size: clamp(8px,.8vw,11px);
-  line-height: 1.7;
-  padding: 4px 8px
-}
-
-.node-label span {
-  display: block;
-  color: var(--blue);
-  font-size: 8px
-}
-
-.vision-label {
-  left: 4%;
-  top: 7%
-}
-
-.azure-label {
-  right: 3%;
-  top: 7%
-}
-
-.tools-label {
-  right: 5%;
-  bottom: 3%
-}
-
-.node-label small {
-  font-size: inherit;
-  color: var(--muted)
-}
-
-.terminal-log {
-  padding: 14px 22px;
-  border-top: 1px solid var(--border);
-  font-size: 10px;
-  color: var(--muted);
-  line-height: 1.95
-}
-
-.terminal-log p {
-  display: flex;
-  gap: 9px
-}
-
-.terminal-log p>span:first-child {
-  color: var(--blue)
-}
-
-.log-ok {
-  margin-left: auto;
-  color: var(--green)
-}
-
-.terminal-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid var(--border);
-  padding: 5px 14px;
-  min-height: 36px;
-  color: var(--faint);
-  font-size: 8px
-}
-
-.terminal-footer button {
-  border: 0;
-  background: none;
-  color: var(--muted);
-  font-size: 9px;
-  min-height: 30px;
-  padding: 4px
-}
-
-.hero-terminal[data-paused] .packet {
-  animation-play-state: paused
-}
-
-.hero-terminal[data-reduced] .packet {
-  animation: none;
-  opacity: 0
 }
 
 .impact-strip {
@@ -592,25 +372,6 @@ h1 {
   color: var(--muted);
   font-size: 9px;
   margin-top: 5px
-}
-
-.hero-bottomline {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  color: var(--faint);
-  font-size: 9px;
-  padding-top: 20px
-}
-
-.hero-bottomline a {
-  color: var(--muted);
-  text-decoration: none;
-  min-height: 44px;
-  display: flex;
-  gap: 15px;
-  align-items: center
 }
 
 /* Blue branches lead into project windows without hiding their content. */
@@ -1052,19 +813,6 @@ only a successful endpoint can report sent. */
   color: var(--blue)
 }
 
-.contact-note {
-  display: flex;
-  gap: 12px;
-  margin-top: 30px;
-  color: var(--muted);
-  font-size: 10px;
-  max-width: 44ch
-}
-
-.contact-note>span {
-  color: var(--blue)
-}
-
 .contact-form label {
   display: block;
   font-size: 11px;
@@ -1331,24 +1079,9 @@ input: :placeholder,textarea::placeholder {
     font-size: 11px;
     padding-inline: 12px
   }
-  .terminal-status {
-    font-size: 7px;
-    padding-inline: 12px
-  }
-  .terminal-log {
-    font-size: 9px;
-    padding-inline: 15px
-  }
   .window-bar {
     font-size: 8px;
     padding-inline: 9px
-  }
-  .terminal-footer {
-    font-size: 7px;
-    padding-inline: 10px
-  }
-  .terminal-footer button {
-    font-size: 8px
   }
   .impact-strip {
     grid-template-columns: repeat(3,minmax(0,1fr))
@@ -1358,9 +1091,6 @@ input: :placeholder,textarea::placeholder {
     align-items: start;
     gap: 7px;
     padding: 20px 18px
-  }
-  .hero-bottomline>span {
-    font-size: 8px
   }
   .project-grid {
     grid-template-columns: 1fr;
@@ -1480,24 +1210,8 @@ input: :placeholder,textarea::placeholder {
     font-size: 11px;
     gap: 16px
   }
-  .hero-terminal {
-    box-shadow: 4px 4px 0 var(--bg),5px 5px 0 #273047
-  }
-  .system-visual {
-    margin: 12px 10px 0
-  }
-  .node-label {
-    font-size: 9px;
-    padding-inline: 5px
-  }
-  .terminal-status {
-    font-size: 8px
-  }
   .window-bar {
     font-size: 9px
-  }
-  .terminal-footer {
-    font-size: 8px
   }
   .impact-item {
     padding: 18px 10px
@@ -1510,14 +1224,6 @@ input: :placeholder,textarea::placeholder {
   }
   .impact-item span {
     font-size: 8px
-  }
-  .hero-bottomline>span {
-    max-width: 22ch;
-    font-size: 7px
-  }
-  .hero-bottomline a {
-    font-size: 8px;
-    gap: 7px
   }
   .section {
     padding-top: 80px
@@ -1639,10 +1345,6 @@ input: :placeholder,textarea::placeholder {
   *,*::before,*::after {
     transition: none!important
   }
-  .packet {
-    animation: none;
-    opacity: 0
-  }
 }
 
 /* Reading and touch-target refinements shared across all widths. */
@@ -1685,10 +1387,6 @@ input: :placeholder,textarea::placeholder {
 
 .contact-form label {
   font-size: 12px
-}
-
-.terminal-footer button {
-  min-height: 44px
 }
 
 .project-body h3 {
