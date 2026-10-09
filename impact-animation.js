@@ -6,11 +6,12 @@ export function initImpactRotation() {
   let inView = false;
   let timer;
 
-  /** Switches all three faces together, then leaves seven seconds to read the next set. */
+  /** Starts a left-to-right sequence every seven seconds. */
   function flip() {
     timer = undefined;
     if (!inView || document.hidden || reduced.matches) return;
     const academic = strip.classList.toggle('is-flipped');
+    strip.classList.add('is-flipping');
     strip.dataset.set = academic ? 'academic' : 'applied';
     timer = setTimeout(flip, 7000);
   }
@@ -19,6 +20,7 @@ export function initImpactRotation() {
   function updateRotation() {
     clearTimeout(timer);
     timer = undefined;
+    strip.classList.remove('is-flipping');
     if (reduced.matches || !canObserve) {
       strip.classList.remove('is-rotating', 'is-flipped');
       strip.dataset.state = 'static';
@@ -32,6 +34,11 @@ export function initImpactRotation() {
     if (!paused) timer = setTimeout(flip, 7000);
   }
 
+  strip.addEventListener('animationend', event => {
+    if (event.animationName === 'impact-depth' && event.target.closest('.impact-item') === strip.lastElementChild) {
+      strip.classList.remove('is-flipping');
+    }
+  });
   reduced.addEventListener('change', updateRotation);
   document.addEventListener('visibilitychange', updateRotation);
   if (canObserve) {

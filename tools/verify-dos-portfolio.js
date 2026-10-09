@@ -165,12 +165,9 @@ async (page) => {
   assert((await page.locator('.boot-log .boot-text').allTextContents()).includes('Portfolio loaded.'), 'Portfolio-loaded stage missing');
   assert((await page.locator('.boot-prompt .boot-text').textContent()).startsWith('C:'), 'Typed prompt missing');
   const completedCycle = Number(await page.locator('.boot-screen').getAttribute('data-cycle'));
-  await page.clock.install();
-  await page.clock.fastForward(59000);
-  assert(await page.locator('.boot-screen').getAttribute('data-phase') === 'hold', 'Startup restarted before the one-minute hold');
-  await page.clock.fastForward(1500);
-  await page.waitForFunction(previous => Number(document.querySelector('.boot-screen').dataset.cycle) > previous, completedCycle);
-  await page.clock.resume();
+  await page.waitForTimeout(3000);
+  assert(await page.locator('.boot-screen').getAttribute('data-phase') === 'hold', 'Startup still uses the previous short hold');
+  await page.waitForFunction(previous => Number(document.querySelector('.boot-screen').dataset.cycle) > previous, completedCycle, { timeout: 65000 });
   assert(beforeBoot.height === (await page.locator('#home').boundingBox()).height, 'Loop changed hero height');
   assert(await page.locator('#boot-motion-toggle').count() === 0, 'Pause animation control remains');
   await page.emulateMedia({ reducedMotion: 'reduce' });

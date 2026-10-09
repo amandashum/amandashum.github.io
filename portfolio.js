@@ -1,6 +1,6 @@
 import { portfolio } from './portfolio-content.mjs';
 import { initHeroAnimation } from './terminal-animation.js?v=minute-hold';
-import { initImpactRotation } from './impact-animation.js?v=automatic-motion';
+import { initImpactRotation } from './impact-animation.js?v=flip-sequence';
 
 document.documentElement.classList.add('js');
 const menu = document.querySelector('.menu-toggle');
