@@ -125,7 +125,7 @@ function prepareEmailDraft(data) {
 function initContact() {
   const form = document.querySelector('#contact-form');
   const button = document.querySelector('#contact-submit');
-  button.textContent = portfolio.contact.endpoint ? 'Send message ↗' : 'Prepare email draft ↗';
+  button.textContent = 'Send email ↗';
   form.hidden = false;
   form.addEventListener('input', () => {
     for (const field of form.querySelectorAll('input, textarea')) field.setCustomValidity('');
@@ -175,7 +175,7 @@ function initContact() {
       clearTimeout(timeout);
       button.disabled = false;
       form.removeAttribute('aria-busy');
-      button.textContent = 'Send message ↗';
+      button.textContent = 'Send email ↗';
     }
   });
 }

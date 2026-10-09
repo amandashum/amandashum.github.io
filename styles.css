@@ -914,13 +914,9 @@ input: :placeholder,textarea::placeholder {
   color: var(--blue)
 }
 
-.command-panel summary>span:last-child {
-  margin-left: auto;
-  font-size: 9px
-}
-
 .command-panel summary::after {
   content: '+';
+  margin-left: auto;
   color: var(--blue)
 }
 
@@ -1455,7 +1451,7 @@ input: :placeholder,textarea::placeholder {
 }
 .hero .hero-inner {
   padding-top: 30px;
-  padding-bottom: 38px;
+  padding-bottom: 0;
 }
 .hero .hero-topline {
   font-size: 12px;
@@ -1469,7 +1465,7 @@ input: :placeholder,textarea::placeholder {
   align-items: center;
   gap: 90px;
   margin-top: 70px;
-  margin-bottom: 65px;
+  margin-bottom: 113px;
 }
 .hero h1 {
   color: var(--boot-white);
@@ -1563,7 +1559,7 @@ input: :placeholder,textarea::placeholder {
   .hero .hero-grid {
     gap: 36px;
     margin-top: 48px;
-    margin-bottom: 45px;
+    margin-bottom: 93px;
   }
   .hero h1 {
     font-size: 40px;
@@ -1585,7 +1581,7 @@ input: :placeholder,textarea::placeholder {
     grid-template-columns: 1fr;
     gap: 40px;
     margin-top: 34px;
-    margin-bottom: 34px;
+    margin-bottom: 82px;
   }
   .hero h1 {
     font-size: clamp(39px, 9.8vw, 59px);
@@ -1702,11 +1698,16 @@ input: :placeholder,textarea::placeholder {
 .hero .impact-face {
   display: flex;
   align-items: center;
+  align-self: stretch;
   gap: 22px;
   min-width: 0;
 }
 .hero .impact-face > div {
   min-width: 0;
+}
+.hero .impact-face > strong {
+  line-height: 45.6px;
+  flex-shrink: 0;
 }
 .hero .impact-face strong[data-long-value] {
   font-size: 28px;
@@ -1744,12 +1745,12 @@ input: :placeholder,textarea::placeholder {
 }
 @media (max-width: 1100px) {
   .hero .impact-face { gap: 14px; }
+  .hero .impact-face > strong { line-height: 38.4px; }
   .hero .impact-face strong[data-long-value] { font-size: 25px; }
 }
-@media (max-width: 850px) {
-  .hero .impact-face { flex-direction: column; align-items: start; gap: 7px; }
-}
 @media (max-width: 620px) {
+  .hero .impact-face { flex-direction: column; align-items: start; gap: 5px; }
+  .hero .impact-face > strong { line-height: 36px; }
   .hero .impact-face strong[data-long-value] { font-size: 18px; }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -9,7 +9,7 @@ export const portfolio = {
   boot: {
     system: 'Amanda Shum',
     version: '2026.10',
-    lines: ['Loading portfolio...', 'Computer vision ........ ready', 'Azure AI / RAG ......... ready', 'Developer tools ....... ready', 'Portfolio loaded.'],
+    lines: ['Loading portfolio...', 'Computer vision ........ ready', 'Azure AI / RAG ......... ready', 'Developer tools ........ ready', 'Leadership ............. ready', 'Portfolio loaded.'],
   },
   links: {
     linkedin: 'https://www.linkedin.com/in/amandawshum/',
@@ -143,6 +143,6 @@ export const portfolio = {
   ],
   certification: {
     name: 'Microsoft Certified: Azure AI Apps and Agents Developer Associate',
-    earned: 'September 30, 2026', expires: 'September 30, 2027', url: null,
+    earned: 'September 30, 2026', url: null,
   },
 };

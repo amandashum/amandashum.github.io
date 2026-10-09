@@ -93,7 +93,7 @@ const html = `<!doctype html>
     <p class="hero-introduction">${escape(p.introduction)}</p>
     <div class="hero-actions"><a class="button button-primary" href="#projects">View Projects <span aria-hidden="true">↘</span></a><a class="button button-secondary" href="#contact">Get in Touch <span aria-hidden="true">↗</span></a></div>
   </div>
-  <div class="boot-screen" role="group" aria-label="IBM-inspired startup display: computer vision, Azure AI and RAG, developer tools and automation">
+  <div class="boot-screen" role="group" aria-label="IBM-inspired startup display: computer vision, Azure AI and RAG, developer tools and automation, leadership">
     <div class="boot-display" aria-hidden="true">
       <svg class="boot-wordmark" viewBox="0 0 540 160" focusable="false">
         <defs><clipPath id="boot-stripes">${Array.from({ length: 8 }, (_, i) => `<rect x="0" y="${27 + i * 16}" width="540" height="11"/>`).join('')}</clipPath></defs>
@@ -124,7 +124,7 @@ const html = `<!doctype html>
 <section class="skills page-width section" id="skills" aria-labelledby="skills-title">
   ${heading('04', 'skills', 'Skills')}
   <div class="skills-grid">${p.skills.map((group, index) => `<div class="skill-group"><p class="eyebrow">0${index + 1} / TOOLKIT</p><h3>${escape(group.title)}</h3>${tags(group.items)}</div>`).join('')}</div>
-  <div class="credential"><div class="credential-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div><p class="eyebrow">MICROSOFT CERTIFIED</p><h3>${escape(p.certification.name)}</h3><p>Earned ${escape(p.certification.earned)} · Expires ${escape(p.certification.expires)}</p>${external(p.certification.url, 'Verify credential')}</div><span class="credential-code">AI-103</span></div>
+  <div class="credential"><div class="credential-icon" aria-hidden="true"><span></span><span></span><span></span><span></span></div><div><p class="eyebrow">MICROSOFT CERTIFIED</p><h3>${escape(p.certification.name)}</h3><p>Earned ${escape(p.certification.earned)}</p>${external(p.certification.url, 'Verify credential')}</div><span class="credential-code">AI-103</span></div>
 </section>
 <section class="contact page-width section" id="contact" aria-labelledby="contact-title">
   ${heading('05', 'contact', 'Contact')}
@@ -133,10 +133,10 @@ const html = `<!doctype html>
   </div><form id="contact-form" class="contact-form" hidden>
     <div class="form-row"><div><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" required maxlength="120" placeholder="Your name"></div><div><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></div></div>
     <label for="contact-message">Message</label><textarea id="contact-message" name="message" required minlength="10" maxlength="5000" rows="5" placeholder="Tell me a little about what you have in mind."></textarea>
-    <button class="button button-primary" type="submit" id="contact-submit">${p.contact.endpoint ? 'Send message' : 'Prepare email draft'} <span aria-hidden="true">↗</span></button><p id="form-status" role="status" aria-live="polite"></p>
+    <button class="button button-primary" type="submit" id="contact-submit">Send email <span aria-hidden="true">↗</span></button><p id="form-status" role="status" aria-live="polite"></p>
   </form></div>
 </section>
-<div class="page-width command-section" hidden id="command-section"><details class="command-panel"><summary><span aria-hidden="true">&gt;_</span> Prefer a command line? <span class="muted">Optional terminal</span></summary><div class="command-body"><p>Try help, about, projects, skills, contact, or clear.</p><form id="command-form"><label for="command-input">C:\\AMANDA\\&gt;</label><input id="command-input" name="command" autocomplete="off" spellcheck="false" maxlength="80" aria-label="Portfolio command"><button type="submit">Run <span aria-hidden="true">↵</span></button></form><p id="command-output" role="status" aria-live="polite">Ready.</p></div></details></div>
+<div class="page-width command-section" hidden id="command-section"><details class="command-panel"><summary><span aria-hidden="true">&gt;_</span> Helpful search commands</summary><div class="command-body"><p>Try help, about, projects, skills, contact, or clear.</p><form id="command-form"><label for="command-input">C:\\AMANDA\\&gt;</label><input id="command-input" name="command" autocomplete="off" spellcheck="false" maxlength="80" aria-label="Portfolio command"><button type="submit">Run <span aria-hidden="true">↵</span></button></form><p id="command-output" role="status" aria-live="polite">Ready.</p></div></details></div>
 </main>
 <footer class="footer page-width"><span>© 2026 ${escape(p.name)}</span><span class="footer-signoff muted">C:\\AMANDA\\</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body></html>`;
