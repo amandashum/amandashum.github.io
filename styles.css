@@ -1429,6 +1429,7 @@ input: :placeholder,textarea::placeholder {
   --boot-blue: #2525e7;
   --boot-white: #f4f4ec;
   background: var(--boot-blue);
+  border-bottom: 1px solid var(--blue);
   color: var(--boot-white);
   padding-top: 0;
 }
@@ -1514,6 +1515,7 @@ input: :placeholder,textarea::placeholder {
 }
 .hero .impact-strip {
   border-color: #ffffff45;
+  border-bottom: 0;
 }
 .hero .impact-item {
   padding-block: 24px;
@@ -1586,17 +1588,6 @@ input: :placeholder,textarea::placeholder {
   }
 }
 
-/* Cobalt recedes into the dark DOS surfaces without changing the project windows. */
-.hero::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -96px;
-  height: 96px;
-  background: linear-gradient(180deg, var(--boot-blue) 0%, #1c2088 35%, #11152e 72%, var(--bg) 100%);
-  pointer-events: none;
-}
 .hero .boot-line {
   position: relative;
   min-height: 1.7em;
@@ -1622,9 +1613,6 @@ input: :placeholder,textarea::placeholder {
 @keyframes boot-caret {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
-}
-@media (max-width: 620px) {
-  .hero::after { height: 64px; bottom: -64px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero .boot-cursor { animation: none; }
