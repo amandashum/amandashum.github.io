@@ -1,19 +1,18 @@
 /** Types and loops the startup display while it is visible and motion is enabled. */
 export function initHeroAnimation() {
   const screen = document.querySelector('.boot-screen');
-  const toggle = document.querySelector('#boot-motion-toggle');
   const lines = [...screen.querySelectorAll('.boot-line')];
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const canObserve = 'IntersectionObserver' in window;
   const spinner = ['|', '/', '-', '\\'];
   let inView = false;
-  let userPaused = false;
   let timer;
   let lineIndex = 0;
   let character = 0;
   let spinnerFrame = 0;
   let phase = 'reset';
   let cycle = 0;
+  let restartAt = 0;
 
   /** Writes plain text and adds a single small caret only to the active typed line. */
   function writeLine(line, text, caret = false) {
@@ -45,7 +44,7 @@ export function initHeroAnimation() {
   /** Advances typing, loading, readiness, command prompt, and the next automatic cycle. */
   function step() {
     timer = undefined;
-    if (!inView || document.hidden || userPaused || reduced.matches) return;
+    if (!inView || document.hidden || reduced.matches) return;
     let delay = 38;
     if (phase === 'reset') {
       cycle++;
@@ -68,7 +67,8 @@ export function initHeroAnimation() {
           delay = 180;
         } else if (line.dataset.bootKind === 'prompt') {
           phase = 'hold';
-          delay = 2400;
+          restartAt = Date.now() + 60000;
+          delay = 60000;
         } else {
           writeLine(line, text);
           phase = 'next';
@@ -98,30 +98,23 @@ export function initHeroAnimation() {
     schedule(delay);
   }
 
-  /** Combines user preference, viewport visibility, and background-tab pause reasons. */
+  /** Combines reduced-motion preference, viewport visibility, and background-tab state. */
   function updateMotion() {
-    toggle.hidden = reduced.matches || !canObserve;
-    toggle.textContent = userPaused ? 'Resume animation' : 'Pause animation';
-    toggle.setAttribute('aria-pressed', String(userPaused));
     if (reduced.matches || !canObserve) {
       showStatic();
       return;
     }
     if (phase === 'static') phase = 'reset';
-    if (!inView || document.hidden || userPaused) {
+    if (!inView || document.hidden) {
       clearTimeout(timer);
       timer = undefined;
       screen.dataset.state = 'paused';
     } else {
       screen.dataset.state = 'running';
-      if (timer === undefined) schedule(100);
+      if (timer === undefined) schedule(phase === 'hold' ? Math.max(0, restartAt - Date.now()) : 100);
     }
   }
 
-  toggle.addEventListener('click', () => {
-    userPaused = !userPaused;
-    updateMotion();
-  });
   reduced.addEventListener('change', updateMotion);
   document.addEventListener('visibilitychange', updateMotion);
   if (canObserve) {

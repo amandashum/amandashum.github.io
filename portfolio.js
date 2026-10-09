@@ -1,6 +1,6 @@
 import { portfolio } from './portfolio-content.mjs';
-import { initHeroAnimation } from './terminal-animation.js';
-import { initImpactRotation } from './impact-animation.js';
+import { initHeroAnimation } from './terminal-animation.js?v=minute-hold';
+import { initImpactRotation } from './impact-animation.js?v=automatic-motion';
 
 document.documentElement.classList.add('js');
 const menu = document.querySelector('.menu-toggle');
@@ -125,9 +125,6 @@ function initContact() {
   const form = document.querySelector('#contact-form');
   const button = document.querySelector('#contact-submit');
   button.textContent = portfolio.contact.endpoint ? 'Send message ↗' : 'Prepare email draft ↗';
-  document.querySelector('#contact-mode').textContent = portfolio.contact.endpoint
-    ? 'Send a message using the form.'
-    : 'The form prepares an email draft in your email app. Nothing is sent automatically.';
   form.hidden = false;
   form.addEventListener('input', () => {
     for (const field of form.querySelectorAll('input, textarea')) field.setCustomValidity('');

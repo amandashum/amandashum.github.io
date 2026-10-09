@@ -163,14 +163,14 @@ svg {
   height: 32px;
   border: 1px solid var(--blue);
   display: grid;
-  grid-template-columns: auto auto;
-  place-content: center;
+  place-items: center;
   color: var(--text);
   font-weight: 700
 }
 
-.brand-mark span {
-  color: var(--blue)
+.brand-mark img {
+  width: 80%;
+  height: auto
 }
 
 nav {
@@ -1925,21 +1925,8 @@ input: :placeholder,textarea::placeholder {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
 }
-#boot-motion-toggle {
-  padding: 0 10px;
-  min-height: 44px;
-  background: transparent;
-  border: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 10px;
-}
-#boot-motion-toggle:hover {
-  color: var(--text);
-  border-color: var(--blue);
-}
 @media (max-width: 620px) {
   .hero::after { height: 64px; bottom: -64px; }
-  #boot-motion-toggle { font-size: 8px; padding-inline: 6px; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero .boot-cursor { animation: none; }
@@ -1947,15 +1934,16 @@ input: :placeholder,textarea::placeholder {
 /* Keep branch stems inside the row gutter, below the preceding windows. */
 .project-grid {
   row-gap: 32px;
+  align-items: start;
 }
 .project-window:nth-child(n+4)::before {
-  top: -17px;
-  height: 16px;
+  top: -20px;
+  height: 19px;
 }
 .project-window:nth-child(n+4)::after {
   content: '';
   position: absolute;
-  top: -17px;
+  top: -20px;
   left: 0;
   right: 0;
   height: 1px;

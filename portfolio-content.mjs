@@ -7,7 +7,7 @@ export const portfolio = {
   introduction: 'I work across computer vision, Azure AI, and workflow automation, combining hands-on engineering with technical leadership to turn ideas into working solutions.',
   description: 'Amanda Shum is an AI Engineer in Metro Vancouver, working across computer vision, Azure AI, developer tools, and workflow automation.',
   boot: {
-    system: 'Amanda Personal System',
+    system: 'Amanda Shum',
     version: '2026.10',
     lines: ['Loading portfolio...', 'Computer vision ........ ready', 'Azure AI / RAG ......... ready', 'Developer tools ....... ready', 'Portfolio loaded.'],
   },
@@ -40,35 +40,38 @@ export const portfolio = {
   projects: [
     {
       id: 'copilot-framework', path: 'projects\\copilot-framework', name: 'GitHub Copilot Customization Framework',
+      collapsible: true,
       category: 'DEVELOPER EXPERIENCE', metric: '50%', metricLabel: 'less time writing & reviewing code',
       summary: 'Reusable guidance for more consistent AI-assisted software development.',
       problem: 'Teams needed a consistent way to provide project context, engineering standards, and evaluation guidance.',
       action: 'Led a team of four to build 20+ prompts, instructions, skills, and standards, with standardized evaluation.',
       result: 'Reduced time spent writing and reviewing code by 50%.',
       tags: ['GitHub Copilot', 'Markdown', 'Evaluation', 'Developer Experience', 'Responsible AI'],
-      note: 'Internal work. This summary describes my contribution; source code and internal materials are not shared here.',
+      note: 'Associated with: CanAI Garage',
       links: { caseStudy: null, github: null, demo: null },
     },
     {
       id: 'chatbot-factory', path: 'projects\\chatbot-factory', name: 'Chatbot Factory / Azure RAG',
+      collapsible: true,
       category: 'AZURE & APPLIED AI', metric: '7', metricLabel: 'developers on a coordinated team',
       summary: 'Reusable foundations for public-sector Azure chatbots.',
       problem: 'Chatbot teams needed shared guidance for retrieval, ingestion, accessibility, privacy, and bilingual support.',
       action: 'Coordinated seven developers and contributed to Azure RAG work using Azure OpenAI, AI Search, Functions, and Blob Storage.',
       result: 'Shared engineering guidance and reusable foundations for chatbot teams.',
       tags: ['Azure OpenAI', 'Azure AI Search', 'Azure Functions', 'Blob Storage', 'RAG'],
-      note: 'Internal work. This summary does not claim production deployment or user adoption.',
+      note: 'Associated with: CanAI Garage',
       links: { caseStudy: null, github: null, demo: null },
     },
     {
       id: 'workflow-automation', path: 'projects\\workflow-automation', name: 'Science ’44 Workflow Automation',
+      collapsible: true,
       category: 'WORKFLOW AUTOMATION', metric: '75%', metricLabel: 'reduction in administrative workload',
       summary: 'Less repetitive administrative work through Google Apps Script automation.',
       problem: 'High volumes of member-services inquiries created repetitive administrative work.',
       action: 'Built automation and improved workflows across an organization managing 21 residential properties.',
       result: 'Reduced administrative workload by 75% across 10,000+ inquiries.',
       tags: ['Google Apps Script', 'Google Sheets', 'Workflow Automation', 'Operations'],
-      note: 'Operational work. Member data and internal systems are not exposed in this portfolio.',
+      note: 'Associated with: Kingston Student Housing Co-operative',
       links: { caseStudy: null, github: null, demo: null },
     },
     {
@@ -80,7 +83,7 @@ export const portfolio = {
       action: 'Built a primary CNN for fruit classification and fruit-specific CNNs for ripeness prediction using TensorFlow and NumPy.',
       result: 'Achieved 96% fruit-classification accuracy. Ripeness accuracy is not reported.',
       tags: ['TensorFlow', 'NumPy', 'CNNs', 'Image Classification'],
-      note: 'Queen’s University project · September–December 2024. The 96% figure applies to fruit classification, not ripeness prediction.',
+      note: 'Associated with: Queen’s University',
       links: { caseStudy: null, github: null, demo: null },
     },
     {
@@ -92,7 +95,7 @@ export const portfolio = {
       action: 'Combined YOLOv8 and MiDaS with bounding-box region analysis, depth normalization, and noise filtering.',
       result: 'Built a pipeline to analyze pothole regions using detections and relative-depth estimates across varied road conditions.',
       tags: ['YOLOv8', 'MiDaS', 'Computer Vision', 'Relative Depth'],
-      note: 'Simon Fraser University project · September–December 2025. MiDaS estimates relative depth; it does not measure pothole depth in centimetres.',
+      note: 'Associated with: Simon Fraser University',
       links: { caseStudy: null, github: null, demo: null },
     },
     {
@@ -104,14 +107,14 @@ export const portfolio = {
       action: 'Built a custom environment and trained DQN and A2C agents using Stable Baselines3 and PyTorch, refining rewards and observation-space configurations.',
       result: 'Achieved an 85% area-coverage success rate.',
       tags: ['Stable Baselines3', 'DQN', 'A2C', 'PyTorch'],
-      note: 'January–April 2025. The reported result measures area-coverage success.',
+      note: 'Associated with: Queen’s University',
       links: { caseStudy: null, github: null, demo: null },
     },
   ],
   experience: [
     {
       title: 'Student Developer Intern', organization: 'CanAI Garage · Shared Services Canada',
-      date: 'June–December 2026',
+      date: 'May–December 2026',
       bullets: ['Work on Azure chatbots, retrieval-augmented generation, and AI-assisted development.', 'Led four developers to deliver 20+ Copilot assets, reducing writing and review time by 50%.', 'Lead Chatbot Factory, coordinating seven developers around accessible, bilingual, privacy-aware, responsible AI guidance.'],
     },
     {
@@ -122,6 +125,14 @@ export const portfolio = {
     {
       title: 'Teaching Assistant', organization: 'Queen’s University', date: 'January 2023–April 2025',
       bullets: ['Supported databases, computer architecture, and introductory computer science courses.', 'Delivered tutorials, graded assignments, and helped students with SQL, Python, and problem-solving.'],
+    },
+    {
+      title: 'Information Technology Assistant', organization: 'Queen’s University · Kingston, ON', date: 'January–April 2024',
+      bullets: [
+        'Designed and implemented SharePoint and Microsoft Teams sites by auditing legacy content, meeting organizational requirements.',
+        'Assisted with the migration of existing content to new platforms, ensuring completeness, functionality, user accessibility in the new environment.',
+        'Collaborated with stakeholders to ensure content retention, optimize navigation, and improve knowledge-sharing workflows.',
+      ],
     },
   ],
   skills: [

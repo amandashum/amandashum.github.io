@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 60">
+  <defs><clipPath id="stripes"><path d="M0 6h84v4H0zm0 6h84v4H0zm0 6h84v4H0zm0 6h84v4H0zm0 6h84v4H0zm0 6h84v4H0zm0 6h84v4H0zm0 6h84v6H0z"/></clipPath></defs>
+  <g fill="#efeee8" clip-path="url(#stripes)">
+    <path fill-rule="evenodd" d="M2 54 18 6h11l16 48H32l-3-11H16l-3 11Zm17-22h7l-3.5-13Z"/>
+    <path d="M78 6H57c-10 0-15 6-15 15 0 10 7 14 17 16l7 2c3 1 4 2 4 4s-2 3-5 3H45v8h23c10 0 15-6 15-15 0-10-7-14-17-16l-7-2c-3-1-4-2-4-4s2-3 5-3h18Z"/>
+  </g>
+</svg>

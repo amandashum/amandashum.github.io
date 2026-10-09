@@ -60,7 +60,7 @@ function project(item, index) {
 
 const resumeExists = p.links.resume && existsSync(new URL(`../${p.links.resume}`, import.meta.url));
 const resumeLink = resumeExists ? `<a class="resume-link" href="${escape(p.links.resume)}" download>Resume <span aria-hidden="true">↓</span></a>` : '';
-const emailLink = p.links.email ? `<a href="mailto:${escape(p.links.email)}">${escape(p.links.email)} <span aria-hidden="true">↗</span></a>` : '';
+const emailLink = p.links.email ? `<a href="mailto:${escape(p.links.email)}">Email me <span aria-hidden="true">↗</span></a>` : '';
 if (p.contact.endpoint && new URL(p.contact.endpoint).protocol !== 'https:') throw new Error('Contact endpoint must use HTTPS.');
 
 const html = `<!doctype html>
@@ -75,12 +75,12 @@ const html = `<!doctype html>
   <meta name="twitter:description" content="${escape(p.description)}">
   ${p.links.site ? `<link rel="canonical" href="${escape(p.links.site)}"><meta property="og:url" content="${escape(p.links.site)}">` : ''}
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
-  <link rel="stylesheet" href="styles.css"><script type="module" src="portfolio.js"></script>
+  <link rel="stylesheet" href="styles.css"><script type="module" src="portfolio.js?v=minute-hold"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="topbar"><div class="nav-wrap">
-  <a class="wordmark" href="#home" aria-label="Amanda Shum home"><span class="brand-mark" aria-hidden="true">A<span>_</span></span><span>C:\\AMANDA\\</span></a>
+  <a class="wordmark" href="#home" aria-label="Amanda Shum home"><span class="brand-mark" aria-hidden="true"><img src="assets/as-monogram.svg" width="24" height="18" alt=""></span><span>C:\\AMANDA\\</span></a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav" hidden>Menu <span aria-hidden="true">+</span></button>
   <nav id="main-nav" aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
   ${resumeLink}
@@ -129,7 +129,6 @@ const html = `<!doctype html>
 <section class="contact page-width section" id="contact" aria-labelledby="contact-title">
   ${heading('05', 'contact', 'Contact')}
   <div class="contact-grid"><div class="contact-copy"><p>Have a role, a project, or a question in mind? I’d like to hear about it.</p><div class="contact-links">${emailLink}${external(p.links.linkedin, 'LinkedIn')}${external(p.links.github, 'GitHub')}</div>
-    <div class="contact-note"><span aria-hidden="true">&gt;</span><p id="contact-mode">${p.contact.endpoint ? 'Send a message using the form.' : 'The form prepares an email draft in your email app. Nothing is sent automatically.'}</p></div>
     <noscript><p>JavaScript is off. ${p.links.email ? 'Use the email link above to get in touch.' : 'Use LinkedIn above to get in touch.'}</p></noscript>
   </div><form id="contact-form" class="contact-form" hidden>
     <div class="form-row"><div><label for="contact-name">Name</label><input id="contact-name" name="name" autocomplete="name" required maxlength="120" placeholder="Your name"></div><div><label for="contact-email">Email</label><input id="contact-email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com"></div></div>
@@ -139,7 +138,7 @@ const html = `<!doctype html>
 </section>
 <div class="page-width command-section" hidden id="command-section"><details class="command-panel"><summary><span aria-hidden="true">&gt;_</span> Prefer a command line? <span class="muted">Optional terminal</span></summary><div class="command-body"><p>Try help, about, projects, skills, contact, or clear.</p><form id="command-form"><label for="command-input">C:\\AMANDA\\&gt;</label><input id="command-input" name="command" autocomplete="off" spellcheck="false" maxlength="80" aria-label="Portfolio command"><button type="submit">Run <span aria-hidden="true">↵</span></button></form><p id="command-output" role="status" aria-live="polite">Ready.</p></div></details></div>
 </main>
-<footer class="footer page-width"><span>© 2026 ${escape(p.name)}</span><button id="boot-motion-toggle" type="button" aria-pressed="false" hidden>Pause animation</button><span class="footer-signoff muted">C:\\AMANDA\\</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
+<footer class="footer page-width"><span>© 2026 ${escape(p.name)}</span><span class="footer-signoff muted">C:\\AMANDA\\</span><a href="#home">Back to top <span aria-hidden="true">↑</span></a></footer>
 </body></html>`;
 
 writeFileSync(`${root}/index.html`, html.replace(/[ \t]+$/gm, ''));

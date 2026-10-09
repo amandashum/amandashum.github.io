@@ -27,23 +27,33 @@ async (page) => {
   const brokenAnchors = await page.evaluate(() => Array.from(document.querySelectorAll('a[href^="#"]')).filter(link => !document.querySelector(link.getAttribute('href'))).map(link => link.getAttribute('href')));
   assert(!brokenAnchors.length, `Broken local anchors: ${brokenAnchors}`);
   const missingAssets = await page.evaluate(async () => {
-    const files = ['styles.css', 'portfolio.js', 'terminal-animation.js', 'impact-animation.js', 'portfolio-content.mjs', 'assets/favicon.svg', 'Amanda_Shum_Resume.pdf'];
+    const files = ['styles.css', 'portfolio.js', 'terminal-animation.js', 'impact-animation.js', 'portfolio-content.mjs', 'assets/favicon.svg', 'assets/as-monogram.svg', 'Amanda_Shum_Resume.pdf'];
     const responses = await Promise.all(files.map(async file => ({ file, status: (await fetch(file, { method: 'HEAD' })).status })));
     return responses.filter(response => response.status !== 200);
   });
   assert(!missingAssets.length, `Missing active assets: ${JSON.stringify(missingAssets)}`);
-  assert(await page.locator('.project-details').count() === 3, 'Expected three academic project disclosures');
-  for (const id of ['fruit-ripeness', 'pothole-detection', 'gridworld-coverage']) {
+  assert(await page.locator('.project-details').count() === 6, 'Expected six matching project disclosures');
+  const collapsedCardHeights = await page.locator('.project-window').evaluateAll(cards => cards.map(card => card.getBoundingClientRect().height));
+  for (const id of ['copilot-framework', 'chatbot-factory', 'workflow-automation', 'fruit-ripeness', 'pothole-detection', 'gridworld-coverage']) {
     const details = page.locator(`#${id} .project-details`);
     assert(!await details.evaluate(element => element.open), `${id} starts expanded`);
     await details.locator('summary').focus();
     await page.keyboard.press('Enter');
     assert(await details.evaluate(element => element.open), `${id} does not expand by keyboard`);
     assert(await details.locator('.project-story').isVisible(), `${id} expanded details missing`);
+    const cardStates = await page.locator('.project-window').evaluateAll(cards => cards.map(card => ({ id: card.id, open: card.querySelector('details').open, height: card.getBoundingClientRect().height })));
+    assert(cardStates.filter(card => card.open).length === 1, 'More than one project opened');
+    assert(cardStates.every((card, index) => card.id === id || Math.abs(card.height - collapsedCardHeights[index]) < 1), `${id} stretched a closed card`);
     await page.keyboard.press('Enter');
     assert(!await details.evaluate(element => element.open), `${id} does not collapse by keyboard`);
   }
-  result.checks.push('metadata, six projects, academic details open/close by keyboard, local anchors, active asset requests');
+  await page.locator('#copilot-framework summary').click();
+  await page.locator('#fruit-ripeness summary').click();
+  assert(await page.locator('.project-details[open]').count() === 2, 'Opening another project closed the previous one');
+  await page.locator('#fruit-ripeness summary').click();
+  assert(await page.locator('#copilot-framework .project-details').evaluate(element => element.open), 'Closing one project closed another');
+  await page.locator('#copilot-framework summary').click();
+  result.checks.push('metadata, six projects, all six details start collapsed and open/close by keyboard, local anchors, active asset requests');
 
   // Check the actual text palette, including filled CTA text, against WCAG AA.
   result.contrast = await page.evaluate(() => {
@@ -155,18 +165,16 @@ async (page) => {
   assert((await page.locator('.boot-log .boot-text').allTextContents()).includes('Portfolio loaded.'), 'Portfolio-loaded stage missing');
   assert((await page.locator('.boot-prompt .boot-text').textContent()).startsWith('C:'), 'Typed prompt missing');
   const completedCycle = Number(await page.locator('.boot-screen').getAttribute('data-cycle'));
+  await page.clock.install();
+  await page.clock.fastForward(59000);
+  assert(await page.locator('.boot-screen').getAttribute('data-phase') === 'hold', 'Startup restarted before the one-minute hold');
+  await page.clock.fastForward(1500);
   await page.waitForFunction(previous => Number(document.querySelector('.boot-screen').dataset.cycle) > previous, completedCycle);
+  await page.clock.resume();
   assert(beforeBoot.height === (await page.locator('#home').boundingBox()).height, 'Loop changed hero height');
-  await page.locator('#boot-motion-toggle').click();
-  assert(await page.locator('#boot-motion-toggle').getAttribute('aria-pressed') === 'true', 'User pause not announced');
-  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-  assert(await page.locator('.boot-screen').getAttribute('data-state') === 'paused', 'User pause ignored when hero returned');
-  await page.locator('#boot-motion-toggle').click();
-  await page.evaluate(() => scrollTo({ top: 0, behavior: 'instant' }));
-  await page.waitForSelector('.boot-screen[data-state="running"]');
+  assert(await page.locator('#boot-motion-toggle').count() === 0, 'Pause animation control remains');
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await page.waitForSelector('.boot-screen[data-state="static"]');
-  assert(!await page.locator('#boot-motion-toggle').isVisible(), 'Reduced-motion mode exposes unnecessary control');
   assert(await page.locator('.boot-line').last().isVisible(), 'Reduced motion hides boot prompt');
   assert(await page.evaluate(() => getComputedStyle(document.documentElement).scrollBehavior) === 'auto', 'Reduced motion still smooth-scrolls');
   const bootContrast = await page.locator('.hero').evaluate(element => {
@@ -182,7 +190,7 @@ async (page) => {
   });
   assert(bootContrast.every(ratio => ratio >= 4.5), 'Boot hero text fails contrast');
   await page.emulateMedia({ reducedMotion: 'no-preference' });
-  result.checks.push('automatic DOS typing/spinner/ready/prompt loop, no replay, offscreen and user pause, no layout shift, reduced motion, blue-screen contrast');
+  result.checks.push('automatic DOS typing/spinner/ready/prompt loop, no replay or pause control, offscreen pause, no layout shift, reduced motion, blue-screen contrast');
 
   await page.locator('#contact-name').fill('   ');
   await page.locator('#contact-email').fill('visitor@example.test');
@@ -250,8 +258,11 @@ async (page) => {
   await noJsPage.goto(base);
   assert(await noJsPage.locator('#main-nav').isVisible(), 'No-JS navigation hidden');
   assert(await noJsPage.locator('.project-window').count() === 6, 'No-JS projects missing');
-  await noJsPage.locator('#gridworld-coverage summary').click();
-  assert(await noJsPage.locator('#gridworld-coverage .project-story').isVisible(), 'No-JS disclosure does not open');
+  for (const id of ['copilot-framework', 'chatbot-factory', 'workflow-automation', 'fruit-ripeness', 'pothole-detection', 'gridworld-coverage']) {
+    await noJsPage.locator(`#${id} summary`).click();
+    assert(await noJsPage.locator(`#${id} .project-story`).isVisible(), `${id} no-JS disclosure does not open`);
+    await noJsPage.locator(`#${id} summary`).click();
+  }
   assert(await noJsPage.locator('a[href^="mailto:"]').isVisible(), 'No-JS email fallback missing');
   assert(!await noJsPage.locator('#contact-form').isVisible(), 'No-JS form misleadingly enabled');
   assert(!await noJsPage.evaluate(() => document.documentElement.scrollWidth > innerWidth), 'No-JS page overflows at 320px');
