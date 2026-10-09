@@ -1,0 +1,137 @@
+/** Edit public portfolio content and optional links here, then run the build script. */
+export const portfolio = {
+  name: 'Amanda Shum',
+  role: 'AI Engineer',
+  location: 'Metro Vancouver, Canada',
+  headline: 'Building AI that people can use.',
+  introduction: 'I work across computer vision, Azure AI, and workflow automation, combining hands-on engineering with technical leadership to turn ideas into working solutions.',
+  description: 'Amanda Shum is an AI Engineer in Metro Vancouver, working across computer vision, Azure AI, developer tools, and workflow automation.',
+  boot: {
+    system: 'Amanda Personal System',
+    version: '2026.10',
+    lines: ['Loading portfolio...', 'Computer vision ........ ready', 'Azure AI / RAG ......... ready', 'Developer tools ....... ready', 'Portfolio loaded.'],
+  },
+  links: {
+    linkedin: 'https://www.linkedin.com/in/amandawshum/',
+    email: 'amanda.ws.shum@gmail.com',
+    github: null, // Add a verified public profile URL when ready.
+    resume: 'Amanda_Shum_Resume.pdf',
+    site: null, // Add the verified public site URL for canonical and sharing metadata.
+  },
+  contact: { endpoint: null }, // A HTTPS JSON endpoint that accepts name, email, and message.
+  impact: [
+    { value: '20+', label: 'reusable engineering assets', context: 'Copilot customization framework' },
+    { value: '50%', label: 'less writing & review time', context: 'AI-assisted development' },
+    { value: '7', label: 'developers coordinated', context: 'Chatbot Factory' },
+  ],
+  academicImpact: [
+    { value: '96%', label: 'fruit-classification accuracy', context: 'Fruit & ripeness CNNs' },
+    { value: 'YOLOv8', label: 'detection + relative depth', context: 'Pothole detection / MiDaS' },
+    { value: '85%', label: 'area-coverage success', context: 'Gridworld coverage' },
+  ],
+  about: [
+    'I’m a computer science graduate from Queen’s University, now studying visual computing in Simon Fraser University’s professional master’s program. My work spans computer vision, deep learning, and applied AI.',
+    'I like the work between an idea and a useful system: understanding what people need, building and evaluating the solution, and helping a team deliver it. I bring that approach to public-sector AI, developer tools, and workflow automation.',
+  ],
+  education: [
+    { title: 'Master of Professional Computer Science', detail: 'Visual Computing · Simon Fraser University', date: 'Expected June 2027' },
+    { title: 'Bachelor of Computing, Honours', detail: 'Artificial Intelligence · Queen’s University', date: 'June 2025' },
+  ],
+  projects: [
+    {
+      id: 'copilot-framework', path: 'projects\\copilot-framework', name: 'GitHub Copilot Customization Framework',
+      category: 'DEVELOPER EXPERIENCE', metric: '50%', metricLabel: 'less time writing & reviewing code',
+      summary: 'Reusable guidance for more consistent AI-assisted software development.',
+      problem: 'Teams needed a consistent way to provide project context, engineering standards, and evaluation guidance.',
+      action: 'Led a team of four to build 20+ prompts, instructions, skills, and standards, with standardized evaluation.',
+      result: 'Reduced time spent writing and reviewing code by 50%.',
+      tags: ['GitHub Copilot', 'Markdown', 'Evaluation', 'Developer Experience', 'Responsible AI'],
+      note: 'Internal work. This summary describes my contribution; source code and internal materials are not shared here.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+    {
+      id: 'chatbot-factory', path: 'projects\\chatbot-factory', name: 'Chatbot Factory / Azure RAG',
+      category: 'AZURE & APPLIED AI', metric: '7', metricLabel: 'developers on a coordinated team',
+      summary: 'Reusable foundations for public-sector Azure chatbots.',
+      problem: 'Chatbot teams needed shared guidance for retrieval, ingestion, accessibility, privacy, and bilingual support.',
+      action: 'Coordinated seven developers and contributed to Azure RAG work using Azure OpenAI, AI Search, Functions, and Blob Storage.',
+      result: 'Shared engineering guidance and reusable foundations for chatbot teams.',
+      tags: ['Azure OpenAI', 'Azure AI Search', 'Azure Functions', 'Blob Storage', 'RAG'],
+      note: 'Internal work. This summary does not claim production deployment or user adoption.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+    {
+      id: 'workflow-automation', path: 'projects\\workflow-automation', name: 'Science ’44 Workflow Automation',
+      category: 'WORKFLOW AUTOMATION', metric: '75%', metricLabel: 'reduction in administrative workload',
+      summary: 'Less repetitive administrative work through Google Apps Script automation.',
+      problem: 'High volumes of member-services inquiries created repetitive administrative work.',
+      action: 'Built automation and improved workflows across an organization managing 21 residential properties.',
+      result: 'Reduced administrative workload by 75% across 10,000+ inquiries.',
+      tags: ['Google Apps Script', 'Google Sheets', 'Workflow Automation', 'Operations'],
+      note: 'Operational work. Member data and internal systems are not exposed in this portfolio.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+    {
+      id: 'fruit-ripeness', path: 'projects\\fruit-ripeness', name: 'Fruit Classification & Ripeness Detection',
+      collapsible: true,
+      category: 'DEEP LEARNING & COMPUTER VISION', metric: '96%', metricLabel: 'fruit-classification accuracy',
+      summary: 'A two-stage deep learning system that identifies fruit before predicting its ripeness.',
+      problem: 'The system needed to identify fruit types and assess their ripeness in a single workflow.',
+      action: 'Built a primary CNN for fruit classification and fruit-specific CNNs for ripeness prediction using TensorFlow and NumPy.',
+      result: 'Achieved 96% fruit-classification accuracy. Ripeness accuracy is not reported.',
+      tags: ['TensorFlow', 'NumPy', 'CNNs', 'Image Classification'],
+      note: 'Queen’s University project · September–December 2024. The 96% figure applies to fruit classification, not ripeness prediction.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+    {
+      id: 'pothole-detection', path: 'projects\\pothole-detection', name: 'Pothole Detection & Relative Depth',
+      collapsible: true,
+      category: 'COMPUTER VISION', metric: 'YOLOv8', metricLabel: 'detection paired with MiDaS depth estimation',
+      summary: 'A pothole detection pipeline combining object detection with relative-depth estimation.',
+      problem: 'Varied lighting, road textures, and camera perspectives made it difficult to distinguish potholes from surrounding road surfaces.',
+      action: 'Combined YOLOv8 and MiDaS with bounding-box region analysis, depth normalization, and noise filtering.',
+      result: 'Built a pipeline to analyze pothole regions using detections and relative-depth estimates across varied road conditions.',
+      tags: ['YOLOv8', 'MiDaS', 'Computer Vision', 'Relative Depth'],
+      note: 'Simon Fraser University project · September–December 2025. MiDaS estimates relative depth; it does not measure pothole depth in centimetres.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+    {
+      id: 'gridworld-coverage', path: 'projects\\gridworld-coverage', name: 'Gridworld Coverage',
+      collapsible: true,
+      category: 'REINFORCEMENT LEARNING', metric: '85%', metricLabel: 'area-coverage success rate',
+      summary: 'Reinforcement learning agents trained to cover a custom Gridworld environment.',
+      problem: 'An agent needed to explore a custom Gridworld and cover its area effectively.',
+      action: 'Built a custom environment and trained DQN and A2C agents using Stable Baselines3 and PyTorch, refining rewards and observation-space configurations.',
+      result: 'Achieved an 85% area-coverage success rate.',
+      tags: ['Stable Baselines3', 'DQN', 'A2C', 'PyTorch'],
+      note: 'January–April 2025. The reported result measures area-coverage success.',
+      links: { caseStudy: null, github: null, demo: null },
+    },
+  ],
+  experience: [
+    {
+      title: 'Student Developer Intern', organization: 'CanAI Garage · Shared Services Canada',
+      date: 'June–December 2026',
+      bullets: ['Work on Azure chatbots, retrieval-augmented generation, and AI-assisted development.', 'Led four developers to deliver 20+ Copilot assets, reducing writing and review time by 50%.', 'Lead Chatbot Factory, coordinating seven developers around accessible, bilingual, privacy-aware, responsible AI guidance.'],
+    },
+    {
+      title: 'Vice President', organization: 'Science ’44 Co-op · Kingston Student Housing Co-operative',
+      date: '2021–2025', // Supported by the supplied resume; one title, not combined roles.
+      bullets: ['Led operational improvements across 21 residential properties.', 'Built Google Apps Script workflows that reduced administrative workload by 75% across 10,000+ inquiries.', 'Contributed to 25% booking growth through customer analysis, seasonal marketing, and room allocation.'],
+    },
+    {
+      title: 'Teaching Assistant', organization: 'Queen’s University', date: 'January 2023–April 2025',
+      bullets: ['Supported databases, computer architecture, and introductory computer science courses.', 'Delivered tutorials, graded assignments, and helped students with SQL, Python, and problem-solving.'],
+    },
+  ],
+  skills: [
+    { title: 'AI & Computer Vision', items: ['Python', 'PyTorch', 'TensorFlow', 'Computer Vision', 'Deep Learning'] },
+    { title: 'Azure & Applied AI', items: ['Azure OpenAI', 'Azure AI Search', 'Azure Functions', 'Blob Storage', 'RAG'] },
+    { title: 'Developer Tools & Automation', items: ['GitHub Copilot', 'Git', 'Google Apps Script'] },
+    { title: 'Technical Delivery', items: ['Requirements', 'Agile Delivery', 'Evaluation', 'Technical Documentation', 'Responsible AI'] },
+  ],
+  certification: {
+    name: 'Microsoft Certified: Azure AI Apps and Agents Developer Associate',
+    earned: 'September 30, 2026', expires: 'September 30, 2027', url: null,
+  },
+};

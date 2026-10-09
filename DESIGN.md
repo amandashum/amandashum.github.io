@@ -1,57 +1,37 @@
-# Scene-understanding design
+# DOS-inspired portfolio design
 
-## Visual direction
+## Visual system
 
-A visitor examines an illuminated photographic scene against a dark studio background. The scene has the visual presence of a Blender render, with genuine depth-derived geometry that responds to input. The photograph carries the colour; the surrounding page uses graphite `#101416`, cool white `#f3f6f7`, and cyan `#64d9ec`.
+Use `#0c0e12` for the page, `#10131a` for terminal surfaces, `#efeee8` for primary text, `#a3a8b5` for secondary text, and `#7198ff` for blue details. Filled CTAs use `#3a67f5` with white text. Green marks readiness only. All design tokens are in `styles.css`.
 
-Existing local Bahnschrift and Segoe UI fallbacks avoid external font requests. Consolas is restricted to short coordinates, model details, and scene controls. Large headlines, open spacing, thin rules, and restrained borders keep the site sleek.
+Local monospace fallbacks avoid an external font dependency. Bold editorial headings, generous space, thin rules, flat surfaces, and square corners keep the DOS references readable and professional. Window title bars, paths, and file labels are framing devices rather than mandatory interactions.
 
-## Representations
+## Hero and project connection
 
-1. **Image:** original RGB photograph on a WebGL plane.
-2. **Objects:** RT-DETR bounding boxes and actual model scores; no lifted rectangular crops.
-3. **Semantics:** model-predicted ADE20K class map. Roads, vehicles, and trees/plants can be highlighted independently.
-4. **Depth:** normalized relative inverse depth, displayed from far/dark to near/bright.
-5. **3D scene:** a Blender mesh with shape keys that interpolate between an image plane and a depth-derived surface. All semantic groups share the same depth field.
-6. **Pixels:** RGB sample lattice retaining original image coordinates.
+The hero uses a full-width cobalt-blue screen inspired by Amanda’s IBM startup reference. The clean headline and CTAs sit beside a personalized eight-stripe AMANDA wordmark, compact system text, and a short boot log. The striped SVG and log are decorative; the containing group names the three areas of work. Static headline, introduction, and links appear immediately.
 
-The 3D scene also offers a point-cloud representation. Semantic filters dim unrelated regions rather than assigning classes arbitrary stacked depths. Clicking a surface reports its predicted class and original-image coordinate.
+The startup loops automatically. Status lines type at 38ms per character, briefly show a DOS spinner (`| / - \\`) while loading, then resolve to ready. “Portfolio loaded.” precedes a typed command prompt and a small caret blinking every 1.1 seconds. After a 2.4-second prompt hold, the sequence repeats. There is no replay button. A footer control can pause or resume animation.
 
-## Geometry and interaction
+The loop pauses offscreen and in background tabs. Reduced motion, unavailable visibility observers, and JavaScript-disabled visitors get a complete static display. Reserved line space prevents typing, spinner updates, and restart from changing layout. No continuous rendering loop or startup overlay is used. A short cobalt-to-dark gradient below the hero connects the blue screen to the DOS surfaces.
 
-The source has top-left image coordinates. Blender uses X right, Z up, and -Y toward the viewer; glTF exports to X right, Y up, and +Z toward the viewer. The inference depth grid is 180 × 249. The assumed viewing distance is eight display units; depth is mapped to a 3.6-unit display range. These are visualization assumptions, not calibration.
+The impact strip flips between the existing applied-work set and the three academic-project highlights every seven seconds. Three pairs of faces share fixed cells; a 420ms horizontal-axis flip adds motion without changing layout. Fruit classification shows 96%, pothole analysis names YOLOv8/MiDaS, and Gridworld shows 85% coverage success. No pothole accuracy is invented. Offscreen/background states and the shared footer pause control stop rotation. Reduced motion, unavailable observers, and no-JavaScript mode show all six facts statically. A static accessible list exposes all six facts without repeated live announcements.
 
-Drag and arrow keys orbit through limited angles. Home, Escape, or Reset restores the default view. The depth-strength range morphs actual vertices from 2D into 3D. Initial scrolling modestly increases reconstruction strength until the user explicitly controls a representation or slider.
+Amanda requested that the three original project cards remain as displayed. Their content and window format are preserved. Fruit classification/ripeness detection, pothole detection, and Gridworld coverage follow in the same grid, with native expandable details to shorten the second row. Their full Problem / Action / Result content, tags, and notes retain the same styles when expanded. Branch stems start inside a 32px row gutter and meet a horizontal rule rather than entering the preceding windows.
 
-Frames run only while geometry is settling or input changes. Offscreen/hidden scenes pause. Device pixel ratio is capped at 1.75. The surface export uses smooth vertex normals and omits morph-normal payloads to keep the transfer below 3 MB.
+The 96% figure applies only to fruit classification; MiDaS depth is relative rather than metric. The 85% Gridworld figure is area-coverage success. Section headings use plain names: Projects, About, Experience, Skills, and Contact.
 
-## Accessibility and failure states
+A thin blue path below the hero and branches above project windows connect the overview to project evidence. IntersectionObserver illuminates branch borders and headings. Project content is never hidden by viewport animation; academic details are available through native disclosures, including without JavaScript. Scroll remains native.
 
-Native buttons expose pressed state. The range has an accessible label. Filters have visible text, not colour-only labels. Semantic class descriptions are available through buttons as well as pointer picking. Essential project content is semantic HTML, with a skip link and direct navigation.
+## Responsive and accessible behavior
 
-Reduced-motion preference disables scroll-driven movement and interpolation. Manual camera commands still work discretely. Vertical touch scrolling remains available.
+The layout adapts at 1100, 850, and 620 pixels. Projects form a three-column desktop grid and stack on smaller screens. The hero stacks on phones. The toolkit uses four, then two columns. Experience changes from a date/content grid to a single column.
 
-A rendered Blender poster remains available before initialization and on asset/WebGL failure. All project content is readable without JavaScript. Dynamic import failure also updates the fallback status.
+At 850 pixels and below, JavaScript enables an inline disclosure menu with expanded state, Escape dismissal, and destination focus. Without JavaScript, navigation stays visible. A skip link, semantic headings, form labels, visible focus rings, native validation, and standard anchors support keyboard access.
 
-## Evidence and limitations
+Contact fields appear only when JavaScript initializes. Without JavaScript, a direct email link and LinkedIn remain available. The unconfigured form prepares a mailto draft link and explicitly states that nothing has been sent. Configured submission exposes busy, success, and error states and retains text after failure.
 
-The scene contains genuine pretrained-model outputs. Detection and segmentation are separate tasks and may disagree. Tiny vehicles are a particular weakness of the semantic baseline. Depth discontinuities may stretch the surface; sky is an estimated background, not finite measured geometry. The point cloud exposes these limitations rather than filling unseen surfaces.
+## Source organization
 
-Project visuals are clearly identified as illustrative scene studies or this portfolio's own geometry, not outputs of Amanda's separate academic projects.
+`portfolio-content.mjs` holds editable content and configuration. `tools/build-portfolio.mjs` renders reusable static sections into `index.html`. `portfolio.js` contains navigation, commands, and contact behavior. `terminal-animation.js` owns boot sequencing and visibility controls. `impact-animation.js` owns highlight rotation and visibility controls. `styles.css` owns presentation; `assets/favicon.svg` supplies the tab icon.
 
-## Current portfolio direction
-
-The active page uses white, charcoal, and teal with existing system fonts.
-A translucent tube occupies a reserved right-side margin from the hero
-to Contact. Seven locally stored skill logos automatically descend in
-staggered 24-second loops, fading at the outlet before restarting at the top.
-Animation pauses while the tab is hidden.
-
-The decoration ignores pointer input and is hidden from assistive
-technology. Mobile uses a narrower tube and smaller logos. Reduced-motion
-and JavaScript-disabled visitors see a stationary pile. Existing scene
-documentation above describes the archived WebGL presentation.
-
-The layout follows Swiss-inspired minimalism: a white background,
-charcoal text, restrained teal, one system sans-serif family, consistent
-alignment, generous spacing, and concrete first-person copy.
+Previous perception and pothole-demo assets are retained but not referenced by the active page. Their earlier documentation and source remain in Git history and relevant asset evidence files.
