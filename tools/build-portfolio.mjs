@@ -32,8 +32,8 @@ function tags(items) {
 /** Gives the default headline deliberate line breaks without hardcoding its content. */
 function heroHeadline(text) {
   const escaped = escape(text);
-  if (text === 'Building AI that people can use.') {
-    return escaped.replace('Building AI that people can use.', 'Building AI <br>that people <br>can use.');
+  if (text === 'Creating AI experiences. For people.') {
+    return '<span class="visually-hidden">Creating AI experiences. For people, teams, and developers.</span><span aria-hidden="true">Creating AI experiences.<br><span class="hero-audience-line">For <span class="hero-audience"><span class="hero-audience-reserve">developers.</span><span class="hero-audience-word">people.</span></span></span></span>';
   }
   return escaped;
 }

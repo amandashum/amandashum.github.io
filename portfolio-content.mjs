@@ -3,9 +3,9 @@ export const portfolio = {
   name: 'Amanda Shum',
   role: 'AI Engineer',
   location: 'Metro Vancouver, Canada',
-  headline: 'Building AI that people can use.',
+  headline: 'Creating AI experiences. For people.',
   introduction: 'I work across computer vision, Azure AI, and workflow automation, combining hands-on engineering with technical leadership to turn ideas into working solutions.',
-  description: 'Amanda Shum is an AI Engineer in Metro Vancouver, working across computer vision, Azure AI, developer tools, and workflow automation.',
+  description: 'Amanda Shum is an AI Engineer in Metro Vancouver who combines hands-on development with technical leadership to build practical AI solutions across computer vision, Azure AI, developer tools, and workflow automation.',
   boot: {
     system: 'Amanda Shum',
     version: '2026.10',

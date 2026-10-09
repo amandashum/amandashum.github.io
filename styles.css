@@ -1479,6 +1479,19 @@ input: :placeholder,textarea::placeholder {
   line-height: 1.9;
   margin-top: 28px;
 }
+.hero-audience-line {
+  font-size: .82em;
+}
+.hero-audience {
+  display: inline-grid;
+}
+.hero-audience-reserve,
+.hero-audience-word {
+  grid-area: 1 / 1;
+}
+.hero-audience-reserve {
+  visibility: hidden;
+}
 .hero .hero-actions {
   margin-top: 32px;
 }

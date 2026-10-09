@@ -180,6 +180,48 @@ function initContact() {
   });
 }
 
+/** Rotates the audience without shifting layout or repeatedly announcing the heading. */
+function initHeroAudience() {
+  const word = document.querySelector('.hero-audience-word');
+  if (!word) return;
+  const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const words = ['people.', 'teams.', 'developers.'];
+  let index = 0;
+  let timer;
+  let animation;
+
+  async function rotate() {
+    animation = word.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: 'forwards' });
+    try {
+      await animation.finished;
+      index = (index + 1) % words.length;
+      word.textContent = words[index];
+      animation = word.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: 'forwards' });
+      await animation.finished;
+      animation.cancel();
+      timer = setTimeout(rotate, 10000);
+    } catch {
+      // Cancellation stops rotation when motion is reduced or the tab is hidden.
+    }
+  }
+
+  function sync() {
+    clearTimeout(timer);
+    animation?.cancel();
+    if (motion.matches) {
+      index = 0;
+      word.textContent = words[index];
+    }
+    if (!motion.matches && !document.hidden && typeof word.animate === 'function') {
+      timer = setTimeout(rotate, 10000);
+    }
+  }
+  motion.addEventListener('change', sync);
+  document.addEventListener('visibilitychange', sync);
+  sync();
+}
+
+initHeroAudience();
 initSectionNavigation();
 initProjectHighlights();
 initCommands();
