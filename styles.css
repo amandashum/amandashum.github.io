@@ -1534,7 +1534,7 @@ input: :placeholder,textarea::placeholder {
   border-bottom: 0;
 }
 .hero .impact-item {
-  padding-block: 24px;
+  padding-block: 18px;
 }
 .hero .impact-item + .impact-item {
   border-color: #ffffff45;

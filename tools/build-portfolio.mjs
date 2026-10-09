@@ -1,8 +1,10 @@
 import { writeFileSync, readFileSync, existsSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { portfolio as p } from '../portfolio-content.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
+const stylesheetVersion = createHash('sha256').update(readFileSync(new URL('../styles.css', import.meta.url))).digest('hex').slice(0, 12);
 
 /** Escapes editable content before placing it in HTML text or attributes. */
 function escape(value) {
@@ -75,7 +77,7 @@ const html = `<!doctype html>
   <meta name="twitter:description" content="${escape(p.description)}">
   ${p.links.site ? `<link rel="canonical" href="${escape(p.links.site)}"><meta property="og:url" content="${escape(p.links.site)}">` : ''}
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg?v=as-monogram">
-  <link rel="stylesheet" href="styles.css?v=project-reveal"><script type="module" src="portfolio.js?v=project-reveal"></script>
+  <link rel="stylesheet" href="styles.css?v=${stylesheetVersion}"><script type="module" src="portfolio.js?v=project-reveal"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
