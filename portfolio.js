@@ -199,7 +199,7 @@ function initHeroAudience() {
       animation = word.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: 'forwards' });
       await animation.finished;
       animation.cancel();
-      timer = setTimeout(rotate, 10000);
+      timer = setTimeout(rotate, 5000);
     } catch {
       // Cancellation stops rotation when motion is reduced or the tab is hidden.
     }
@@ -213,7 +213,7 @@ function initHeroAudience() {
       word.textContent = words[index];
     }
     if (!motion.matches && !document.hidden && typeof word.animate === 'function') {
-      timer = setTimeout(rotate, 10000);
+      timer = setTimeout(rotate, 5000);
     }
   }
   motion.addEventListener('change', sync);
